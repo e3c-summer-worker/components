@@ -9,13 +9,13 @@
     <title>Elm App</title>
 
     <!-- Loads our app -->
-    <script src="./elm.js"></script>
+    <script src="./desktopnav-elm.js"></script>
     <script>
         window.onload = () => {
             const elmNode = document.createElement('div');
             const node = document.getElementById('headerNav');
             node.appendChild(elmNode);
-            const app = Elm.Main.init({
+            const app = Elm.DesktopNav.init({
                 node: elmNode
             });
         }

@@ -10,5 +10,8 @@ you copy less code between pages and the development process is better if you're
 using something like VSCode.
 
 We are using this folder to specifically host the desktop navigation component,
-that goes inside `#headerNav` in the Squarespace page. The header code in
-`public/index.html` is exactly what you'd see copy and pasted into Squarespace.
+that goes inside `#headerNav` in the Squarespace page.
+
+The header code in `public/index.html` is almost exactly what you'd see copy and
+pasted into Squarespace (instead of importing the local `.js` file we use
+[JSDelivr](https://www.jsdelivr.com/))
