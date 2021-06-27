@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <link type="text/css" rel="stylesheet" href="./site.css">
+    <link type="text/css" rel="stylesheet" href="./styles.css">
+    <title>Elm App</title>
+
+    <!-- Loads our app -->
+    <script src="./elm.js"></script>
+    <script>
+        window.onload=function(){
+            const node = document.getElementById('elm');
+            const app = Elm.Main.init({node});
+        }
+    </script>
+  </head>
+    <body>
+        <noscript>You need to enable JavaScript to run this app.</noscript>
+        <div id="siteWrapper" className="clearfix">
+            <header id="header">
+                <div className="header-inner">
+                    <div id="headerNav">
+                        <div id="elm"></div>
+                    </div>
+                </div>
+            </header>
+        </div>
+    </body>
+
+    
+</html>
