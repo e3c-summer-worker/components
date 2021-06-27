@@ -2,7 +2,8 @@ module MobileNav exposing (main)
 
 import Browser
 import Html exposing (Html, a, div, nav, text)
-import Html.Attributes exposing (attribute, class, href, id)
+import Html.Attributes exposing (attribute, class, classList, href, id)
+import Html.Events exposing (onClick)
 
 
 
@@ -19,12 +20,20 @@ main =
 
 
 type alias Model =
-    ()
+    { aboutOpened : Bool
+    , joinusOpened : Bool
+    , communityOpened : Bool
+    , resourcesOpened : Bool
+    }
 
 
 init : Model
 init =
-    ()
+    { aboutOpened = False
+    , joinusOpened = False
+    , communityOpened = False
+    , resourcesOpened = False
+    }
 
 
 
@@ -32,12 +41,30 @@ init =
 
 
 type Msg
-    = NoOp
+    = ToggleClassname Folder
+
+
+type Folder
+    = About
+    | JoinUs
+    | Community
+    | Resources
 
 
 update : Msg -> Model -> Model
-update _ model =
-    model
+update (ToggleClassname folder) model =
+    case folder of
+        About ->
+            { model | aboutOpened = not model.aboutOpened }
+
+        JoinUs ->
+            { model | joinusOpened = not model.joinusOpened }
+
+        Community ->
+            { model | communityOpened = not model.communityOpened }
+
+        Resources ->
+            { model | resourcesOpened = not model.resourcesOpened }
 
 
 
@@ -45,7 +72,7 @@ update _ model =
 
 
 view : Model -> Html Msg
-view _ =
+view model =
     div [ id "sidecarNav" ]
         [ div [ class "nav-wrapper sqs-frontend-overlay-editor-widget-host", attribute "data-content-field" "navigation-mobileNav", id "mobileNavWrapper" ]
             [ nav [ id "mobileNavigation" ]
@@ -54,7 +81,11 @@ view _ =
                         [ text "COVID-19" ]
                     ]
                 , div [ class "folder" ]
-                    [ div [ class "folder-toggle", attribute "data-href" "/folder" ]
+                    [ div
+                        [ attribute "data-href" "/folder"
+                        , onClick (ToggleClassname About)
+                        , classList [ ( "folder-toggle", True ), ( "active", model.aboutOpened ) ]
+                        ]
                         [ text "About" ]
                     , div [ class "subnav" ]
                         [ div [ class "collection" ]
@@ -72,7 +103,11 @@ view _ =
                         ]
                     ]
                 , div [ class "folder" ]
-                    [ div [ class "folder-toggle", attribute "data-href" "/folder" ]
+                    [ div
+                        [ attribute "data-href" "/folder"
+                        , onClick (ToggleClassname JoinUs)
+                        , classList [ ( "folder-toggle", True ), ( "active", model.joinusOpened ) ]
+                        ]
                         [ text "Join Us" ]
                     , div [ class "subnav" ]
                         [ div [ class "collection" ]
@@ -98,7 +133,11 @@ view _ =
                         ]
                     ]
                 , div [ class "folder" ]
-                    [ div [ class "folder-toggle", attribute "data-href" "/folder" ]
+                    [ div
+                        [ attribute "data-href" "/folder"
+                        , onClick (ToggleClassname Community)
+                        , classList [ ( "folder-toggle", True ), ( "active", model.communityOpened ) ]
+                        ]
                         [ text "Community" ]
                     , div [ class "subnav" ]
                         [ div [ class "collection" ]
@@ -128,7 +167,11 @@ view _ =
                         ]
                     ]
                 , div [ class "folder" ]
-                    [ div [ class "folder-toggle", attribute "data-href" "/folder" ]
+                    [ div
+                        [ attribute "data-href" "/folder"
+                        , onClick (ToggleClassname Resources)
+                        , classList [ ( "folder-toggle", True ), ( "active", model.resourcesOpened ) ]
+                        ]
                         [ text "Resources" ]
                     , div [ class "subnav" ]
                         [ div [ class "collection" ]
