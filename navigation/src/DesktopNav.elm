@@ -1,4 +1,4 @@
-module DesktopNav exposing (..)
+module DesktopNav exposing (main)
 
 import Browser
 import Html exposing (Html, a, div, nav, text)

@@ -1,4 +1,4 @@
-module MobileNav exposing (..)
+module MobileNav exposing (main)
 
 import Browser
 import Html exposing (Html, a, div, nav, text)
