@@ -10,19 +10,26 @@
 
     <!-- Loads our app -->
     <script src="./desktopnav-elm.js"></script>
+    <script src="./mobilenav-elm.js"></script>
     <script>
         window.onload = () => {
-            const elmNode = document.createElement('div');
-            const node = document.getElementById('headerNav');
-            node.appendChild(elmNode);
-            const app = Elm.DesktopNav.init({
-                node: elmNode
-            });
+            // desktop navigation
+            const desktopNode = document.createElement('div');
+            const headerNav = document.getElementById('headerNav');
+            headerNav.appendChild(desktopNode);
+            Elm.DesktopNav.init({node: desktopNode});
+
+            // mobile navigation
+            const mobileNode = document.createElement('div');
+            const sidecarNav = document.getElementById('sidecarNav');
+            sidecarNav.appendChild(mobileNode);
+            Elm.MobileNav.init({node: mobileNode});
         }
     </script>
   </head>
     <body>
         <noscript>You need to enable JavaScript to run this app.</noscript>
+        <div id="sidecarNav"></div>
         <div id="siteWrapper" className="clearfix">
             <header id="header">
                 <div className="header-inner">
