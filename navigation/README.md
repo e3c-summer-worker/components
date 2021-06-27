@@ -14,4 +14,11 @@ that goes inside `#headerNav` and `#sidecarNav` in the Squarespace page, respect
 
 The header code in `public/index.html` is almost exactly what you'd see copy and
 pasted into Squarespace (instead of importing the local `.js` file we use
-[JSDelivr](https://www.jsdelivr.com/))
+[JSDelivr](https://www.jsdelivr.com/), and we need to add the contents in and [`styles.css`](./public/sistyleste.css)). 
+
+For a copy-and-paste solution, refer to the SummerWorkerEccc.github.io site and look into the `scripts` folder.
+
+
+## Important
+
+The [`site.css`](./public/site.css) is the squarespace compiled css, and the [`styles.css`](./public/styles.css) are our styles.
