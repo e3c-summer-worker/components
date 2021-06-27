@@ -11,9 +11,13 @@
     <!-- Loads our app -->
     <script src="./elm.js"></script>
     <script>
-        window.onload=function(){
-            const node = document.getElementById('elm');
-            const app = Elm.Main.init({node});
+        window.onload = () => {
+            const elmNode = document.createElement('div');
+            const node = document.getElementById('headerNav');
+            node.appendChild(elmNode);
+            const app = Elm.Main.init({
+                node: elmNode
+            });
         }
     </script>
   </head>
@@ -22,9 +26,7 @@
         <div id="siteWrapper" className="clearfix">
             <header id="header">
                 <div className="header-inner">
-                    <div id="headerNav">
-                        <div id="elm"></div>
-                    </div>
+                    <div id="headerNav"></div>
                 </div>
             </header>
         </div>
