@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <link type="text/css" rel="stylesheet" href="./site.css">
+    <link type="text/css" rel="stylesheet" href="./styles.css">
+    <title>Elm App</title>
+
+    <!-- Loads our app -->
+    <script src="./desktopnav-elm.js"></script>
+    <script src="./mobilenav-elm.js"></script>
+    <script>
+    window.onload = () => {
+        // desktop navigation
+        const desktopNode = document.createElement('div');
+        const headerNav = document.getElementById('headerNav');
+        headerNav.appendChild(desktopNode);
+        Elm.DesktopNav.init({node: desktopNode});
+
+        // mobile navigation
+        const mobileNode = document.createElement('div');
+        const sidecarNav = document.getElementById('sidecarNav');
+        sidecarNav.appendChild(mobileNode);
+        Elm.MobileNav.init({node: mobileNode});
+    }
+    </script>
+  </head>
+    <body>
+        <noscript>You need to enable JavaScript to run this app.</noscript>
+        <div id="sidecarNav"></div>
+        <div id="siteWrapper" className="clearfix">
+            <header id="header">
+                <div className="header-inner">
+                    <div id="headerNav"></div>
+                </div>
+            </header>
+        </div>
+    </body>
+
+    
+</html>
