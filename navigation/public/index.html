@@ -14,16 +14,12 @@
     <script>
     window.onload = () => {
         // desktop navigation
-        const desktopNode = document.createElement('div');
         const headerNav = document.getElementById('headerNav');
-        headerNav.appendChild(desktopNode);
-        Elm.DesktopNav.init({node: desktopNode});
+        Elm.DesktopNav.init({node: headerNav});
 
         // mobile navigation
-        const mobileNode = document.createElement('div');
         const sidecarNav = document.getElementById('sidecarNav');
-        sidecarNav.appendChild(mobileNode);
-        Elm.MobileNav.init({node: mobileNode});
+        Elm.MobileNav.init({node: sidecarNav});
     }
     </script>
   </head>
@@ -33,6 +29,8 @@
         <div id="siteWrapper" className="clearfix">
             <header id="header">
                 <div className="header-inner">
+                    <div class="mobile-nav-toggle" id="yui_3_17_2_1_1624829667654_327"><div class="top-bar"></div><div class="middle-bar"></div><div class="bottom-bar"></div></div>
+                    <div class="mobile-nav-toggle fixed-nav-toggle"><div class="top-bar"></div><div class="middle-bar"></div><div class="bottom-bar"></div></div>
                     <div id="headerNav"></div>
                 </div>
             </header>

@@ -46,7 +46,7 @@ update _ model =
 
 view : Model -> Html Msg
 view _ =
-    div [ id "customMobile" ]
+    div [ id "sidecarNav" ]
         [ div [ class "nav-wrapper sqs-frontend-overlay-editor-widget-host", attribute "data-content-field" "navigation-mobileNav", id "mobileNavWrapper" ]
             [ nav [ id "mobileNavigation" ]
                 [ div [ class "collection" ]
