@@ -74,6 +74,10 @@ view model =
             [ -- elm-live server doesn't have europa
               Font.family
                 [ Font.typeface "europa" ]
+
+            -- global font bold LOL
+            -- idk if this is a good idea but everything is better bold anyway
+            , Font.bold
             ]
 
 
@@ -115,12 +119,12 @@ mobileView model =
                 [ Html.Attributes.style "width" "100%"
                 , Html.Attributes.style "overflow" "hidden"
                 ]
-                [ textBlockMobile model "HOME" "/home"
-                , textBlockMobile model "ECCC KIDS CHURCH ONLINE" "/church-online"
-                , textBlockMobile model "AWANA SPARKS (K-GR.2)" "/awana"
-                , textBlockMobile model "KAIO FELLOWSHIP (GR.3-6)" "/kaio"
-                , textBlockMobile model "JULY DAY CAMP" "/july-day-camp"
-                , textBlockMobile model "UPDATES" "/updates"
+                [ textBlockMobile model "HOME" "https://eccchurch.ca/kids/home"
+                , textBlockMobile model "ECCC KIDS CHURCH ONLINE" "https://eccchurch.ca/kids/church-online"
+                , textBlockMobile model "AWANA SPARKS (K-GR.2)" "https://eccchurch.ca/kids/awana"
+                , textBlockMobile model "KAIO FELLOWSHIP (GR.3-6)" "https://eccchurch.ca/kids/kaio"
+                , textBlockMobile model "JULY DAY CAMP" "https://eccchurch.ca/kids/july-day-camp"
+                , textBlockMobile model "UPDATES" "https://eccchurch.ca/kids/updates"
                 ]
                 |> Element.html
     in
@@ -164,12 +168,12 @@ desktopView model =
         [ Element.width Element.fill
         , Font.size 16
         ]
-        [ textBlockDesktop model.currentPage "HOME" "/home"
-        , textBlockDesktop model.currentPage "ECCC KIDS CHURCH ONLINE" "/church-online"
-        , textBlockDesktop model.currentPage "AWANA SPARKS (K-GR.2)" "/awana"
-        , textBlockDesktop model.currentPage "KAIO FELLOWSHIP (GR.3-6)" "/kaio"
-        , textBlockDesktop model.currentPage "JULY DAY CAMP" "/july-day-camp"
-        , textBlockDesktop model.currentPage "UPDATES" "/updates"
+        [ textBlockDesktop model.currentPage "HOME" "https://eccchurch.ca/kids/home"
+        , textBlockDesktop model.currentPage "ECCC KIDS CHURCH ONLINE" "https://eccchurch.ca/kids/church-online"
+        , textBlockDesktop model.currentPage "AWANA SPARKS (K-GR.2)" "https://eccchurch.ca/kids/awana"
+        , textBlockDesktop model.currentPage "KAIO FELLOWSHIP (GR.3-6)" "https://eccchurch.ca/kids/kaio"
+        , textBlockDesktop model.currentPage "JULY DAY CAMP" "https://eccchurch.ca/kids/july-day-camp"
+        , textBlockDesktop model.currentPage "UPDATES" "https://eccchurch.ca/kids/updates"
         ]
 
 
