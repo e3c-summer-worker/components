@@ -70,7 +70,11 @@ init flags =
 view : Model -> Html Msg
 view model =
     content model
-        |> Element.layout []
+        |> Element.layout
+            [ -- elm-live server doesn't have europa
+              Font.family
+                [ Font.typeface "europa" ]
+            ]
 
 
 content : Model -> Element Msg
@@ -145,7 +149,6 @@ textBlockMobile { currentPage, activeLink } label url =
         , Html.Attributes.style "width" "fill"
         , Html.Attributes.style "line-height" "35px"
         , Html.Attributes.style "font-size" "15px"
-        , Html.Attributes.style "font-weight" "600"
         , Html.Attributes.style "text-align" "center"
         , Html.Attributes.style "color" fontColour
         , Html.Attributes.style "cursor" "pointer"
@@ -160,7 +163,6 @@ desktopView model =
     Element.wrappedRow
         [ Element.width Element.fill
         , Font.size 16
-        , Font.bold
         ]
         [ textBlockDesktop model.currentPage "HOME" "/home"
         , textBlockDesktop model.currentPage "ECCC KIDS CHURCH ONLINE" "/church-online"
