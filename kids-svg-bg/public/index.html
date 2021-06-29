@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <link type="text/css" rel="stylesheet" href="./site.css" />
+    <link type="text/css" rel="stylesheet" href="./styles.css" />
+    <title>Elm App</title>
+    <!-- Loads our app -->
+    <script src="./kids-svgbg-elm.js"></script>
+    <script>
+        window.onload = () => {
+            // navigation for eccc kids
+            const svgBg = document.getElementById('thumbnail');
+            Elm.SvgBG.init({
+                node: svgBg
+            });
+        }
+    </script>
+</head>
+
+<body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="siteWrapper" className="clearfix">
+        <div class="banner-thumbnail-wrapper" data-content-field="main-image"
+            data-collection-id="60d24848231f427317405495" data-edit-main-image=""
+            data-annotation-alignment="bottom left">
+            <div class="color-overlay"></div>
+            <figure id="thumbnail" class="loading content-fill" style="overflow: hidden;">
+                <!-- <img data-src="https://images.squarespace-cdn.com/content/v1/5aa9a74ca2772cf40cb0e86b/1624393956059-817597G2KBTSMQY5Q0E7/lights-bg.jpeg"
+                    data-image="https://images.squarespace-cdn.com/content/v1/5aa9a74ca2772cf40cb0e86b/1624393956059-817597G2KBTSMQY5Q0E7/lights-bg.jpeg"
+                    data-image-dimensions="1207x344" data-image-focal-point="0.5,0.5" data-parent-ratio="2.2"
+                    alt="lights-bg.jpeg" class="" data-image-resolution="2500w"
+                    src="https://images.squarespace-cdn.com/content/v1/5aa9a74ca2772cf40cb0e86b/1624393956059-817597G2KBTSMQY5Q0E7/lights-bg.jpeg?format=2500w"
+                    style="font-size: 0px; left: -362.083px; top: 0px; width: 1877.17px; height: 535px; position: relative;"> -->
+            </figure>
+        </div>
+    </div>
+</body>
+
+</html>
