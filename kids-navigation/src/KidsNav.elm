@@ -119,7 +119,7 @@ mobileView model =
                 [ Html.Attributes.style "width" "100%"
                 , Html.Attributes.style "overflow" "hidden"
                 ]
-                [ textBlockMobile model "HOME" "https://eccchurch.ca/kids/home"
+                [ textBlockMobile model "HOME" "https://eccchurch.ca/kids/"
                 , textBlockMobile model "ECCC KIDS CHURCH ONLINE" "https://eccchurch.ca/kids/church-online"
                 , textBlockMobile model "AWANA SPARKS (K-GR.2)" "https://eccchurch.ca/kids/awana"
                 , textBlockMobile model "KAIO FELLOWSHIP (GR.3-6)" "https://eccchurch.ca/kids/kaio"
@@ -168,7 +168,7 @@ desktopView model =
         [ Element.width Element.fill
         , Font.size 16
         ]
-        [ textBlockDesktop model.currentPage "HOME" "https://eccchurch.ca/kids/home"
+        [ textBlockDesktop model.currentPage "HOME" "https://eccchurch.ca/kids/"
         , textBlockDesktop model.currentPage "ECCC KIDS CHURCH ONLINE" "https://eccchurch.ca/kids/church-online"
         , textBlockDesktop model.currentPage "AWANA SPARKS (K-GR.2)" "https://eccchurch.ca/kids/awana"
         , textBlockDesktop model.currentPage "KAIO FELLOWSHIP (GR.3-6)" "https://eccchurch.ca/kids/kaio"
