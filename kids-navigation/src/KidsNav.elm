@@ -162,7 +162,10 @@ textBlockDesktop : String -> String -> String -> Html Msg
 textBlockDesktop currentPage label url =
     Html.a
         [ Html.Attributes.style "height" "60px"
-        , Html.Attributes.style "padding" "10 0" -- x and y?
+
+        -- bit of a hacky way to vertically align text
+        , Html.Attributes.style "line-height" "60px"
+        , Html.Attributes.style "padding" "10 0" -- x and y
         , Html.Attributes.style "font-weight" "bold"
 
         -- Center wrapped row elements
