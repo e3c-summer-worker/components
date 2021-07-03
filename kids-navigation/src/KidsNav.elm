@@ -45,7 +45,8 @@ type alias Model =
     { open : Animator.Timeline Bool
     , currentPage : String
     , width : Int
-    , activeLink : String -- which link to b blue ONLY ON MOBILE
+    , activeLink : String -- which link to be blue
+    , caretHover : Bool -- whether the caret toggle button is blue
     }
 
 
@@ -55,6 +56,7 @@ init flags =
       , currentPage = flags.currentPage
       , width = flags.width
       , activeLink = ""
+      , caretHover = False
       }
     , Cmd.none
     )
@@ -80,11 +82,19 @@ mobileView model =
         icon =
             Html.div
                 [ Html.Events.onClick (ToggleOpen (not (Animator.current model.open)))
+                , Html.Events.onMouseEnter (CaretHover True)
+                , Html.Events.onMouseLeave (CaretHover False)
                 , Html.Attributes.style "cursor" "pointer"
                 , Html.Attributes.style "height" "60px"
                 , Html.Attributes.style "display" "grid"
                 , Html.Attributes.style "justify-content" "center"
                 , Html.Attributes.style "align-items" "center"
+                , Html.Attributes.style "color" <|
+                    if model.caretHover then
+                        Colours.blue
+
+                    else
+                        "black"
                 ]
                 [ Icon.view FeatherIcons.chevronDown ]
 
@@ -149,17 +159,17 @@ desktopView model =
         [ Html.Attributes.style "display" "flex"
         , Html.Attributes.style "flex-wrap" "wrap"
         ]
-        [ textBlockDesktop model.currentPage "HOME" "https://eccchurch.ca/kids/"
-        , textBlockDesktop model.currentPage "ECCC KIDS CHURCH ONLINE" "https://eccchurch.ca/kids/church-online"
-        , textBlockDesktop model.currentPage "AWANA SPARKS (K-GR.2)" "https://eccchurch.ca/kids/awana"
-        , textBlockDesktop model.currentPage "KAIO FELLOWSHIP (GR.3-6)" "https://eccchurch.ca/kids/kaio"
-        , textBlockDesktop model.currentPage "JULY DAY CAMP" "https://eccchurch.ca/kids/july-day-camp"
-        , textBlockDesktop model.currentPage "UPDATES" "https://eccchurch.ca/kids/updates"
+        [ textBlockDesktop model "HOME" "https://eccchurch.ca/kids/"
+        , textBlockDesktop model "ECCC KIDS CHURCH ONLINE" "https://eccchurch.ca/kids/church-online"
+        , textBlockDesktop model "AWANA SPARKS (K-GR.2)" "https://eccchurch.ca/kids/awana"
+        , textBlockDesktop model "KAIO FELLOWSHIP (GR.3-6)" "https://eccchurch.ca/kids/kaio"
+        , textBlockDesktop model "JULY DAY CAMP" "https://eccchurch.ca/kids/july-day-camp"
+        , textBlockDesktop model "UPDATES" "https://eccchurch.ca/kids/updates"
         ]
 
 
-textBlockDesktop : String -> String -> String -> Html Msg
-textBlockDesktop currentPage label url =
+textBlockDesktop : Model -> String -> String -> Html Msg
+textBlockDesktop { currentPage, activeLink } label url =
     Html.a
         [ Html.Attributes.style "height" "60px"
 
@@ -173,12 +183,14 @@ textBlockDesktop currentPage label url =
         , Html.Attributes.style "marginLeft" "auto"
         , Html.Attributes.style "marginRight" "auto"
         , Html.Attributes.style "color" <|
-            if currentPage == label then
+            if currentPage == label || label == activeLink then
                 Colours.blue
 
             else
                 "rgb(0,0,0)"
         , Html.Attributes.href url
+        , Html.Events.onMouseEnter (ActivateLink label)
+        , Html.Events.onMouseOut (RemoveActiveLink label)
         ]
         [ Html.text label ]
 
@@ -191,7 +203,9 @@ type Msg
     = Tick Time.Posix
     | ToggleOpen Bool
     | UpdateWidth Int
-    | ActivateLink String -- mobile stuff
+    | ActivateLink String
+    | RemoveActiveLink String
+    | CaretHover Bool
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
@@ -219,6 +233,20 @@ update msg model =
 
         ActivateLink link ->
             ( { model | activeLink = link }, Cmd.none )
+
+        RemoveActiveLink link ->
+            let
+                newLink =
+                    if link == model.activeLink then
+                        ""
+
+                    else
+                        model.activeLink
+            in
+            ( { model | activeLink = newLink }, Cmd.none )
+
+        CaretHover hover ->
+            ( { model | caretHover = hover }, Cmd.none )
 
 
 
