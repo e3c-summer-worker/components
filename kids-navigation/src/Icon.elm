@@ -1,12 +1,11 @@
 module Icon exposing (view)
 
-import Element exposing (Element)
 import FeatherIcons exposing (Icon)
+import Html exposing (Html)
 
 
-view : Icon -> Element msg
+view : Icon -> Html msg
 view =
     FeatherIcons.withSize 32
         >> FeatherIcons.withStrokeWidth 2
         >> FeatherIcons.toHtml []
-        >> Element.html

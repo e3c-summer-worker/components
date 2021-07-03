@@ -5,9 +5,6 @@ import Animator.Css
 import Browser
 import Browser.Events
 import Colours
-import Element exposing (Element)
-import Element.Events as Events
-import Element.Font as Font
 import FeatherIcons
 import Html exposing (Html)
 import Html.Attributes
@@ -69,20 +66,6 @@ init flags =
 
 view : Model -> Html Msg
 view model =
-    content model
-        |> Element.layout
-            [ -- elm-live server doesn't have europa
-              Font.family
-                [ Font.typeface "europa" ]
-
-            -- global font bold LOL
-            -- idk if this is a good idea but everything is better bold anyway
-            , Font.bold
-            ]
-
-
-content : Model -> Element Msg
-content model =
     -- these are the same dimensions eccckids.com uses
     if model.width < 979 then
         mobileView model
@@ -91,19 +74,19 @@ content model =
         desktopView model
 
 
-mobileView : Model -> Element Msg
+mobileView : Model -> Html Msg
 mobileView model =
     let
         icon =
-            Element.el
-                [ Element.centerX
-                , Element.height (Element.px 60)
-                , Events.onClick (ToggleOpen (not (Animator.current model.open)))
-                , Element.pointer
-                , Element.mouseOver
-                    [ Font.color Colours.blue ]
+            Html.div
+                [ Html.Events.onClick (ToggleOpen (not (Animator.current model.open)))
+                , Html.Attributes.style "cursor" "pointer"
+                , Html.Attributes.style "height" "60px"
+                , Html.Attributes.style "display" "grid"
+                , Html.Attributes.style "justify-content" "center"
+                , Html.Attributes.style "align-items" "center"
                 ]
-                (Icon.view FeatherIcons.chevronDown)
+                [ Icon.view FeatherIcons.chevronDown ]
 
         links =
             Animator.Css.div model.open
@@ -126,11 +109,11 @@ mobileView model =
                 , textBlockMobile model "JULY DAY CAMP" "https://eccchurch.ca/kids/july-day-camp"
                 , textBlockMobile model "UPDATES" "https://eccchurch.ca/kids/updates"
                 ]
-                |> Element.html
     in
-    Element.column
-        [ Element.width Element.fill
-        , Element.spacing 12
+    Html.div
+        [ Html.Attributes.style "height" "fill"
+        , Html.Attributes.style "display" "grid"
+        , Html.Attributes.style "gap" "12px"
         ]
         [ icon, links ]
 
@@ -139,11 +122,8 @@ textBlockMobile : Model -> String -> String -> Html Msg
 textBlockMobile { currentPage, activeLink } label url =
     let
         fontColour =
-            if currentPage == label then
-                Colours.blueHtml
-
-            else if activeLink == label then
-                Colours.blueHtml
+            if currentPage == label || activeLink == label then
+                Colours.blue
 
             else
                 "black"
@@ -162,11 +142,11 @@ textBlockMobile { currentPage, activeLink } label url =
         [ Html.text label ]
 
 
-desktopView : Model -> Element Msg
+desktopView : Model -> Html Msg
 desktopView model =
-    Element.wrappedRow
-        [ Element.width Element.fill
-        , Font.size 16
+    Html.div
+        [ Html.Attributes.style "display" "flex"
+        , Html.Attributes.style "flex-wrap" "wrap"
         ]
         [ textBlockDesktop model.currentPage "HOME" "https://eccchurch.ca/kids/"
         , textBlockDesktop model.currentPage "ECCC KIDS CHURCH ONLINE" "https://eccchurch.ca/kids/church-online"
@@ -177,28 +157,25 @@ desktopView model =
         ]
 
 
-textBlockDesktop : String -> String -> String -> Element Msg
+textBlockDesktop : String -> String -> String -> Html Msg
 textBlockDesktop currentPage label url =
-    Element.link
-        [ Element.height (Element.px 60)
-        , Element.paddingXY 10 0
+    Html.a
+        [ Html.Attributes.style "height" "60px"
+        , Html.Attributes.style "padding" "10 0" -- x and y?
 
         -- Center wrapped row elements
         -- https://stackoverflow.com/a/59813198
-        , Element.htmlAttribute (Html.Attributes.style "marginLeft" "auto")
-        , Element.htmlAttribute (Html.Attributes.style "marginRight" "auto")
-        , Font.color <|
+        , Html.Attributes.style "marginLeft" "auto"
+        , Html.Attributes.style "marginRight" "auto"
+        , Html.Attributes.style "color" <|
             if currentPage == label then
                 Colours.blue
 
             else
-                Element.rgb 0 0 0
-        , Element.mouseOver
-            [ Font.color Colours.blue ]
+                "rgb(0,0,0)"
+        , Html.Attributes.href url
         ]
-        { url = url
-        , label = Element.el [ Element.centerY ] <| Element.text label
-        }
+        [ Html.text label ]
 
 
 
