@@ -134,6 +134,7 @@ textBlockMobile { currentPage, activeLink } label url =
         , Html.Attributes.style "line-height" "35px"
         , Html.Attributes.style "font-size" "15px"
         , Html.Attributes.style "text-align" "center"
+        , Html.Attributes.style "font-weight" "bold"
         , Html.Attributes.style "color" fontColour
         , Html.Attributes.style "cursor" "pointer"
         , Html.Attributes.href url
@@ -162,6 +163,7 @@ textBlockDesktop currentPage label url =
     Html.a
         [ Html.Attributes.style "height" "60px"
         , Html.Attributes.style "padding" "10 0" -- x and y?
+        , Html.Attributes.style "font-weight" "bold"
 
         -- Center wrapped row elements
         -- https://stackoverflow.com/a/59813198
