@@ -1,4 +1,5 @@
 // 1D Terrain Generation using Midpint Displacement
+
 const speed = 0.5;
 let terrainPoints1 = [];
 let terrainPoints2 = [];

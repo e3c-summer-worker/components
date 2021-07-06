@@ -4,9 +4,13 @@
   "description": "A scrolling terrain background heavily inspired by [this codepen](https://codepen.io/loktar00/pen/uEJKl).",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "touch src/scrolling-terrain.min.js && uglifyjs src/p5/p5.min.js src/p5/terrain.js src/p5/particle.js src/p5/sketch.js -o src/scrolling-terrain.min.js -c -m"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "uglify-js": "^3.13.10"
+  }
 }
