@@ -15,6 +15,15 @@
         src="https://cdn.jsdelivr.net/gh/SummerWorkerECCC/SummerWorkerECCC.github.io@1.0.1/scripts/mobilenav-elm.js"></script>
     <script
         src="https://cdn.jsdelivr.net/gh/SummerWorkerECCC/SummerWorkerECCC.github.io@1.0.1/scripts/desktopnav-elm.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"
+        integrity="sha512-N4kV7GkNv7QR7RX9YF/olywyIgIwNvfEe2nZtfyj73HdjCUkAfOBDbcuJ/cTaN04JKRnw1YG1wnUyNKMsNgg3g=="
+        crossorigin="anonymous"></script>
+    <!-- Use minified file for production -->
+    <!-- <script src="./scrolling-terrain.min.js"></script> -->
+    <!-- For development, uncomment the next 43lines -->
+    <script src="./p5/terrain.js"></script>
+    <script src="./p5/particle.js"></script>
+    <script src="./p5/sketch.js"></script>
     <script>
         window.onload = () => {
             // desktop navigation
@@ -24,15 +33,20 @@
             // mobile navigation
             const sidecarNav = document.getElementById('sidecarNav');
             Elm.MobileNav.init({ node: sidecarNav });
+
+            // p5.js stuff
+
+            // figure out the width and height of the thumbnail, and then set the canvas to the same size
+            const thumbnail = document.getElementById('thumbnail');
+            const rect = thumbnail.getBoundingClientRect();
+            console.log({ rect });
+
+            // before we set the parent, remove the image behind the figure
+            const img = document.querySelector("#thumbnail > img");
+            img.remove();
+            new p5(sketch(rect.width, rect.height), thumbnail)
         }
     </script>
-    <!-- Use minified file for production -->
-    <!-- <script src="./scrolling-terrain.min.js"></script> -->
-    <!-- For development, uncomment the next 4 lines -->
-    <script src="./p5/p5.min.js"></script>
-    <script src="./p5/terrain.js"></script>
-    <script src="./p5/particle.js"></script>
-    <script src="./p5/sketch.js"></script>
 </head>
 <!-- Kinda need all these class names to make some styles work :// -->
 
