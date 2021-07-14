@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="theme-color" content="#000000" />
-        <link type="text/css" rel="stylesheet" href="./site.css" />
-        <link type="text/css" rel="stylesheet" href="./styles.css" />
-        <title>Elm App</title>
 
-        <!-- Loads our app -->
-        <script src="./kidsnav-elm.js"></script>
-        <script>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <link type="text/css" rel="stylesheet" href="./site.css" />
+    <link type="text/css" rel="stylesheet" href="./styles.css" />
+    <title>Elm App</title>
+    <!-- Loads our app -->
+    <script src="./kidsnav-elm.js"></script>
+    <script>
         window.onload = () => {
             // navigation for eccc kids
             const kidsNav = document.getElementById('eccc-kids-navigation');
@@ -22,22 +22,24 @@
                 }
             });
         }
-        </script>
-    </head>
-    <body>
-        <noscript>You need to enable JavaScript to run this app.</noscript>
-        <div id="siteWrapper" className="clearfix">
-            <main id="page" role="main">
-                <div id="content" class="main-content" data-content-field="main-content" data-edit-main-image>
-                    <div class="sqs-layout sqs-grid-12 columns-12" data-type="page">
-                        <div class="row sqs-row">
-                            <div class="col sqs-col-12 span-12">
-                                <div class="row sqs-row">
-                                    <div class="col sqs-col-12 span-12">
-                                        <div class="sqs-block code-block sqs-block-code" data-block-type="23" id="block-yui_3_17_2_1_1624401930961_6660">
-                                            <div class="sqs-block-content">
-                                                <div id='eccc-kids-navigation'>This will be the navigation bar</div>
-                                            </div>
+    </script>
+</head>
+
+<body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <!-- This structure is copied from the squarespace website. -->
+    <div id="siteWrapper" className="clearfix">
+        <main id="page" role="main">
+            <div id="content" class="main-content" data-content-field="main-content" data-edit-main-image>
+                <div class="sqs-layout sqs-grid-12 columns-12" data-type="page">
+                    <div class="row sqs-row">
+                        <div class="col sqs-col-12 span-12">
+                            <div class="row sqs-row">
+                                <div class="col sqs-col-12 span-12">
+                                    <div class="sqs-block code-block sqs-block-code" data-block-type="23"
+                                        id="block-yui_3_17_2_1_1624401930961_6660">
+                                        <div class="sqs-block-content">
+                                            <div id='eccc-kids-navigation'>This will be the navigation bar</div>
                                         </div>
                                     </div>
                                 </div>
@@ -45,9 +47,9 @@
                         </div>
                     </div>
                 </div>
-            </main>
-        </div>
-    </body>
+            </div>
+        </main>
+    </div>
+</body>
 
-    
 </html>
