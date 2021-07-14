@@ -35,16 +35,8 @@
             Elm.MobileNav.init({ node: sidecarNav });
 
             // p5.js stuff
-
-            // figure out the width and height of the thumbnail, and then set the canvas to the same size
             const thumbnail = document.getElementById('thumbnail');
-            const rect = thumbnail.getBoundingClientRect();
-            console.log({ rect });
-
-            // before we set the parent, remove the image behind the figure
-            const img = document.querySelector("#thumbnail > img");
-            img.remove();
-            new p5(sketch(rect.width, rect.height), thumbnail)
+            TerrainSketch.initialize(thumbnail);
         }
     </script>
 </head>

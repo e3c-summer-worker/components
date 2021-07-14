@@ -79,5 +79,18 @@ const sketch = (rectWidth, rectHeight) => (p5) => {
             particles[idx][i].moveParticle();
         }
     }
+}
 
+// namespace
+const TerrainSketch = {
+    initialize: function (node) {
+        const rect = node.getBoundingClientRect();
+        console.log({ rect });
+
+        // before we set the parent, remove all child elements
+        // https://stackoverflow.com/a/65413839
+        node.replaceChildren()
+
+        new p5(sketch(rect.width, rect.height), node)
+    }
 }
