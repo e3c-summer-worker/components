@@ -1,6 +1,6 @@
 # Kids Navigations
 
-This is the navigation bar used for the ECCC kids website.
+This is the navigation bar used for the ECCC kids website. I used [Elm](https://elm-lang.org/) to create the component.
 
 ## Run Locally
 
