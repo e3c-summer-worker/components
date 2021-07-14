@@ -6,7 +6,7 @@ This is the navigation bar used for the ECCC kids website.
 
 **Disclaimer:** I ran this on MacOS fine, but the terminal commands may be different on Windows. I also used VSCode.
 
-### Prerequisites 
+### Prerequisites
 
 Using VSCode, you can quite easily install the necessary toolings to make it easier to work with Elm. 
 I used the [Elm Tooling](https://marketplace.visualstudio.com/items?itemName=Elmtooling.elm-ls-vscode).
@@ -14,13 +14,13 @@ I used the [Elm Tooling](https://marketplace.visualstudio.com/items?itemName=Elm
 You can optionally [install Elm](https://elm-lang.org/) locally on your computer (I used version `0.19.1-5`), 
 though this is not necessary as I added elm as an npm dependency.
 
-1. Install dependencies
+#### Install dependencies
 
 ```bash
 npm i
 ```
 
-2. Start the code locally
+#### Start the code locally
 
 ```bash
 npm run start
@@ -30,7 +30,7 @@ This should make Elm download the necessary dependencies in [`elm.json`](elm.jso
 Note that the UI will not look exactly like the one you will see on Squarespace. They use some fonts that are paid, so I was unable to use them on this project.
 The layout will be the same, though.
 
-3. Build the code once changes are made
+#### Build the code once changes are made
 
 ```bash
 npm run build
