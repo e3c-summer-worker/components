@@ -1,14 +1,13 @@
 {
   "compilerOptions": {
-    "mapRoot": "./src/",
-    "module": "none",
+    "module": "commonjs",
+    "lib": ["es5", "es6", "dom"],
+    "rootDir": "src",
     "noImplicitAny": true,
-    "outFile": "./build/build.js",
+    "outDir": "build",
     "preserveConstEnums": true,
     "removeComments": true,
-    "rootDir": "src",
-    "sourceMap": true,
-    "sourceRoot": "./src/",
+    "sourceMap": false,
     "target": "es5",
     "moduleResolution": "node"
   }
