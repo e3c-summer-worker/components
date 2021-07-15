@@ -1,4 +1,3 @@
-import * as p5 from 'p5'
 import { ColorHelper } from './ColorHelper'
 import { PolygonHelper } from './PolygonHelper'
 
@@ -56,13 +55,10 @@ const sketch = (p: p5) => {
 }
 
 
-
+// Namespace
+// we'll use it as Sketch.polygonSketch
 const Sketch = {
-    initialize: function (node: HTMLElement) {
-        new p5(sketch, node);
-        console.log('Sketch started!')
-    }
+    polygonSketch: sketch
 }
 
-
-export default Sketch;
+export default Sketch
