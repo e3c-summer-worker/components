@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en"
+    class="yui3-js-enabled js flexbox canvas canvastext webgl no-touch hashchange history draganddrop rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms no-csstransforms3d csstransitions video audio svg inlinesvg svgclippaths wf-calluna-n3-active wf-europa-i3-active wf-europa-i4-active wf-europa-i7-active wf-europa-n4-active wf-europa-n3-active wf-europa-n7-active wf-active">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <link type="text/css" rel="stylesheet" href="./assets/site.css">
+    <link type="text/css" rel="stylesheet" href="./assets/styles.css">
+    <title>Scrolling Terrain</title>
+    <!-- CUSTOM STUFF -->
+    <!-- 1.0.1 is the Navbar Stable release (hotfix) -->
+    <script
+        src="https://cdn.jsdelivr.net/gh/SummerWorkerECCC/SummerWorkerECCC.github.io@1.0.1/scripts/mobilenav-elm.js"></script>
+    <script
+        src="https://cdn.jsdelivr.net/gh/SummerWorkerECCC/SummerWorkerECCC.github.io@1.0.1/scripts/desktopnav-elm.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"
+        integrity="sha512-N4kV7GkNv7QR7RX9YF/olywyIgIwNvfEe2nZtfyj73HdjCUkAfOBDbcuJ/cTaN04JKRnw1YG1wnUyNKMsNgg3g=="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.3.0/p5.min.js"
+        integrity="sha512-tGZFF1kxT/c9C+kv77mKkZ9Ww1VyU8TMX6HLUSzbPrDLuptbiRFBfti8A33ip+BBIHYUsybuZD9OKLmIqdLmaQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="build/main-bundle.js"></script>
+    <script>
+        window.onload = () => {
+            // desktop navigation
+            const headerNav = document.getElementById('headerNav');
+            Elm.DesktopNav.init({ node: headerNav });
+
+            // mobile navigation
+            const sidecarNav = document.getElementById('sidecarNav');
+            Elm.MobileNav.init({ node: sidecarNav });
+
+            // p5.js stuff
+            console.log(TerrainSketch)
+            const containerElement = document.getElementById('thumbnail');
+            containerElement.replaceChildren()
+            new p5(TerrainSketch.sketch(containerElement), containerElement);
+        }
+    </script>
+</head>
+<!-- Kinda need all these class names to make some styles work :// -->
+
+<body id="collection-60d24848231f427317405495"
+    class="transparent-header nav-button-style-solid nav-button-corner-style-rounded banner-button-style-outline banner-button-corner-style-square banner-slideshow-controls-arrows meta-priority-date hide-entry-author hide-list-entry-footer hide-blog-sidebar center-navigation--info event-thumbnails event-thumbnail-size-32-standard event-date-label event-date-label-time event-list-show-cats event-list-date event-list-time event-list-address event-icalgcal-links event-excerpts event-item-back-link gallery-design-grid aspect-ratio-auto lightbox-style-light gallery-navigation-bullets gallery-info-overlay-show-on-hover gallery-aspect-ratio-32-standard gallery-arrow-style-no-background gallery-transitions-fade gallery-show-arrows gallery-auto-crop product-list-titles-under product-list-alignment-center product-item-size-11-square product-image-auto-crop product-gallery-size-11-square show-product-price show-product-item-nav product-social-sharing tweak-v1-related-products-image-aspect-ratio-11-square tweak-v1-related-products-details-alignment-center newsletter-style-light opentable-style-light small-button-style-solid small-button-shape-square medium-button-style-outline medium-button-shape-rounded large-button-style-solid large-button-shape-square image-block-poster-text-alignment-center image-block-card-dynamic-font-sizing image-block-card-content-position-center image-block-card-text-alignment-left image-block-overlap-dynamic-font-sizing image-block-overlap-content-position-center image-block-overlap-text-alignment-left image-block-collage-dynamic-font-sizing image-block-collage-content-position-top image-block-collage-text-alignment-left image-block-stack-dynamic-font-sizing image-block-stack-text-alignment-left button-style-solid button-corner-style-square tweak-product-quick-view-button-style-floating tweak-product-quick-view-button-position-bottom tweak-product-quick-view-lightbox-excerpt-display-truncate tweak-product-quick-view-lightbox-show-arrows tweak-product-quick-view-lightbox-show-close-button tweak-product-quick-view-lightbox-controls-weight-light native-currency-code-usd collection-type-page collection-60d24848231f427317405495 collection-layout-default mobile-style-available has-banner-image general-page">
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="sidecarNav"></div>
+    <div id="siteWrapper" className="clearfix">
+        <header id="header" class="show-on-scroll" data-offset-el=".index-section" data-offset-behavior="bottom"
+            role="banner">
+            <div className="header-inner">
+                <div id="logoWrapper" class="wrapper" data-content-field="site-title">
+                    <h1 id="logoImage"><a href="/"><img
+                                src="//images.squarespace-cdn.com/content/v1/5aa9a74ca2772cf40cb0e86b/1585375590969-GWE5U9HS8UQM8ABYP9KY/logorevisedforseparatepage.png?format=1500w"
+                                alt="Edmonton Christian Community Church"></a></h1>
+                </div>
+                <div class="mobile-nav-toggle" id="yui_3_17_2_1_1624829667654_327">
+                    <div class="top-bar"></div>
+                    <div class="middle-bar"></div>
+                    <div class="bottom-bar"></div>
+                </div>
+                <div class="mobile-nav-toggle fixed-nav-toggle">
+                    <div class="top-bar"></div>
+                    <div class="middle-bar"></div>
+                    <div class="bottom-bar"></div>
+                </div>
+                <div id="headerNav"></div>
+            </div>
+        </header>
+        <!-- Actual banner stuff -->
+        <div class="banner-thumbnail-wrapper has-description" data-content-field="main-image"
+            data-collection-id="60d24848231f427317405495" data-edit-main-image=""
+            data-annotation-alignment="bottom left">
+            <div class="color-overlay"></div>
+            <figure id="thumbnail" class="loading content-fill" style="overflow: hidden;">
+                <img data-src="https://images.squarespace-cdn.com/content/v1/5aa9a74ca2772cf40cb0e86b/1624393956059-817597G2KBTSMQY5Q0E7/lights-bg.jpeg"
+                    data-image="https://images.squarespace-cdn.com/content/v1/5aa9a74ca2772cf40cb0e86b/1624393956059-817597G2KBTSMQY5Q0E7/lights-bg.jpeg"
+                    data-image-dimensions="1207x344" data-image-focal-point="0.5,0.5" data-parent-ratio="2.0"
+                    alt="lights-bg.jpeg" class="" data-image-resolution="2500w"
+                    src="https://images.squarespace-cdn.com/content/v1/5aa9a74ca2772cf40cb0e86b/1624393956059-817597G2KBTSMQY5Q0E7/lights-bg.jpeg?format=2500w"
+                    style="font-size: 0px; left: -421.731px; top: 0px; width: 1996.46px; height: 569px; position: relative;">
+            </figure>
+            <div class="desc-wrapper" data-content-field="description" data-collection-id="60d24848231f427317405495">
+                <p class="" data-rte-preserve-empty="true" style="white-space:pre-wrap;"></p>
+                <p class="" data-rte-preserve-empty="true" style="white-space:pre-wrap;"></p>
+                <p class="" style="white-space:pre-wrap;">ECCC KIDS</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
