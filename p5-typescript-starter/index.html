@@ -1,8 +1,6 @@
 <html>
 
 <head>
-    <link rel="shortcut icon" href="https://p5js.org/assets/img/favicon.ico" />
-    <link rel="icon" href="https://p5js.org/assets/img/favicon.ico" />
     <style>
         * {
             padding: 0px;
@@ -15,13 +13,14 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="build/main-bundle.js"></script>
     <script>
+        console.log(PolygonSketch)
         const containerElement = document.getElementById('p5-container');
-        new p5(Sketch.polygonSketch, containerElement);
+        new p5(PolygonSketch.sketch, containerElement);
     </script>
 </head>
 
 <body>
-    <div id='p5'></div>
+    <div id='p5-container'></div>
 </body>
 
 </html>

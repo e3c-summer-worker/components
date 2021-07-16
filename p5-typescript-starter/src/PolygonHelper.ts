@@ -1,5 +1,3 @@
-import * as p5 from 'p5'
-
 export class PolygonHelper {
     p: p5;
     constructor(p: p5) {

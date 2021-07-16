@@ -56,9 +56,6 @@ const sketch = (p: p5) => {
 
 
 // Namespace
-// we'll use it as Sketch.polygonSketch
-const Sketch = {
-    polygonSketch: sketch
-}
-
-export default Sketch
+// we'll use it as PolygonSketch.sketch
+// see webpack.common.js to change the PolygonSketch name
+export { sketch };
