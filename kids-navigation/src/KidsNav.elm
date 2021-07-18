@@ -23,7 +23,6 @@ navigations =
     , ( "ECCC KIDS CHURCH ONLINE", "https://eccchurch.ca/kids/church-online" )
     , ( "AWANA SPARKS (K-GR.2)", "https://eccchurch.ca/kids/awana" )
     , ( "KAIO FELLOWSHIP (GR.3-6)", "https://eccchurch.ca/kids/kaio" )
-    , ( "JULY DAY CAMP", "https://eccchurch.ca/kids/july-day-camp" )
     , ( "UPDATES", "https://eccchurch.ca/kids/updates" )
     ]
 
