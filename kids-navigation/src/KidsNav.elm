@@ -14,6 +14,21 @@ import Time
 
 
 
+---- DATA: Edit this to get a new navigation
+
+
+navigations : List ( String, String )
+navigations =
+    [ ( "HOME", "https://eccchurch.ca/kids/" )
+    , ( "ECCC KIDS CHURCH ONLINE", "https://eccchurch.ca/kids/church-online" )
+    , ( "AWANA SPARKS (K-GR.2)", "https://eccchurch.ca/kids/awana" )
+    , ( "KAIO FELLOWSHIP (GR.3-6)", "https://eccchurch.ca/kids/kaio" )
+    , ( "JULY DAY CAMP", "https://eccchurch.ca/kids/july-day-camp" )
+    , ( "UPDATES", "https://eccchurch.ca/kids/updates" )
+    ]
+
+
+
 ---- APPLICATION
 
 
@@ -112,13 +127,8 @@ mobileView model =
                 [ Html.Attributes.style "width" "100%"
                 , Html.Attributes.style "overflow" "hidden"
                 ]
-                [ textBlockMobile model "HOME" "https://eccchurch.ca/kids/"
-                , textBlockMobile model "ECCC KIDS CHURCH ONLINE" "https://eccchurch.ca/kids/church-online"
-                , textBlockMobile model "AWANA SPARKS (K-GR.2)" "https://eccchurch.ca/kids/awana"
-                , textBlockMobile model "KAIO FELLOWSHIP (GR.3-6)" "https://eccchurch.ca/kids/kaio"
-                , textBlockMobile model "JULY DAY CAMP" "https://eccchurch.ca/kids/july-day-camp"
-                , textBlockMobile model "UPDATES" "https://eccchurch.ca/kids/updates"
-                ]
+            <|
+                List.map (\( text, link ) -> textBlockMobile model text link) navigations
     in
     Html.div
         [ Html.Attributes.style "height" "fill"
@@ -159,13 +169,8 @@ desktopView model =
         [ Html.Attributes.style "display" "flex"
         , Html.Attributes.style "flex-wrap" "wrap"
         ]
-        [ textBlockDesktop model "HOME" "https://eccchurch.ca/kids/"
-        , textBlockDesktop model "ECCC KIDS CHURCH ONLINE" "https://eccchurch.ca/kids/church-online"
-        , textBlockDesktop model "AWANA SPARKS (K-GR.2)" "https://eccchurch.ca/kids/awana"
-        , textBlockDesktop model "KAIO FELLOWSHIP (GR.3-6)" "https://eccchurch.ca/kids/kaio"
-        , textBlockDesktop model "JULY DAY CAMP" "https://eccchurch.ca/kids/july-day-camp"
-        , textBlockDesktop model "UPDATES" "https://eccchurch.ca/kids/updates"
-        ]
+    <|
+        List.map (\( text, link ) -> textBlockDesktop model text link) navigations
 
 
 textBlockDesktop : Model -> String -> String -> Html Msg
