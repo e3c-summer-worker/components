@@ -27,6 +27,5 @@ export const setupTerrain = (width: number, height: number, displace: number, ro
         displace *= roughness;
     }
 
-    console.log(points.length)
     return points;
 }

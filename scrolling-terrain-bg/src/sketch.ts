@@ -1,3 +1,4 @@
+import { Lantern } from './Lantern';
 import { Particle } from './Particle';
 import { setupTerrain } from './terrain'
 
@@ -8,12 +9,12 @@ const sketch = (node: HTMLElement) => (p5: p5) => {
     let terrainPoints3: number[] = [];
     let offsets = [0, 0, 0]; // using an array since the terrains should move at different speeds
 
-    // I use 'particles' instead of lanterns because I can't draw lanterns LOL
     // this is actually going to be a 2D list (3x5) - we have 5 lanterns behind each terrain
-    let particles: Particle[][] = []
+    let lanterns: Lantern[][] = []
 
     p5.setup = () => {
         const { width, height } = node.getBoundingClientRect()
+        console.log(width, height)
         p5.createCanvas(width, height);
 
         // first terrain (the furthest front, and lightest)
@@ -26,11 +27,11 @@ const sketch = (node: HTMLElement) => (p5: p5) => {
         // add particles
 
         for (let i = 0; i < 3; i++) {
-            const terrainParticles = []
+            const terrainLanterns = []
             for (let j = 0; j < 5; j++) {
-                terrainParticles.push(new Particle(p5));
+                terrainLanterns.push(new Lantern(p5));
             }
-            particles.push(terrainParticles)
+            lanterns.push(terrainLanterns)
         }
     }
 
@@ -40,15 +41,15 @@ const sketch = (node: HTMLElement) => (p5: p5) => {
 
         p5.noStroke()
 
-        updateParticles(0);
+        updateLanterns(0);
         p5.fill(0)
         drawTerrain(terrainPoints3, offsets[0]);
 
-        updateParticles(1);
+        updateLanterns(1);
         p5.fill(100)
         drawTerrain(terrainPoints2, offsets[1]);
 
-        updateParticles(2);
+        updateLanterns(2);
         p5.fill(200);
         drawTerrain(terrainPoints1, offsets[2]);
 
@@ -72,15 +73,15 @@ const sketch = (node: HTMLElement) => (p5: p5) => {
     // can I use a for-loop? maybe put the terrainPoints in an array?
     // nah I'm too small brain B)
     const updateOffsets = () => {
-        offsets[0] = (offsets[0] + speed * 0.8) % terrainPoints1.length
-        offsets[1] = (offsets[1] + speed * 1) % terrainPoints1.length
-        offsets[2] = (offsets[2] + speed * 1.2) % terrainPoints1.length
+        offsets[0] = (offsets[0] + speed * 0.5) % terrainPoints1.length
+        offsets[1] = (offsets[1] + speed * 1) % terrainPoints2.length
+        offsets[2] = (offsets[2] + speed * 1.5) % terrainPoints3.length
     }
 
-    const updateParticles = (idx: number) => {
-        for (let i = 0; i < particles[idx].length; i++) {
-            particles[idx][i].createParticle();
-            particles[idx][i].moveParticle();
+    const updateLanterns = (idx: number) => {
+        for (let i = 0; i < lanterns[idx].length; i++) {
+            lanterns[idx][i].move();
+            lanterns[idx][i].draw();
         }
     }
 }
