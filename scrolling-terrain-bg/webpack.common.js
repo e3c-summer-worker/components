@@ -10,7 +10,7 @@ module.exports = {
         library: 'TerrainSketch',
         libraryTarget: 'umd',
         path: path.resolve(__dirname, './build'),
-        filename: "[name]-bundle.js", // <--- Will be compiled to this single file
+        filename: "scrolling-terrain.js", // <--- Will be compiled to this single file
         clean: true,
     },
     resolve: {
