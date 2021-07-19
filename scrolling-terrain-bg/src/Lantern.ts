@@ -38,7 +38,7 @@ export class Lantern {
         this.p.fill(fillColor);
         this.p.rectMode(this.p.CENTER);
         // draws a lantern skeleton
-        this.p.rect(this.x, this.y, this.width, this.height, 8);
+        // this.p.rect(this.x, this.y, this.width, this.height, 8);
 
         this.particle.draw(this.x, this.y + 5);
     }
