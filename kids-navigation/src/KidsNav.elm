@@ -21,8 +21,9 @@ navigations : List ( String, String )
 navigations =
     [ ( "HOME", "https://eccchurch.ca/kids/" )
     , ( "ECCC KIDS CHURCH ONLINE", "https://eccchurch.ca/kids/church-online" )
-    , ( "AWANA SPARKS (K-GR.2)", "https://eccchurch.ca/kids/awana" )
-    , ( "KAIO FELLOWSHIP (GR.3-6)", "https://eccchurch.ca/kids/kaio" )
+    , ( "PROGRAMS", "https://eccchurch.ca/kids/programs" )
+    , ( "AWANA (K-GR.2)", "https://eccchurch.ca/kids/awana" )
+    , ( "KAIO (GR.3-6)", "https://eccchurch.ca/kids/kaio" )
     , ( "UPDATES", "https://eccchurch.ca/kids/updates" )
     ]
 
