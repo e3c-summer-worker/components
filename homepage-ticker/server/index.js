@@ -1,8 +1,4 @@
-// install express with `npm install express` 
-const express = require('express')
-const app = express()
+const index = require("./dist/index.js")
 
-app.get('/', (req, res) => res.send('Hello World!'))
-
-// export 'app'
-module.exports = app
+// no need for `app.listen()` on Deta, we run the app automatically.
+module.exports = index.app; // make sure to export your `app` instance.npm
