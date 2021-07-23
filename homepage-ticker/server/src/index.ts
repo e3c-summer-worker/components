@@ -5,6 +5,7 @@ import { getSheets } from './auth';
 import { getLength } from './meta';
 import { sheets_v4 } from '@googleapis/sheets';
 import { FormattedText, parseRichText } from './rich-text';
+import cors from 'cors';
 config()
 
 const app = express()
@@ -33,7 +34,7 @@ interface Content {
     chinese: string,
 }
 
-app.get('/content', async (req, res) => {
+app.get('/content', cors(), async (req, res) => {
     try {
         const sheets = await getSheets()
 

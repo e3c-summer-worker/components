@@ -1,4 +1,5 @@
 // parses rich text in a spreadsheet 
+// WIP
 
 import { sheets_v4 } from '@googleapis/sheets';
 import { format } from 'path/posix';
