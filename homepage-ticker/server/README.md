@@ -7,7 +7,7 @@ The endpoint is at [https://4y7qfk.deta.dev](https://4y7qfk.deta.dev).
 ## Local Development
 
 ```bash
-nvm use
+nvm install && nvm use
 npm install
 npm start
 ```

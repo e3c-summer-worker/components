@@ -59,7 +59,7 @@ app.get('/content', cors(), async (req, res) => {
 
 // returns the rich content
 // https://developers.google.com/sheets/api/reference/rest/v4/spreadsheets/cells#TextFormatRun
-// significantly more difficult to parse than the plain text
+// significantly more difficult to parse than the plain text. WIP.
 
 interface ContentFormatted {
     english: FormattedText,
