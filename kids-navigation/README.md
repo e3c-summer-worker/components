@@ -30,7 +30,7 @@ This should make Elm download the necessary dependencies in [`elm.json`](elm.jso
 Note that the UI will not look exactly like the one you will see on Squarespace. They use some fonts that are paid, so I was unable to use them on this project.
 The layout will be the same, though.
 
-If you start a live server and then open `public/index.html` file in your browser, you should see the navigation bar.
+If you start a live server and then open `public/index.html` file in your browser, you should see the navigation bar. I personally use Ritwich Dey's [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) extension to start the server right in VSCode.
 
 #### Build the code once changes are made
 
