@@ -100,9 +100,7 @@ view model =
 
         Error error ->
             Html.div []
-                [ Html.text "Error!"
-                , Html.text <| Debug.toString error
-                ]
+                [ Html.text "HTTP Error!" ]
 
 
 mobileView : LoadedModel -> Html Msg
