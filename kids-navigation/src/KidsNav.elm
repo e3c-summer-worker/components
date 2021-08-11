@@ -88,7 +88,7 @@ view : Model -> Html Msg
 view model =
     case model of
         Loading _ ->
-            Html.div [] []
+            Html.div [ Html.Attributes.style "height" "60px" ] []
 
         Loaded model_ ->
             -- these are the same dimensions eccckids.com uses
