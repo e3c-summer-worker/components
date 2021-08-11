@@ -5,27 +5,14 @@ import Animator.Css
 import Browser
 import Browser.Events
 import Colours
+import DetaResponse exposing (DetaResponse)
 import FeatherIcons
 import Html exposing (Html)
 import Html.Attributes
 import Html.Events
+import Http
 import Icon
 import Time
-
-
-
----- DATA: Edit this to get a new navigation
-
-
-navigations : List ( String, String )
-navigations =
-    [ ( "HOME", "https://eccchurch.ca/kids/" )
-    , ( "ECCC KIDS CHURCH ONLINE", "https://eccchurch.ca/kids/church-online" )
-    , ( "PROGRAMS", "https://eccchurch.ca/kids/programs" )
-    , ( "AWANA (K-GR.2)", "https://eccchurch.ca/kids/awana" )
-    , ( "KAIO (GR.3-6)", "https://eccchurch.ca/kids/kaio" )
-    , ( "UPDATES", "https://eccchurch.ca/kids/updates" )
-    ]
 
 
 
@@ -56,24 +43,40 @@ type alias Flags =
 ---- MODEL
 
 
-type alias Model =
+type Model
+    = Loading Flags
+    | Loaded LoadedModel
+    | Error Http.Error
+
+
+type alias LoadedModel =
     { open : Animator.Timeline Bool
     , currentPage : String
     , width : Int
     , activeLink : String -- which link to be blue
     , caretHover : Bool -- whether the caret toggle button is blue
+    , navigations : List ( String, String )
+    }
+
+
+initLoadedModel : Flags -> DetaResponse -> LoadedModel
+initLoadedModel flags detaResponse =
+    { open = Animator.init False
+    , currentPage = flags.currentPage
+    , width = flags.width
+    , activeLink = ""
+    , caretHover = False
+    , navigations = detaResponse.rows
     }
 
 
 init : Flags -> ( Model, Cmd Msg )
 init flags =
-    ( { open = Animator.init False
-      , currentPage = flags.currentPage
-      , width = flags.width
-      , activeLink = ""
-      , caretHover = False
-      }
-    , Cmd.none
+    ( Loading flags
+    , Http.get
+        { url = "https://q77r6a.deta.dev/sheet/14byB3NwMWaruVI6PTG4WuLFV7om1zefLb84JQQLycfE"
+        , expect = Http.expectJson GotDetaResponse DetaResponse.decoder
+        }
     )
 
 
@@ -83,15 +86,26 @@ init flags =
 
 view : Model -> Html Msg
 view model =
-    -- these are the same dimensions eccckids.com uses
-    if model.width < 979 then
-        mobileView model
+    case model of
+        Loading _ ->
+            Html.div [] []
 
-    else
-        desktopView model
+        Loaded model_ ->
+            -- these are the same dimensions eccckids.com uses
+            if model_.width < 979 then
+                mobileView model_
+
+            else
+                desktopView model_
+
+        Error error ->
+            Html.div []
+                [ Html.text "Error!"
+                , Html.text <| Debug.toString error
+                ]
 
 
-mobileView : Model -> Html Msg
+mobileView : LoadedModel -> Html Msg
 mobileView model =
     let
         icon =
@@ -128,7 +142,7 @@ mobileView model =
                 , Html.Attributes.style "overflow" "hidden"
                 ]
             <|
-                List.map (\( text, link ) -> textBlockMobile model text link) navigations
+                List.map (\( text, link ) -> textBlockMobile model text link) model.navigations
     in
     Html.div
         [ Html.Attributes.style "height" "fill"
@@ -138,7 +152,7 @@ mobileView model =
         [ icon, links ]
 
 
-textBlockMobile : Model -> String -> String -> Html Msg
+textBlockMobile : LoadedModel -> String -> String -> Html Msg
 textBlockMobile { currentPage, activeLink } label url =
     let
         fontColour =
@@ -163,17 +177,17 @@ textBlockMobile { currentPage, activeLink } label url =
         [ Html.text label ]
 
 
-desktopView : Model -> Html Msg
+desktopView : LoadedModel -> Html Msg
 desktopView model =
     Html.div
         [ Html.Attributes.style "display" "flex"
         , Html.Attributes.style "flex-wrap" "wrap"
         ]
     <|
-        List.map (\( text, link ) -> textBlockDesktop model text link) navigations
+        List.map (\( text, link ) -> textBlockDesktop model text link) model.navigations
 
 
-textBlockDesktop : Model -> String -> String -> Html Msg
+textBlockDesktop : LoadedModel -> String -> String -> Html Msg
 textBlockDesktop { currentPage, activeLink } label url =
     Html.a
         [ Html.Attributes.style "height" "60px"
@@ -206,6 +220,7 @@ textBlockDesktop { currentPage, activeLink } label url =
 
 type Msg
     = Tick Time.Posix
+    | GotDetaResponse (Result Http.Error DetaResponse)
     | ToggleOpen Bool
     | UpdateWidth Int
     | ActivateLink String
@@ -214,32 +229,46 @@ type Msg
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
-update msg model =
-    case msg of
-        Tick newTime ->
+update msg m =
+    case ( m, msg ) of
+        ( Loaded model, Tick newTime ) ->
             ( model
                 |> Animator.update newTime animator
+                |> Loaded
               -- (5) - Updating our model using our animator and the current time.
             , Cmd.none
             )
 
-        ToggleOpen newChecked ->
-            ( { model
-                | open =
-                    -- (6) - Here we're adding a new state to our timeline.
-                    model.open
-                        |> Animator.go Animator.slowly newChecked
-              }
+        ( Loading flags, GotDetaResponse res ) ->
+            case res of
+                Ok response ->
+                    ( Loaded <| initLoadedModel flags response
+                    , Cmd.none
+                    )
+
+                Err error ->
+                    ( Error error
+                    , Cmd.none
+                    )
+
+        ( Loaded model, ToggleOpen newChecked ) ->
+            ( Loaded
+                { model
+                    | open =
+                        -- (6) - Here we're adding a new state to our timeline.
+                        model.open
+                            |> Animator.go Animator.slowly newChecked
+                }
             , Cmd.none
             )
 
-        UpdateWidth newWidth ->
-            ( { model | width = newWidth }, Cmd.none )
+        ( Loaded model, UpdateWidth newWidth ) ->
+            ( Loaded { model | width = newWidth }, Cmd.none )
 
-        ActivateLink link ->
-            ( { model | activeLink = link }, Cmd.none )
+        ( Loaded model, ActivateLink link ) ->
+            ( Loaded { model | activeLink = link }, Cmd.none )
 
-        RemoveActiveLink link ->
+        ( Loaded model, RemoveActiveLink link ) ->
             let
                 newLink =
                     if link == model.activeLink then
@@ -248,10 +277,13 @@ update msg model =
                     else
                         model.activeLink
             in
-            ( { model | activeLink = newLink }, Cmd.none )
+            ( Loaded { model | activeLink = newLink }, Cmd.none )
 
-        CaretHover hover ->
-            ( { model | caretHover = hover }, Cmd.none )
+        ( Loaded model, CaretHover hover ) ->
+            ( Loaded { model | caretHover = hover }, Cmd.none )
+
+        _ ->
+            ( m, Cmd.none )
 
 
 
@@ -259,21 +291,26 @@ update msg model =
 
 
 subscriptions : Model -> Sub Msg
-subscriptions model =
-    Sub.batch
-        [ Browser.Events.onResize (\w _ -> UpdateWidth w)
-        , -- (4) - turning out Animator into a subscription
-          -- this is where the animator will decide to have a subscription to AnimationFrame or not.
-          animator
-            |> Animator.toSubscription Tick model
-        ]
+subscriptions m =
+    case m of
+        Loaded model ->
+            Sub.batch
+                [ Browser.Events.onResize (\w _ -> UpdateWidth w)
+                , -- (4) - turning out Animator into a subscription
+                  -- this is where the animator will decide to have a subscription to AnimationFrame or not.
+                  animator
+                    |> Animator.toSubscription Tick model
+                ]
+
+        _ ->
+            Sub.none
 
 
 
 -- animator
 
 
-animator : Animator.Animator Model
+animator : Animator.Animator LoadedModel
 animator =
     Animator.animator
         |> Animator.watching
