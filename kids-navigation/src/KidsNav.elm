@@ -130,8 +130,8 @@ mobileView model =
                 [ Animator.Css.height <|
                     \open ->
                         if open then
-                            -- 35px * 6 elements
-                            Animator.at 210
+                            -- 35px * number of elements
+                            Animator.at (toFloat <| 35 * List.length model.navigations)
 
                         else
                             Animator.at 0
