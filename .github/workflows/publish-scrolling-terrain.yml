@@ -11,10 +11,10 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    name: Build
     defaults:
       run:
         working-directory: ./scrolling-terrain-bg
-    name: Build
     steps:
       - name: git-checkout
         uses: actions/checkout@v2
@@ -33,21 +33,25 @@ jobs:
   push:
     runs-on: ubuntu-latest
     name: Push to branch
+    defaults:
+      run:
+        working-directory: ./scrolling-terrain-bg
     needs: build
     steps:
       - name: Checkout
-        uses: actions/checkout@master
+        uses: actions/checkout@v2
 
       - name: Download build artifact
         uses: actions/download-artifact@v2
         with:
           name: build-data
+          path: scrolling-terrain-bg/build
 
       - name: Push to new Github Branch
-        uses: s0/git-publish-subdir-action@v2.5.0
+        uses: s0/git-publish-subdir-action@develop
         env:
           REPO: self
           BRANCH: scrolling-terrain # The branch name where you want to push the assets
           FOLDER: build # The directory where your assets are generated
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # GitHub will automatically add this - you don't need to bother getting a token
-          MESSAGE: "Scrolling Terrain build: ({sha}) {msg}" # The commit message
+          MESSAGE: "Scrolling Terrain build: ({sha})" # The commit message
