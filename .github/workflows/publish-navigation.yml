@@ -38,8 +38,8 @@ jobs:
         with:
           name: build-data
           path: |
-            scrolling-terrain-bg/public/desktopnav-elm.js
-            scrolling-terrain-bg/public/mobilenav-elm.js
+            navigation/public/desktopnav-elm.js
+            navigation/public/mobilenav-elm.js
 
   push:
     runs-on: ubuntu-latest
