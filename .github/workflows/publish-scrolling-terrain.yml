@@ -1,0 +1,46 @@
+name: Generate a build and push to another branch
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "scrolling-terrain-bg/src/**"
+      - ".github/workflows/publish-scrolling-terrain.yml" # This file
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Build
+    steps:
+      - name: git-checkout
+        uses: actions/checkout@v2
+
+      - name: Install and build
+        run: |
+          npm install
+          npm run build
+
+      - name: Archive production artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: build-data
+          path: build
+
+  push:
+    runs-on: ubuntu-latest
+    name: Push to branch
+    steps:
+      - name: Download build artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: build-data
+
+      - name: Push to new Github Branch
+        uses: s0/git-publish-subdir-action@v2.5.0
+        env:
+          REPO: self
+          BRANCH: scrolling-terrain # The branch name where you want to push the assets
+          FOLDER: build # The directory where your assets are generated
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # GitHub will automatically add this - you don't need to bother getting a token
+          MESSAGE: "Scrolling Terrain build: ({sha}) {msg}" # The commit message
