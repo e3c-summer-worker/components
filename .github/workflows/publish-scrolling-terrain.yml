@@ -33,9 +33,6 @@ jobs:
   push:
     runs-on: ubuntu-latest
     name: Push to branch
-    defaults:
-      run:
-        working-directory: ./scrolling-terrain-bg
     needs: build
     steps:
       - name: Checkout
@@ -45,7 +42,7 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: build-data
-          path: scrolling-terrain-bg/build
+          path: build
 
       - name: Push to new Github Branch
         uses: s0/git-publish-subdir-action@develop
