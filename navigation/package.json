@@ -1,16 +1,15 @@
 {
-    "scripts": {
-        "start:desktop": "elm-live src/DesktopNav.elm -H --dir=./public -- --output=public/desktopnav-elm.js",
-        "start:mobile": "elm-live src/MobileNav.elm -H --dir=./public -- --output=public/mobileNav-elm.js",
-        "build": "npm run build:preprocess && npm run uglify && rm buffer_desktop.js && rm buffer_mobile.js",
-        "build:preprocess": "elm make src/DesktopNav.elm --optimize --output=buffer_desktop.js && elm make src/MobileNav.elm --optimize --output=buffer_mobile.js",
-        "uglify": "npm run uglify:desktop && npm run uglify:mobile",
-        "uglify:desktop": "uglifyjs buffer_desktop.js --compress 'pure_funcs=[F2,F3,F4,F5,F6,F7,F8,F9,A2,A3,A4,A5,A6,A7,A8,A9],pure_getters,keep_fargs=false,unsafe_comps,unsafe' | uglifyjs --mangle --output public/desktopnav-elm.js",
-        "uglify:mobile": "uglifyjs buffer_mobile.js --compress 'pure_funcs=[F2,F3,F4,F5,F6,F7,F8,F9,A2,A3,A4,A5,A6,A7,A8,A9],pure_getters,keep_fargs=false,unsafe_comps,unsafe' | uglifyjs --mangle --output public/mobilenav-elm.js"
-
-    },
-    "devDependencies": {
-        "elm-live": "^4.0.2",
-        "uglify-js": "^3.13.9"
-    }
+  "scripts": {
+    "start:desktop": "elm-live src/DesktopNav.elm -H --dir=./public -- --output=public/desktopnav-elm.js",
+    "start:mobile": "elm-live src/MobileNav.elm -H --dir=./public -- --output=public/mobileNav-elm.js",
+    "build": "npm run build:preprocess && npm run uglify && rm buffer_desktop.js && rm buffer_mobile.js",
+    "build:preprocess": "elm make src/DesktopNav.elm --optimize --output=buffer_desktop.js && elm make src/MobileNav.elm --optimize --output=buffer_mobile.js",
+    "uglify": "npm run uglify:desktop && npm run uglify:mobile",
+    "uglify:desktop": "uglifyjs buffer_desktop.js --compress 'pure_funcs=[F2,F3,F4,F5,F6,F7,F8,F9,A2,A3,A4,A5,A6,A7,A8,A9],pure_getters,keep_fargs=false,unsafe_comps,unsafe' | uglifyjs --mangle --output public/desktopnav-elm.js",
+    "uglify:mobile": "uglifyjs buffer_mobile.js --compress 'pure_funcs=[F2,F3,F4,F5,F6,F7,F8,F9,A2,A3,A4,A5,A6,A7,A8,A9],pure_getters,keep_fargs=false,unsafe_comps,unsafe' | uglifyjs --mangle --output public/mobilenav-elm.js"
+  },
+  "devDependencies": {
+    "elm-live": "^4.0.2",
+    "uglify-js": "^3.13.9"
+  }
 }
