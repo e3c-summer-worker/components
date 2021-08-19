@@ -1,4 +1,0 @@
-{
-  "elmLS.elmPath": "./node_modules/.bin/elm",
-  "elmLS.elmFormatPath": "./node_modules/.bin/elm-format"
-}
