@@ -12,9 +12,22 @@ const sketch = (node: HTMLElement) => (p5: p5) => {
     // this is actually going to be a 2D list (3x5) - we have 5 lanterns behind each terrain
     let lanterns: Lantern[][] = []
 
+    // retrieving a reference to the lantern image because loading it during the setup() function takes time
+    // and we might get an error making the `img` undefined
+    // this also prevents each of the lanterns from 
+    let lanternImg: p5.Image;
+
+    p5.preload = () => {
+        // path must be relative to the html file loading the sketch
+        // https://p5js.org/reference/#/p5/loadImage
+
+        lanternImg = p5.loadImage('src/assets/lantern.png');
+    }
+
+
     p5.setup = () => {
         const { width, height } = node.getBoundingClientRect()
-        console.log(width, height)
+        console.log({ width, height })
         p5.createCanvas(width, height);
 
         // first terrain (the furthest front, and lightest)
@@ -25,11 +38,11 @@ const sketch = (node: HTMLElement) => (p5: p5) => {
         terrainPoints3 = setupTerrain(width, height * 3 / 4, height / 4, 0.56);
 
         // add particles
-
+        const numLanterns = Math.round(width / 150);
         for (let i = 0; i < 3; i++) {
             const terrainLanterns = []
-            for (let j = 0; j < 5; j++) {
-                terrainLanterns.push(new Lantern(p5));
+            for (let j = 0; j < numLanterns; j++) {
+                terrainLanterns.push(new Lantern(p5, lanternImg));
             }
             lanterns.push(terrainLanterns)
         }
@@ -42,15 +55,15 @@ const sketch = (node: HTMLElement) => (p5: p5) => {
         p5.noStroke()
 
         updateLanterns(0);
-        p5.fill(0)
+        p5.fill(23, 34, 62); // darkest
         drawTerrain(terrainPoints3, offsets[0]);
 
         updateLanterns(1);
-        p5.fill(100)
+        p5.fill(25, 32, 100);
         drawTerrain(terrainPoints2, offsets[1]);
 
         updateLanterns(2);
-        p5.fill(200);
+        p5.fill(23, 62, 145); // lightest
         drawTerrain(terrainPoints1, offsets[2]);
 
         updateOffsets()
