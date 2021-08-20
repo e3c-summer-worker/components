@@ -56,7 +56,7 @@ jobs:
           path: build
 
       - name: Add comment to Desktop Nav
-        uses: e3c-summer-worker/bundle-comments@v1
+        uses: e3c-summer-worker/bundle-comments@v1.1
         with:
           name: Desktop Nav
           sha: "{sha}"
@@ -85,7 +85,7 @@ jobs:
           path: build
 
       - name: Add comment to Mobile Nav
-        uses: e3c-summer-worker/bundle-comments@v1
+        uses: e3c-summer-worker/bundle-comments@v1.1
         with:
           name: Desktop Nav
           sha: "{sha}"
