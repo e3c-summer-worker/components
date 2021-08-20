@@ -56,7 +56,7 @@ jobs:
           path: build
 
       - name: Add comment to Desktop Nav
-        uses: e3c-summer-worker/bundle-comments@v2
+        uses: e3c-summer-worker/bundle-comments@v2.0.1
         with:
           name: Desktop Nav
           filePath: build/desktopnav-elm.js
@@ -82,7 +82,7 @@ jobs:
           path: build
 
       - name: Add comment to Mobile Nav
-        uses: e3c-summer-worker/bundle-comments@v2
+        uses: e3c-summer-worker/bundle-comments@v2.0.1
         with:
           name: Desktop Nav
           filePath: build/mobilenav-elm.js
