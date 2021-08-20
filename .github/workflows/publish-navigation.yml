@@ -55,6 +55,19 @@ jobs:
           name: build-data
           path: build
 
+      - name: Add comment to Desktop Nav
+        uses: e3c-summer-worker/bundle-comments@v1
+        with:
+          name: Desktop Nav
+          sha: "{sha}"
+          comment: "Desktop Navigation code"
+          repoLink: https://github.com/e3c-summer-worker/components
+          filePath: build/navigation/public/desktopnav-elm.js
+
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Add bundle comments
+
       - name: Push to new Github Branch
         uses: s0/git-publish-subdir-action@develop
         env:
