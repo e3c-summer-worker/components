@@ -43,7 +43,7 @@ jobs:
 
   add-comment-desktop:
     runs-on: ubuntu-latest
-    name: Push to branch
+    name: Add Comment to Desktop Nav
     needs: build
     steps:
       - name: Checkout
@@ -72,7 +72,7 @@ jobs:
 
   add-comment-mobile:
     runs-on: ubuntu-latest
-    name: Push to branch
+    name: Add Comment to Mobile Nav
     needs: build
     steps:
       - name: Checkout
