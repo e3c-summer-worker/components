@@ -97,7 +97,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: build-mobile-comments
-          path: navigation/mobilenav-elm.js
+          path: build/mobilenav-elm.js
 
   deploy:
     runs-on: ubuntu-latest
