@@ -56,12 +56,9 @@ jobs:
           path: build
 
       - name: Add comment to Desktop Nav
-        uses: e3c-summer-worker/bundle-comments@v1.1
+        uses: e3c-summer-worker/bundle-comments@v2
         with:
           name: Desktop Nav
-          sha: "{sha}"
-          comment: "Desktop Navigation code"
-          repoLink: https://github.com/e3c-summer-worker/components
           filePath: build/desktopnav-elm.js
 
       - name: Archive production artifacts
@@ -85,12 +82,9 @@ jobs:
           path: build
 
       - name: Add comment to Mobile Nav
-        uses: e3c-summer-worker/bundle-comments@v1.1
+        uses: e3c-summer-worker/bundle-comments@v2
         with:
           name: Desktop Nav
-          sha: "{sha}"
-          comment: "Desktop Navigation code"
-          repoLink: https://github.com/e3c-summer-worker/components
           filePath: build/mobilenav-elm.js
 
       - name: Archive production artifacts
