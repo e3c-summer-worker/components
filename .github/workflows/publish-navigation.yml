@@ -102,9 +102,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     name: Deploy to Github Branch
-    needs: |
-      add-comment-desktop
-      add-comment-mobile
+    needs: [add-comment-desktop, add-comment-mobile]
     steps:
       - name: Checkout
         uses: actions/checkout@v2
