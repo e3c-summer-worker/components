@@ -84,16 +84,17 @@
         }
 
     </style>
+    <link rel="stylesheet" type="text/css" href="./ticker.css">
     <script src='./homepage-ticker-elm.js'></script>
     <script>
         window.onload = () => {
-            const wrapper = document.querySelector('.sqs-slice-group.group-copy.align-center-vert.full-width')
-            const elm = document.createElement('div')
-            elm.setAttribute('id', 'elm')
+            const elem = document.querySelector('.sqs-slice-group.group-copy.align-center-vert.full-width');
+            const elm = document.createElement('div');
+            elm.setAttribute('id', 'elm');
 
-            const header = document.querySelector('.sqs-slice.yui3-widget.sqs-slice-heading.sqs-slice-heading-content')
-
-            wrapper.insertBefore(elm, header)
+            // insert after wrapper
+            // https://stackoverflow.com/a/4793630
+            elem.parentNode.insertBefore(elm, elem);
             Elm.HomepageTicker.init({ node: elm });
 
         }
@@ -7518,7 +7519,6 @@
                                 data-image-resolution="2500w" src="./assets/1mainpagelogo.png"
                                 style="font-size: 0px; left: 393.288px; top: 0px; width: 93.4233px; height: 18px; position: absolute;">
                         </div>
-                        <div id="elm"></div>
                         <div class="sqs-slice-group group-copy align-center-vert full-width">
                             <div class="sqs-slice yui3-widget sqs-slice-heading sqs-slice-heading-content"
                                 data-slice-type="heading" data-slice-id="60fa368c6f9cc677e939152e"
