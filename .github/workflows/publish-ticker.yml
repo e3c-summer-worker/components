@@ -1,0 +1,56 @@
+name: Publish Scrolling Terrain
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "homepage-ticker/src/**"
+      - ".github/workflows/publish-ticker.yml" # This file
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Build
+    defaults:
+      run:
+        working-directory: ./homepage-ticker
+    steps:
+      - name: git-checkout
+        uses: actions/checkout@v2
+
+      - name: Install and build
+        run: |
+          npm ci
+          npm run build
+
+      - name: Archive production artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: build-data
+          path: |
+            homepage-ticker/public/homepage-ticker.js
+            homepage-ticker/public/ticker.css
+
+  push:
+    runs-on: ubuntu-latest
+    name: Push to branch
+    needs: build
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Download build artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: build-data
+          path: build
+
+      - name: Push to new Github Branch
+        uses: s0/git-publish-subdir-action@develop
+        env:
+          REPO: self
+          BRANCH: ticker # The branch name where you want to push the assets
+          FOLDER: build # The directory where your assets are generated
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # GitHub will automatically add this - you don't need to bother getting a token
+          MESSAGE: "Scrolling Terrain build: ({sha})\n{msg}" # The commit message

@@ -18,3 +18,7 @@ npm run start:elm
 # in another terminal, run
 npm run start:sass
 ```
+
+## Production - WIP
+
+Note that you'll need both the `homepage-ticker-elm.js` and the `ticker.css` files to be included.
