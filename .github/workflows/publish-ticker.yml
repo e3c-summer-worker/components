@@ -34,7 +34,7 @@ jobs:
         with:
           name: build-data
           path: |
-            homepage-ticker/public/homepage-ticker.js
+            homepage-ticker/public/homepage-ticker-elm.js
             homepage-ticker/public/ticker.css
 
   push:
