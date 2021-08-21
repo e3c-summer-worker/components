@@ -9,7 +9,7 @@ import Html.Attributes exposing (attribute, class, href, id)
 -- MAIN
 
 
-main : Program () Model Msg
+main : Program () Model Never
 main =
     Browser.sandbox { init = init, update = update, view = view }
 
@@ -31,11 +31,7 @@ init =
 -- UPDATE
 
 
-type Msg
-    = NoOp
-
-
-update : Msg -> Model -> Model
+update : Never -> Model -> Model
 update _ model =
     model
 
@@ -44,7 +40,7 @@ update _ model =
 -- VIEW
 
 
-view : Model -> Html Msg
+view : Model -> Html Never
 view _ =
     div [ id "headerNav" ]
         [ div [ class "nav-wrapper", attribute "data-content-field" "navigation-mainNav", id "mainNavWrapper" ]
