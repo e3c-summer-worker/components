@@ -31,12 +31,18 @@
             Elm.MobileNav.init({ node: sidecarNav });
 
             // p5.js stuff
-            console.log(TerrainSketch)
             const containerElement = document.getElementById('thumbnail');
-            containerElement.replaceChildren()
             new p5(TerrainSketch.sketch(containerElement), containerElement);
         }
     </script>
+    <style>
+        #defaultCanvas0 {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+    </style>
 </head>
 <!-- Kinda need all these class names to make some styles work :// -->
 

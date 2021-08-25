@@ -3,12 +3,13 @@
     "module": "commonjs",
     "lib": ["es5", "es6", "dom"],
     "rootDir": "src",
-    "noImplicitAny": true,
+    "noImplicitAny": false,
     "outDir": "build",
     "preserveConstEnums": true,
     "removeComments": true,
     "sourceMap": false,
     "target": "es5",
     "moduleResolution": "node"
-  }
+  },
+  "include": ["src", "global.d.ts"]
 }

@@ -21,7 +21,12 @@ module.exports = {
             {
                 test: /\.tsx?$/,
                 loader: "ts-loader"
+            },
+            {
+                test: /\.(png|jpe?g)/,
+                type: 'asset/resource'
             }
+
         ]
     },
 };
