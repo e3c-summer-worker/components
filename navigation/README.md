@@ -14,7 +14,9 @@ that goes inside `#headerNav` and `#sidecarNav` in the Squarespace page, respect
 
 The header code in `public/index.html` is almost exactly what you'd see copy and
 pasted into Squarespace (instead of importing the local `.js` file we use
-[JSDelivr](https://www.jsdelivr.com/), and we need to add the contents in and [`styles.css`](./public/styles.css)).
+[JSDelivr](https://www.jsdelivr.com/), and we need to add the contents in and [`styles.css`](./public/styles.css).
+
+Note that we are using yarn workspaces, so the installations will be mostly consolidated at a top-level `node_modules/` folder.
 
 ## Important
 
@@ -23,13 +25,13 @@ The [`site.css`](./public/site.css) is the squarespace compiled css, and the [`s
 ## Local Development
 
 ```bash
-npm install
-npm run start:desktop
+yarn
+yarn start:desktop
 # In another terminal, run
-npm run start:mobile
+yarn start:mobile
 
 # for minification:
-npm run build
+yarn build
 ```
 
 ## Production

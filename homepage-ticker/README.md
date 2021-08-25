@@ -9,16 +9,20 @@ to whatever you have the micro server running on (`http://localhost:3001` unless
 
 The data is located in a Google Spreadsheet at [this link](https://docs.google.com/spreadsheets/d/1E7MW3HpJJNEtByxD2Ej55V60q9OU13t7rGy_le5FcTo/edit?usp=sharing).
 
+Note that we are using yarn workspaces, so the installations will be mostly consolidated at a top-level `node_modules/` folder.
+
 ## Local Development
 
 ```bash
-npm i
-npm run start:elm
+yarn
+yarn start:elm
 
 # in another terminal, run
-npm run start:sass
+yarn start:sass
 ```
 
-## Production - WIP
+## Production
 
-Note that you'll need both the `homepage-ticker-elm.js` and the `ticker.css` files to be included.
+You'll need both the `homepage-ticker-elm.js` and the `ticker.css` files to be included.
+
+Github actions should automatically build the files and publish them to a cdn on deployment, so you shouldn't worr about production.

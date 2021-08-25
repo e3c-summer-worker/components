@@ -1,12 +1,14 @@
 # Scrolling Terrain
 
-Based off of [p5-typescript-starter](https://github.com/Gaweph/p5-typescript-starter)
+Based off of [p5-typescript-starter](https://github.com/Gaweph/p5-typescript-starter).
+
+Note that we are using yarn workspaces, so the installations will be mostly consolidated at a top-level `node_modules/` folder.
 
 ## Run Locally
 
 ```bash
-npm install
-npm start
+yarn
+yarn start
 ```
 
 Then start a local server and go to index.html to see the results.
