@@ -1,4 +1,4 @@
-name: Publish Scrolling Terrain
+name: Publish Ticker
 
 on:
   push:
