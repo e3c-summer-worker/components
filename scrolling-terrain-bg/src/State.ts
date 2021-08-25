@@ -11,14 +11,17 @@ import { setupTerrain } from './terrain';
 
 // TYPES
 
-type StateType = 'static' | 'dynamic';
+export type StateType = 'static' | 'dynamic';
 
 
 // always initialize to the static type
-interface InitData {
+export interface InitData {
     p5: p5;
     lanternImg: p5.Image;
     lanternBg: p5.Image;
+    zapIcon: p5.Image;
+    pictureIcon: p5.Image;
+
     width: number;
     height: number;
     speed: number;
@@ -49,11 +52,20 @@ export class State {
     width: number;
     height: number;
 
-    constructor({ p5, lanternImg, lanternBg, width, height, speed }: InitData) {
+    // state toggle button
+    zapIcon: p5.Image;
+    pictureIcon: p5.Image;
+
+    // location of the button
+    readonly buttonX: number;
+    readonly buttonY: number;
+
+    constructor({ p5, lanternImg, lanternBg, width, height, speed, zapIcon, pictureIcon }: InitData) {
         this.p5 = p5;
 
         const lanterns: Lantern[][] = [];
         // add particles
+        // particles depend on the width of the screen
         const numLanterns = Math.round(width / 150);
         for (let i = 0; i < 3; i++) {
             const terrainLanterns = []
@@ -81,6 +93,15 @@ export class State {
         // window data
         this.width = width;
         this.height = height;
+
+        // state toggle button
+        this.zapIcon = zapIcon;
+        this.pictureIcon = pictureIcon;
+
+        // location of the button
+        this.buttonX = this.width / 2;
+        this.buttonY = this.height * 3 / 4;
+
     }
 
     draw = (): void => {
@@ -90,7 +111,12 @@ export class State {
             this.p5.background(255, 0);
             this.p5.strokeWeight(0);
             this.p5.fill(255);
-            this.p5.rect(0, 0, this.width, 100)
+
+            // once the width reaches less than 640px, the logo shrinks to 83px high.
+            const height = this.width < 640 ? 83 : 100;
+            this.p5.rect(0, 0, this.width, height);
+
+            this.drawButton()
         } else {
             this.p5.background(255);
 
@@ -109,10 +135,22 @@ export class State {
             this.drawTerrain(this.terrainPoints1, this.offsets[2]);
 
             this.updateOffsets()
+
+            this.drawButton()
         }
     }
 
-    private drawTerrain = (points: number[], offset: number) => {
+    mousePressed = () => {
+        if (this.p5.dist(this.p5.mouseX, this.p5.mouseY, this.buttonX, this.buttonY) < 50) {
+            if (this.stateType === 'static') {
+                this.stateType = 'dynamic';
+            } else {
+                this.stateType = 'static';
+            }
+        }
+    }
+
+    private drawTerrain = (points: number[], offset: number): void => {
         this.p5.beginShape();
         // bottom left corner - to ensure we shade in the shape correctly
         this.p5.vertex(0, this.p5.height);
@@ -126,17 +164,39 @@ export class State {
 
     // can I use a for-loop? maybe put the terrainPoints in an array?
     // nah I'm too small brain B)
-    private updateOffsets = () => {
+    private updateOffsets = (): void => {
         this.offsets[0] = (this.offsets[0] + this.speed * 0.5) % this.terrainPoints1.length
         this.offsets[1] = (this.offsets[1] + this.speed * 1) % this.terrainPoints2.length
         this.offsets[2] = (this.offsets[2] + this.speed * 1.5) % this.terrainPoints3.length
     }
 
-    private updateLanterns = (idx: number) => {
+    private updateLanterns = (idx: number): void => {
         for (let i = 0; i < this.lanterns[idx].length; i++) {
             this.lanterns[idx][i].move();
             this.lanterns[idx][i].draw();
         }
+    }
+
+    private drawButton = (): void => {
+        this.p5.rectMode(this.p5.CENTER);
+        this.p5.imageMode(this.p5.CENTER);
+
+        // centered horizontally, 3/4 of the way down
+
+        this.p5.fill(255);
+        this.p5.circle(this.buttonX, this.buttonY, 50);
+
+        switch (this.stateType) {
+            case 'dynamic':
+                this.p5.image(this.zapIcon, this.buttonX, this.buttonY);
+                break;
+            case 'static':
+                this.p5.image(this.pictureIcon, this.buttonX, this.buttonY);
+                break;
+        }
+
+        this.p5.imageMode(this.p5.CORNER);
+        this.p5.rectMode(this.p5.CORNER);
     }
 }
 

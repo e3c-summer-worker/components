@@ -25,8 +25,13 @@ module.exports = {
             {
                 test: /\.(png|jpe?g)/,
                 type: 'asset/resource'
+            },
+            // inlining svg (as base64)
+            // https://webpack.js.org/guides/asset-modules/#inlining-assets
+            {
+                test: /\.svg/,
+                type: 'asset/inline'
             }
-
         ]
     },
 };
