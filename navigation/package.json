@@ -1,4 +1,6 @@
 {
+  "name": "navigation",
+  "version": "1.0.0",
   "scripts": {
     "start:desktop": "elm-live src/DesktopNav.elm -H --dir=./public -- --output=public/desktopnav-elm.js",
     "start:mobile": "elm-live src/MobileNav.elm -H --dir=./public -- --output=public/mobileNav-elm.js",

@@ -1,5 +1,5 @@
 {
-  "name": "p5-typescript-starter",
+  "name": "scrolling-terrain-bg",
   "main": "dist/main-bundle.js",
   "version": "1.0.0",
   "description": "Project to quickly get something working in [p5.js](https://p5js.org/) and [typescript](https://www.typescriptlang.org/)",

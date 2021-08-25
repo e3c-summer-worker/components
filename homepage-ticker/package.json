@@ -1,4 +1,6 @@
 {
+  "name": "homepage-ticker",
+  "version": "1.0.0",
   "scripts": {
     "start:elm": "elm-live src/HomepageTicker.elm -H -p 8000 --dir=./public -- --output=public/homepage-ticker-elm.js",
     "start:scss": "node-sass src/ticker.scss -o public -w",

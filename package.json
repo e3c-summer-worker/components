@@ -19,5 +19,11 @@
   "homepage": "https://github.com/e3c-summer-worker/components#readme",
   "dependencies": {
     "@changesets/cli": "^2.16.0"
-  }
+  },
+  "private": true,
+  "workspaces": [
+    "scrolling-terrain-bg",
+    "homepage-ticker",
+    "navigation"
+  ]
 }
