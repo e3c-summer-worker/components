@@ -44,7 +44,7 @@ jobs:
       - name: Add comment to Desktop Nav
         uses: e3c-summer-worker/bundle-comments@v2.0.1
         with:
-          name: Desktop Nav
+          name: Scrolling Terrain
           filePath: build/scrolling-terrain.min.js
 
       - name: Archive production artifacts
@@ -63,23 +63,31 @@ jobs:
         with:
           ref: main
 
-      - name: Check version changes
-        uses: EndBug/version-check@v1
-        id: check
+      # - name: Check version changes
+      #   uses: EndBug/version-check@v1
+      #   id: check
 
       - name: Download build artifact
-        if: steps.check.outputs.changed == 'true'
+        # if: steps.check.outputs.changed == 'true'
         uses: actions/download-artifact@v2
         with:
           name: build-with-comments
           path: scrolling-terrain-bg/build # npm should deploy this folder
 
-      - name: Set up Node.js for NPM
-        if: steps.check.outputs.changed == 'true'
-        uses: actions/setup-node@v2
-
-      - name: Publish package to NPM
-        if: steps.check.outputs.changed == 'true'
-        run: npm publish
+      - name: Push to new Github Branch
+        uses: s0/git-publish-subdir-action@develop
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          REPO: self
+          BRANCH: scrolling-terrain # The branch name where you want to push the assets
+          FOLDER: build # The directory where your assets are generated
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # GitHub will automatically add this - you don't need to bother getting a token
+          MESSAGE: "Scrolling Terrain build: ({sha})\n{msg}" # The commit message
+
+      # - name: Set up Node.js for NPM
+      #   if: steps.check.outputs.changed == 'true'
+      #   uses: actions/setup-node@v2
+      # - name: Publish package to NPM
+      #   if: steps.check.outputs.changed == 'true'
+      #   run: npm publish
+      #   env:
+      #     NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
