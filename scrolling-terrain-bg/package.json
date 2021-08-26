@@ -3,7 +3,7 @@
   "main": "dist/main-bundle.js",
   "version": "1.1.0",
   "files": [
-    "public/*.js"
+    "build/**"
   ],
   "description": "Project to quickly get something working in [p5.js](https://p5js.org/) and [typescript](https://www.typescriptlang.org/)",
   "scripts": {
@@ -28,6 +28,6 @@
     "webpack-merge": "^5.8.0"
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/e3c-summer-worker"
+    "registry": "https://registry.npmjs.org/"
   }
 }

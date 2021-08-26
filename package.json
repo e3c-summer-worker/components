@@ -1,5 +1,5 @@
 {
-  "name": "components",
+  "name": "@e3c-summer-worker/components",
   "version": "1.0.0",
   "description": "A list of components (written mostly using React or Elm) that I am using for the website.",
   "main": "index.js",

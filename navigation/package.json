@@ -1,6 +1,9 @@
 {
-  "name": "navigation",
+  "name": "@e3c-summer-worker/navigation",
   "version": "1.0.0",
+  "files": [
+    "public/*.js"
+  ],
   "scripts": {
     "start:desktop": "elm-live src/DesktopNav.elm -H --dir=./public -- --output=public/desktopnav-elm.js",
     "start:mobile": "elm-live src/MobileNav.elm -H --dir=./public -- --output=public/mobileNav-elm.js",
@@ -13,5 +16,8 @@
   "devDependencies": {
     "elm-live": "^4.0.2",
     "uglify-js": "^3.13.9"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
   }
 }
