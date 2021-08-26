@@ -20,9 +20,6 @@ export type StateType = 'static' | 'dynamic';
 export interface InitData {
     p5: p5;
     lanternImg: p5.Image;
-    lanternBg: p5.Image;
-    zapIcon: p5.Image;
-    pictureIcon: p5.Image;
 
     width: number;
     height: number;
@@ -66,7 +63,7 @@ export class State {
     // hack to fix the bug where mobile touch is fired twice
     button: p5.Element;
 
-    constructor({ p5, lanternImg, lanternBg, width, height, speed, zapIcon, pictureIcon }: InitData) {
+    constructor({ p5, lanternImg, width, height, speed }: InitData) {
         this.p5 = p5;
 
         const lanterns: Lantern[][] = [];
@@ -93,23 +90,16 @@ export class State {
         this.lanterns = lanterns;
         this.offsets = [0, 0, 0]; // using an array since the terrains should move at different speeds
 
-        // STATIC TYPE
-        this.bgImage = lanternBg;
-
         // window data
         this.width = width;
         this.height = height;
-
-        // state toggle button
-        this.zapIcon = zapIcon;
-        this.pictureIcon = pictureIcon;
 
         // location of the button
         this.buttonX = this.width / 2;
         this.buttonY = this.height * 3 / 4;
 
         const button = this.p5.createImg(zapIconSrc);
-        // attributes changing the size has to be here, becore we center it.
+        // attributes changing the size has to be here, before we center it.
         button.style('padding', '12px');
         // positioning it with the X being 0 because we're gonna center it anyway
         // .position() uses the top left corner so it's kinda difficult to center it
