@@ -13,7 +13,12 @@ yarn start
 
 Then start a local server and go to index.html to see the results.
 
-## Production
+## Production 
+
+GIthub actions **will** be used to deploy to production. You can then access the files with jsdelivr on this link:
+[https://cdn.jsdelivr.net/npm/@e3c-summer-worker/scrolling-terrain-bg/build/scrolling-terrain.min.js](https://cdn.jsdelivr.net/npm/@e3c-summer-worker/scrolling-terrain-bg/build/scrolling-terrain.min.js).
+
+**DEPRECATED**: I'm moving to npm and fastly there. The versioning with npm is much better.
 
 Github actions should automatically compile the code and upload it to the `scrolling-terrain` branch where you can access it via a cdn.
 I use [jsdelivr](https://www.jsdelivr.com/) for this.

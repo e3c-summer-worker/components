@@ -30,9 +30,9 @@ jobs:
           name: build-data
           path: scrolling-terrain-bg/build
 
-  push:
+  add-comment:
     runs-on: ubuntu-latest
-    name: Push to branch
+    name: Add Comment to the minified JS
     needs: build
     steps:
       - name: Download build artifact
@@ -41,11 +41,45 @@ jobs:
           name: build-data
           path: build
 
-      - name: Push to new Github Branch
-        uses: s0/git-publish-subdir-action@develop
+      - name: Add comment to Desktop Nav
+        uses: e3c-summer-worker/bundle-comments@v2.0.1
+        with:
+          name: Desktop Nav
+          filePath: build/scrolling-terrain.min.js
+
+      - name: Archive production artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: build-with-comments
+          path: build
+
+  push:
+    runs-on: ubuntu-latest
+    name: Push to branch
+    needs: add-comment
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          ref: main
+
+      - name: Check version changes
+        uses: EndBug/version-check@v1
+        id: check
+
+      - name: Download build artifact
+        if: steps.check.outputs.changed == 'true'
+        uses: actions/download-artifact@v2
+        with:
+          name: build-with-comments
+          path: scrolling-terrain-bg/build # npm should deploy this folder
+
+      - name: Set up Node.js for NPM
+        if: steps.check.outputs.changed == 'true'
+        uses: actions/setup-node@v2
+
+      - name: Publish package to NPM
+        if: steps.check.outputs.changed == 'true'
+        run: npm publish
         env:
-          REPO: self
-          BRANCH: scrolling-terrain # The branch name where you want to push the assets
-          FOLDER: build # The directory where your assets are generated
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # GitHub will automatically add this - you don't need to bother getting a token
-          MESSAGE: "Scrolling Terrain build: ({sha})\n{msg}" # The commit message
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
