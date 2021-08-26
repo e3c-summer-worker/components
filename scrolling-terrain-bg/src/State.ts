@@ -1,6 +1,8 @@
 import p5 = require('p5');
-import { Lantern } from './Lantern'
+import { Lantern } from './Lantern';
 import { setupTerrain } from './terrain';
+import * as zapIconSrc from './assets/zap-icon.svg';
+import * as pictureIconSrc from './assets/picture-icon.svg';
 
 /**
  * State Class
@@ -11,14 +13,17 @@ import { setupTerrain } from './terrain';
 
 // TYPES
 
-type StateType = 'static' | 'dynamic';
+export type StateType = 'static' | 'dynamic';
 
 
 // always initialize to the static type
-interface InitData {
+export interface InitData {
     p5: p5;
     lanternImg: p5.Image;
     lanternBg: p5.Image;
+    zapIcon: p5.Image;
+    pictureIcon: p5.Image;
+
     width: number;
     height: number;
     speed: number;
@@ -49,11 +54,24 @@ export class State {
     width: number;
     height: number;
 
-    constructor({ p5, lanternImg, lanternBg, width, height, speed }: InitData) {
+    // state toggle button
+    zapIcon: p5.Image;
+    pictureIcon: p5.Image;
+
+    // location of the button
+    readonly buttonX: number;
+    readonly buttonY: number;
+    readonly BUTTON_RADIUS = 25;
+
+    // hack to fix the bug where mobile touch is fired twice
+    button: p5.Element;
+
+    constructor({ p5, lanternImg, lanternBg, width, height, speed, zapIcon, pictureIcon }: InitData) {
         this.p5 = p5;
 
         const lanterns: Lantern[][] = [];
         // add particles
+        // particles depend on the width of the screen
         const numLanterns = Math.round(width / 150);
         for (let i = 0; i < 3; i++) {
             const terrainLanterns = []
@@ -81,6 +99,26 @@ export class State {
         // window data
         this.width = width;
         this.height = height;
+
+        // state toggle button
+        this.zapIcon = zapIcon;
+        this.pictureIcon = pictureIcon;
+
+        // location of the button
+        this.buttonX = this.width / 2;
+        this.buttonY = this.height * 3 / 4;
+
+        const button = this.p5.createImg(zapIconSrc);
+        // attributes changing the size has to be here, becore we center it.
+        button.style('padding', '12px');
+        // positioning it with the X being 0 because we're gonna center it anyway
+        // .position() uses the top left corner so it's kinda difficult to center it
+        button.position(0, this.buttonY);
+        button.center('horizontal');
+        // more styles is in the css file or in the html file
+        button.addClass('scrolling-terrain-btn');
+        button.mousePressed(this.toggleState);
+        this.button = button;
     }
 
     draw = (): void => {
@@ -90,7 +128,10 @@ export class State {
             this.p5.background(255, 0);
             this.p5.strokeWeight(0);
             this.p5.fill(255);
-            this.p5.rect(0, 0, this.width, 100)
+
+            // once the width reaches less than 640px, the logo shrinks to 83px high.
+            const height = this.width < 640 ? 83 : 100;
+            this.p5.rect(0, 0, this.width, height);
         } else {
             this.p5.background(255);
 
@@ -112,7 +153,19 @@ export class State {
         }
     }
 
-    private drawTerrain = (points: number[], offset: number) => {
+    private toggleState = () => {
+        if (this.stateType === 'static') {
+            this.stateType = 'dynamic';
+            this.button.attribute('src', pictureIconSrc);
+        } else {
+            this.stateType = 'static';
+            this.button.attribute('src', zapIconSrc);
+        }
+
+    }
+
+
+    private drawTerrain = (points: number[], offset: number): void => {
         this.p5.beginShape();
         // bottom left corner - to ensure we shade in the shape correctly
         this.p5.vertex(0, this.p5.height);
@@ -126,18 +179,19 @@ export class State {
 
     // can I use a for-loop? maybe put the terrainPoints in an array?
     // nah I'm too small brain B)
-    private updateOffsets = () => {
+    private updateOffsets = (): void => {
         this.offsets[0] = (this.offsets[0] + this.speed * 0.5) % this.terrainPoints1.length
         this.offsets[1] = (this.offsets[1] + this.speed * 1) % this.terrainPoints2.length
         this.offsets[2] = (this.offsets[2] + this.speed * 1.5) % this.terrainPoints3.length
     }
 
-    private updateLanterns = (idx: number) => {
+    private updateLanterns = (idx: number): void => {
         for (let i = 0; i < this.lanterns[idx].length; i++) {
             this.lanterns[idx][i].move();
             this.lanterns[idx][i].draw();
         }
     }
+
 }
 
 
