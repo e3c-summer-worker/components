@@ -79,7 +79,7 @@ jobs:
         env:
           REPO: self
           BRANCH: scrolling-terrain # The branch name where you want to push the assets
-          FOLDER: build # The directory where your assets are generated
+          FOLDER: scrolling-terrain-bg/build # The directory where your assets are generated
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # GitHub will automatically add this - you don't need to bother getting a token
           MESSAGE: "Scrolling Terrain build: ({sha})\n{msg}" # The commit message
 
