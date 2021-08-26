@@ -20,4 +20,6 @@ ersions
 
 ```bash
 yarn changeset
+yarn changeset version # to update the version number
+yarn changeset publish # publish
 ```

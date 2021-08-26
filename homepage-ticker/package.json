@@ -1,5 +1,5 @@
 {
-  "name": "@e3c-summer-worker/homepage-ticker",
+  "name": "homepage-ticker",
   "version": "1.0.0",
   "files": [
     "build/*"
@@ -23,6 +23,6 @@
     "elm-format": "^0.8.5"
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
+    "registry": "https://registry.npmjs.org/"
   }
 }
