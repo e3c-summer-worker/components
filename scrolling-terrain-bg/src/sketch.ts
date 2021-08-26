@@ -42,10 +42,6 @@ const sketch = (node: HTMLElement) => (p5: p5) => {
         state.draw();
     }
 
-    p5.mousePressed = () => {
-        state.mousePressed();
-    }
-
 }
 
 // Namespace

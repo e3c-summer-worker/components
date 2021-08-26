@@ -1,6 +1,8 @@
 import p5 = require('p5');
-import { Lantern } from './Lantern'
+import { Lantern } from './Lantern';
 import { setupTerrain } from './terrain';
+import * as zapIconSrc from './assets/zap-icon.svg';
+import * as pictureIconSrc from './assets/picture-icon.svg';
 
 /**
  * State Class
@@ -59,6 +61,10 @@ export class State {
     // location of the button
     readonly buttonX: number;
     readonly buttonY: number;
+    readonly BUTTON_RADIUS = 25;
+
+    // hack to fix the bug where mobile touch is fired twice
+    button: p5.Element;
 
     constructor({ p5, lanternImg, lanternBg, width, height, speed, zapIcon, pictureIcon }: InitData) {
         this.p5 = p5;
@@ -102,6 +108,17 @@ export class State {
         this.buttonX = this.width / 2;
         this.buttonY = this.height * 3 / 4;
 
+        const button = this.p5.createImg(zapIconSrc);
+        // attributes changing the size has to be here, becore we center it.
+        button.style('padding', '12px');
+        // positioning it with the X being 0 because we're gonna center it anyway
+        // .position() uses the top left corner so it's kinda difficult to center it
+        button.position(0, this.buttonY);
+        button.center('horizontal');
+        // more styles is in the css file or in the html file
+        button.addClass('scrolling-terrain-btn');
+        button.mousePressed(this.toggleState);
+        this.button = button;
     }
 
     draw = (): void => {
@@ -115,8 +132,6 @@ export class State {
             // once the width reaches less than 640px, the logo shrinks to 83px high.
             const height = this.width < 640 ? 83 : 100;
             this.p5.rect(0, 0, this.width, height);
-
-            this.drawButton()
         } else {
             this.p5.background(255);
 
@@ -135,20 +150,20 @@ export class State {
             this.drawTerrain(this.terrainPoints1, this.offsets[2]);
 
             this.updateOffsets()
-
-            this.drawButton()
         }
     }
 
-    mousePressed = () => {
-        if (this.p5.dist(this.p5.mouseX, this.p5.mouseY, this.buttonX, this.buttonY) < 50) {
-            if (this.stateType === 'static') {
-                this.stateType = 'dynamic';
-            } else {
-                this.stateType = 'static';
-            }
+    private toggleState = () => {
+        if (this.stateType === 'static') {
+            this.stateType = 'dynamic';
+            this.button.attribute('src', pictureIconSrc);
+        } else {
+            this.stateType = 'static';
+            this.button.attribute('src', zapIconSrc);
         }
+
     }
+
 
     private drawTerrain = (points: number[], offset: number): void => {
         this.p5.beginShape();
@@ -177,27 +192,6 @@ export class State {
         }
     }
 
-    private drawButton = (): void => {
-        this.p5.rectMode(this.p5.CENTER);
-        this.p5.imageMode(this.p5.CENTER);
-
-        // centered horizontally, 3/4 of the way down
-
-        this.p5.fill(255);
-        this.p5.circle(this.buttonX, this.buttonY, 50);
-
-        switch (this.stateType) {
-            case 'dynamic':
-                this.p5.image(this.zapIcon, this.buttonX, this.buttonY);
-                break;
-            case 'static':
-                this.p5.image(this.pictureIcon, this.buttonX, this.buttonY);
-                break;
-        }
-
-        this.p5.imageMode(this.p5.CORNER);
-        this.p5.rectMode(this.p5.CORNER);
-    }
 }
 
 
