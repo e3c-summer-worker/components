@@ -109,6 +109,7 @@ export class State {
         button.addClass('scrolling-terrain-btn');
         button.mousePressed(this.toggleState);
         this.button = button;
+        console.log('DEBUG:', button)
     }
 
     draw = (): void => {
