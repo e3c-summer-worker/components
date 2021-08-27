@@ -58,7 +58,6 @@ export class State {
     // location of the button
     readonly buttonX: number;
     readonly buttonY: number;
-    readonly BUTTON_RADIUS = 25;
 
     // hack to fix the bug where mobile touch is fired twice
     button: p5.Element;
@@ -98,7 +97,9 @@ export class State {
         this.buttonX = this.width / 2;
         this.buttonY = this.height * 3 / 4;
 
-        const button = this.p5.createImg(zapIconSrc);
+        // somehow setting the size to (24, 24) even though the actual image after padding is 48x48
+        // fixed the issue of the button being slightly off-center when we initially load the page (but not on reload)
+        const button = this.p5.createImg(zapIconSrc).size(24, 24);
         // attributes changing the size has to be here, before we center it.
         button.style('padding', '12px');
         // positioning it with the X being 0 because we're gonna center it anyway
