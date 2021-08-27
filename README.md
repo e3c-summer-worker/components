@@ -15,8 +15,9 @@ Most of the components have an associated Github Action that pushes it to a new 
 Some pages on Squarespace may still use jsDelivr links in the [SummerWorkerECCC.github.io](https://github.com/SummerWorkerECCC/SummerWorkerECCC.github.io) repository (I used to manually add the compiled code to the repo very time I made new changes), which I have kept there for backward compatibility.
 ersions
 
-
 ### Updating Versions
+
+I should really automate this in GH Actions, but I'm too smooth brained to do that right now.
 
 ```bash
 yarn changeset
