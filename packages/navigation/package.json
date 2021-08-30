@@ -1,5 +1,5 @@
 {
-  "name": "@e3c-summer-workernavigation",
+  "name": "@e3c-summer-worker/navigation",
   "version": "1.0.0",
   "files": [
     "public/*.js"
