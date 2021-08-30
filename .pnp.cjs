@@ -27,7 +27,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "reference": "workspace:packages/homepage-ticker"
       },
       {
-        "name": "@e3c-summer-workernavigation",
+        "name": "@e3c-summer-worker/navigation",
         "reference": "workspace:packages/navigation"
       },
       {
@@ -39,8 +39,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
     "ignorePatternData": "(^(?:\\.yarn\\/sdks(?:\\/(?!\\.{1,2}(?:\\/|$))(?:(?:(?!(?:^|\\/)\\.{1,2}(?:\\/|$)).)*?)|$))$)",
     "fallbackExclusionList": [
       ["@e3c-summer-worker/homepage-ticker", ["workspace:packages/homepage-ticker"]],
+      ["@e3c-summer-worker/navigation", ["workspace:packages/navigation"]],
       ["@e3c-summer-worker/scrolling-terrain-bg", ["workspace:packages/scrolling-terrain-bg"]],
-      ["@e3c-summer-workernavigation", ["workspace:packages/navigation"]],
       ["components", ["workspace:."]]
     ],
     "fallbackPool": [
@@ -352,6 +352,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "SOFT",
         }]
       ]],
+      ["@e3c-summer-worker/navigation", [
+        ["workspace:packages/navigation", {
+          "packageLocation": "./packages/navigation/",
+          "packageDependencies": [
+            ["@e3c-summer-worker/navigation", "workspace:packages/navigation"],
+            ["elm-live", "npm:4.0.2"],
+            ["uglify-js", "npm:3.14.1"]
+          ],
+          "linkType": "SOFT",
+        }]
+      ]],
       ["@e3c-summer-worker/scrolling-terrain-bg", [
         ["workspace:packages/scrolling-terrain-bg", {
           "packageLocation": "./packages/scrolling-terrain-bg/",
@@ -366,17 +377,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["webpack", "virtual:9c189aa12b93fb4b588be3c254a1c4dbb6175093ec27abe1e6b72fa96989338547b6198fd0cee8ea914e2e4b1031cdd53a92b26e064bf666b687127e51ba9692#npm:5.51.1"],
             ["webpack-cli", "virtual:9c189aa12b93fb4b588be3c254a1c4dbb6175093ec27abe1e6b72fa96989338547b6198fd0cee8ea914e2e4b1031cdd53a92b26e064bf666b687127e51ba9692#npm:4.8.0"],
             ["webpack-merge", "npm:5.8.0"]
-          ],
-          "linkType": "SOFT",
-        }]
-      ]],
-      ["@e3c-summer-workernavigation", [
-        ["workspace:packages/navigation", {
-          "packageLocation": "./packages/navigation/",
-          "packageDependencies": [
-            ["@e3c-summer-workernavigation", "workspace:packages/navigation"],
-            ["elm-live", "npm:4.0.2"],
-            ["uglify-js", "npm:3.14.1"]
           ],
           "linkType": "SOFT",
         }]
