@@ -17,13 +17,15 @@
     "url": "https://github.com/e3c-summer-worker/components/issues"
   },
   "homepage": "https://github.com/e3c-summer-worker/components#readme",
-  "dependencies": {
-    "@changesets/cli": "^2.16.0"
-  },
   "private": true,
-  "workspaces": [
-    "scrolling-terrain-bg",
-    "homepage-ticker",
-    "website-navigation"
-  ]
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ]
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.16.0",
+    "lerna": "^4.0.0",
+    "pr-to-changesets": "^1.0.1"
+  }
 }
