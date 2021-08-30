@@ -3,7 +3,7 @@ name: PR-to-Changesets
 on:
   pull_request:
     branches:
-      - master
+      - main
     types: [closed]
     paths-ignore:
       - ".changeset/**"
