@@ -4,9 +4,15 @@ A list of components (written mostly using React or Elm) that I am using for the
 website.
 
 Most of the directions for running locally and implementing them remotely are in the respective folders. 
-I am using [Yarn Workspaces](https://classic.yarnpkg.com/en/docs/workspaces/) and [changesets](https://github.com/atlassian/changesets/blob/main/packages/cli/README.md) for versioning.
+I am using [Yarn Workspaces](https://yarnpkg.com/features/workspaces) and [changesets](https://github.com/atlassian/changesets/blob/main/packages/cli/README.md) for versioning.
 
-Since we are using yarn workspaces, so the installations will be mostly consolidated at the top-level `node_modules/` folder, with some extra binaries in each workspace. You can run `yarn install` in each workspace to install the dependencies for that workspace; it will automatically download the dependencies in the root `node_modules/` folder if it does not find them.
+## Local development
+
+Make sure you have the following installed:
+
+* [Yarn 3](https://yarnpkg.com/)
+
+I'm using Yarn's [Plug'n'Play](https://yarnpkg.com/features/pnp) as my dependency maangemeny system, so theoretically you don't even need to run `yarn install` (but maybe run it anyway?). The dependencies should all be in the `.pnp.cjs` file.
 
 ## Production
 
