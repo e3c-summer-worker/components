@@ -4,7 +4,8 @@
   "description": "A list of components (written mostly using React or Elm) that I am using for the website.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "add-changesets": "changeset add",
+    "release-ci": "lerna publish from-package --y --no-verify-access"
   },
   "repository": {
     "type": "git",
