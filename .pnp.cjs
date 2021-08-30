@@ -343,10 +343,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./packages/homepage-ticker/",
           "packageDependencies": [
             ["@e3c-summer-worker/homepage-ticker", "workspace:packages/homepage-ticker"],
+            ["concurrently", "npm:6.2.1"],
             ["elm-format", "npm:0.8.5"],
             ["elm-live", "npm:4.0.2"],
             ["node-sass", "npm:6.0.1"],
-            ["npm-run-all", "npm:4.1.5"],
             ["uglify-js", "npm:3.14.1"]
           ],
           "linkType": "SOFT",
@@ -3331,6 +3331,24 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
+      ["concurrently", [
+        ["npm:6.2.1", {
+          "packageLocation": "./.yarn/cache/concurrently-npm-6.2.1-d8f32616e4-818ad5ac70.zip/node_modules/concurrently/",
+          "packageDependencies": [
+            ["concurrently", "npm:6.2.1"],
+            ["chalk", "npm:4.1.2"],
+            ["date-fns", "npm:2.23.0"],
+            ["lodash", "npm:4.17.21"],
+            ["read-pkg", "npm:5.2.0"],
+            ["rxjs", "npm:6.6.7"],
+            ["spawn-command", "npm:0.0.2"],
+            ["supports-color", "npm:8.1.1"],
+            ["tree-kill", "npm:1.2.2"],
+            ["yargs", "npm:16.2.0"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
       ["config-chain", [
         ["npm:1.1.13", {
           "packageLocation": "./.yarn/cache/config-chain-npm-1.1.13-82e06afbc4-828137a28e.zip/node_modules/config-chain/",
@@ -3627,6 +3645,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["dashdash", "npm:1.14.1"],
             ["assert-plus", "npm:1.0.0"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["date-fns", [
+        ["npm:2.23.0", {
+          "packageLocation": "./.yarn/cache/date-fns-npm-2.23.0-fa1182c861-485216d550.zip/node_modules/date-fns/",
+          "packageDependencies": [
+            ["date-fns", "npm:2.23.0"]
           ],
           "linkType": "HARD",
         }]
@@ -8895,6 +8922,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
+      ["spawn-command", [
+        ["npm:0.0.2", {
+          "packageLocation": "./.yarn/cache/spawn-command-npm-0.0.2-014d4d5d9f-e35c5d2817.zip/node_modules/spawn-command/",
+          "packageDependencies": [
+            ["spawn-command", "npm:0.0.2"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
       ["spawndamnit", [
         ["npm:2.0.0", {
           "packageLocation": "./.yarn/cache/spawndamnit-npm-2.0.0-fbea5414ee-c74b5e264e.zip/node_modules/spawndamnit/",
@@ -9543,6 +9579,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/traverse-npm-0.3.9-913743c694-982982e4e2.zip/node_modules/traverse/",
           "packageDependencies": [
             ["traverse", "npm:0.3.9"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["tree-kill", [
+        ["npm:1.2.2", {
+          "packageLocation": "./.yarn/cache/tree-kill-npm-1.2.2-3da0e5a759-49117f5f41.zip/node_modules/tree-kill/",
+          "packageDependencies": [
+            ["tree-kill", "npm:1.2.2"]
           ],
           "linkType": "HARD",
         }]

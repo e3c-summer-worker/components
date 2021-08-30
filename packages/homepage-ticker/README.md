@@ -15,14 +15,11 @@ Note that we are using yarn workspaces, so the installations will be mostly cons
 
 ```bash
 yarn
-yarn start:elm
-
-# in another terminal, run
-yarn start:sass
+yarn start
 ```
 
 ## Production
 
 You'll need both the `homepage-ticker-elm.js` and the `ticker.css` files to be included.
 
-Github actions should automatically build the files and publish them to a cdn on deployment, so you shouldn't worr about production.
+Github actions should automatically build the files and publish them to a CDN on deployment, so you shouldn't worry about production.

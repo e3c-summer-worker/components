@@ -1,3 +1,4 @@
 node_modules
 elm-stuff
-public/homepage-ticker-elm.js
+
+build/*
