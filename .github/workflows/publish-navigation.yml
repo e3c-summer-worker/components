@@ -5,9 +5,9 @@ on:
     branches:
       - main
     paths:
-      - "navigation/src/**"
-      - "navigation/package.json"
-      - "navigation/elm.json"
+      - "website-navigation/src/**"
+      - "website-navigation/package.json"
+      - "website-navigation/elm.json"
       - ".github/workflows/publish-navigation.yml" # This file
 
 jobs:
@@ -16,7 +16,7 @@ jobs:
     name: Build
     defaults:
       run:
-        working-directory: ./navigation
+        working-directory: ./website-navigation
     steps:
       - name: git-checkout
         uses: actions/checkout@v2
@@ -38,8 +38,8 @@ jobs:
         with:
           name: build-data
           path: |
-            navigation/public/desktopnav-elm.js
-            navigation/public/mobilenav-elm.js
+            website-navigation/public/desktopnav-elm.js
+            website-navigation/public/mobilenav-elm.js
 
   add-comment-desktop:
     runs-on: ubuntu-latest
