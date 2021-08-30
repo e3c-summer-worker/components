@@ -1,41 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
     <link type="text/css" rel="stylesheet" href="./site.css">
     <link type="text/css" rel="stylesheet" href="./styles.css">
     <title>Elm App</title>
-
     <!-- Loads our app -->
-    <script src="./desktopnav-elm.js"></script>
-    <script src="./mobilenav-elm.js"></script>
+    <script src="./../build/desktopnav-elm.js"></script>
+    <script src="./../build/mobilenav-elm.js"></script>
     <script>
-    window.onload = () => {
-        // desktop navigation
-        const headerNav = document.getElementById('headerNav');
-        Elm.DesktopNav.init({node: headerNav});
+        window.onload = () => {
+            // desktop navigation
+            const headerNav = document.getElementById('headerNav');
+            Elm.DesktopNav.init({ node: headerNav });
 
-        // mobile navigation
-        const sidecarNav = document.getElementById('sidecarNav');
-        Elm.MobileNav.init({node: sidecarNav});
-    }
+            // mobile navigation
+            const sidecarNav = document.getElementById('sidecarNav');
+            Elm.MobileNav.init({ node: sidecarNav });
+        }
     </script>
-  </head>
-    <body>
-        <noscript>You need to enable JavaScript to run this app.</noscript>
-        <div id="sidecarNav"></div>
-        <div id="siteWrapper" className="clearfix">
-            <header id="header">
-                <div className="header-inner">
-                    <div class="mobile-nav-toggle" id="yui_3_17_2_1_1624829667654_327"><div class="top-bar"></div><div class="middle-bar"></div><div class="bottom-bar"></div></div>
-                    <div class="mobile-nav-toggle fixed-nav-toggle"><div class="top-bar"></div><div class="middle-bar"></div><div class="bottom-bar"></div></div>
-                    <div id="headerNav"></div>
-                </div>
-            </header>
-        </div>
-    </body>
+</head>
 
-    
+<body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="sidecarNav"></div>
+    <div id="siteWrapper" className="clearfix">
+        <header id="header">
+            <div className="header-inner">
+                <div class="mobile-nav-toggle" id="yui_3_17_2_1_1624829667654_327">
+                    <div class="top-bar"></div>
+                    <div class="middle-bar"></div>
+                    <div class="bottom-bar"></div>
+                </div>
+                <div class="mobile-nav-toggle fixed-nav-toggle">
+                    <div class="top-bar"></div>
+                    <div class="middle-bar"></div>
+                    <div class="bottom-bar"></div>
+                </div>
+                <div id="headerNav"></div>
+            </div>
+        </header>
+    </div>
+</body>
+
 </html>

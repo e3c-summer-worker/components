@@ -26,9 +26,7 @@ The [`site.css`](./public/site.css) is the squarespace compiled css, and the [`s
 
 ```bash
 yarn
-yarn start:desktop
-# In another terminal, run
-yarn start:mobile
+yarn start
 
 # for minification:
 yarn build

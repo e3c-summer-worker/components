@@ -357,6 +357,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./packages/navigation/",
           "packageDependencies": [
             ["@e3c-summer-worker/navigation", "workspace:packages/navigation"],
+            ["concurrently", "npm:6.2.1"],
             ["elm-live", "npm:4.0.2"],
             ["uglify-js", "npm:3.14.1"]
           ],
