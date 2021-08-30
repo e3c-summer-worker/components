@@ -1,6 +1,4 @@
 // each lantern has one particle inside it
-
-import p5 = require('p5');
 import { Particle } from './Particle';
 
 export class Lantern {
@@ -8,15 +6,24 @@ export class Lantern {
     particle: Particle;
     x: number;
     y: number;
+
     r: number;
+    tint: p5.Color;
     width: number;
     height: number;
+
     xSpeed: number;
     ySpeed: number;
     img: p5.Image;
 
 
-    constructor(p5: p5, lanternImg: p5.Image) {
+    /**
+     * 
+     * @param p5 the p5 object for us to use
+     * @param lanternImg the lantern image 
+     * @param depth (number, 0-2) the depth of the lantern. 0 is the furthest away, 2 is the closest
+     */
+    constructor(p5: p5, lanternImg: p5.Image, depth: number) {
         this.p = p5;
 
         // initialize speeds and position
@@ -27,7 +34,10 @@ export class Lantern {
         this.ySpeed = p5.random(-0.2, -0.3);
 
         // setting size
-        this.r = 20;
+        // closer ones are bigger
+        this.r = 18 * (1 + depth * 0.12);
+        // the larger the depth, the darker it is
+        this.tint = p5.color(205 + depth * 25);
         this.width = 20;
         this.height = 30;
 
@@ -41,7 +51,8 @@ export class Lantern {
     // creation of a particle.
     draw = () => {
         // draw lantern
-        this.p.image(this.img, this.x, this.y, 20, 20);
+        this.p.tint(this.tint);
+        this.p.image(this.img, this.x, this.y, this.r, this.r);
     }
 
     // setting the particle in motion.

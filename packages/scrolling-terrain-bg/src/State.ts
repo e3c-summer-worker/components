@@ -1,4 +1,3 @@
-import p5 = require('p5');
 import { Lantern } from './Lantern';
 import { setupTerrain } from './terrain';
 import * as zapIconSrc from './assets/zap-icon.svg';
@@ -72,12 +71,12 @@ export class State {
         for (let i = 0; i < 3; i++) {
             const terrainLanterns = []
             for (let j = 0; j < numLanterns; j++) {
-                terrainLanterns.push(new Lantern(p5, lanternImg));
+                terrainLanterns.push(new Lantern(p5, lanternImg, i));
             }
             lanterns.push(terrainLanterns)
         }
 
-        this.stateType = 'static';
+        this.stateType = 'dynamic';
 
         // DYNAMIC TYPE
         this.lanternImg = lanternImg;
@@ -110,7 +109,6 @@ export class State {
         button.addClass('scrolling-terrain-btn');
         button.mousePressed(this.toggleState);
         this.button = button;
-        console.log('DEBUG:', button)
     }
 
     draw = (): void => {
