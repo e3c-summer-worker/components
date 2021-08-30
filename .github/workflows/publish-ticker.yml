@@ -12,9 +12,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     name: Build
-    defaults:
-      run:
-        working-directory: ./homepage-ticker
     steps:
       - name: git-checkout
         uses: actions/checkout@v2
@@ -24,10 +21,12 @@ jobs:
         with:
           elm-version: 0.19.1
 
-      - name: Install and build
-        run: |
-          yarn install --frozen-lockfile
-          yarn build
+      - name: Install
+        run: yarn install --frozen-lockfile
+
+      - name: Build
+        run: yarn build
+        working-directory: homepage-ticker
 
       - name: Archive production artifacts
         uses: actions/upload-artifact@v2
