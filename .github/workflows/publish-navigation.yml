@@ -14,9 +14,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     name: Build
-    defaults:
-      run:
-        working-directory: ./website-navigation
     steps:
       - name: git-checkout
         uses: actions/checkout@v2
@@ -26,10 +23,12 @@ jobs:
         with:
           elm-version: 0.19.1
 
-      - name: Install and build
-        run: |
-          yarn install --frozen-lockfile
-          yarn build
+      - name: Install
+        run: yarn install --frozen-lockfile
+
+      - name: Build
+        run: yarn build
+        working-directory: website-navigation
 
       # We can't upload the entire public/ folder because it has other content
       # that helps us run the site locally.
