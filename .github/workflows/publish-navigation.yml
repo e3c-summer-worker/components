@@ -5,9 +5,9 @@ on:
     branches:
       - main
     paths:
-      - "website-navigation/src/**"
-      - "website-navigation/package.json"
-      - "website-navigation/elm.json"
+      - "navigation/src/**"
+      - "navigation/package.json"
+      - "navigation/elm.json"
       - ".github/workflows/publish-navigation.yml" # This file
 
 jobs:
@@ -28,7 +28,7 @@ jobs:
 
       - name: Build
         run: yarn build
-        working-directory: website-navigation
+        working-directory: navigation
 
       # We can't upload the entire public/ folder because it has other content
       # that helps us run the site locally.
@@ -37,8 +37,8 @@ jobs:
         with:
           name: build-data
           path: |
-            website-navigation/public/desktopnav-elm.js
-            website-navigation/public/mobilenav-elm.js
+            navigation/public/desktopnav-elm.js
+            navigation/public/mobilenav-elm.js
 
   add-comment-desktop:
     runs-on: ubuntu-latest
