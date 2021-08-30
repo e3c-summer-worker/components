@@ -2,12 +2,11 @@ module HomepageTicker exposing (main)
 
 import Browser
 import DetaResponse exposing (DetaResponse)
-import Html exposing (Html, a, div, nav, text)
-import Html.Attributes exposing (attribute, class, href, id)
-import Html.Events
 import FeatherIcons
+import Html exposing (Html, div, text)
+import Html.Attributes exposing (class)
+import Html.Events
 import Http
-
 
 
 
@@ -33,14 +32,18 @@ type Model
     | Error Http.Error
     | Success SuccessModel
 
-type alias SuccessModel = 
+
+type alias SuccessModel =
     { response : DetaResponse
-    , tickerOpen : Bool}
+    , tickerOpen : Bool
+    }
+
 
 initSuccess : DetaResponse -> SuccessModel
 initSuccess response =
     { response = response
-    , tickerOpen = False }
+    , tickerOpen = False
+    }
 
 
 init : () -> ( Model, Cmd Msg )
@@ -67,15 +70,15 @@ update msg model =
     case ( model, msg ) of
         ( Loading, GotDetaResponse result ) ->
             case result of
-                Ok content -> 
-                    (Success <| initSuccess content, Cmd.none )
+                Ok content ->
+                    ( Success <| initSuccess content, Cmd.none )
 
                 Err error ->
                     ( Error error, Cmd.none )
-        
+
         ( Success m, ToggleTicker ) ->
             ( Success <| { m | tickerOpen = not m.tickerOpen }
-            , Cmd.none 
+            , Cmd.none
             )
 
         _ ->
@@ -90,48 +93,48 @@ view : Model -> Html Msg
 view model =
     case model of
         Loading ->
-            div  [ class "ticker-wrap" ] []
+            div [ class "ticker-wrap" ] []
 
         Error error ->
             div [] [ viewError error ]
 
         Success successModel ->
-            div 
+            div
                 []
-                [ div 
-            [ Html.Events.onClick ToggleTicker
-            , Html.Attributes.style "mouse" "pointer"
-            ]
-            [ FeatherIcons.info
-                |> FeatherIcons.toHtml []
-            , text <| "Expand " ++ String.fromInt (successModel.response.size.rows) ++ " updates"
-            ]
-            , viewSuccess successModel 
+                [ div
+                    [ Html.Events.onClick ToggleTicker
+                    , Html.Attributes.style "mouse" "pointer"
+                    ]
+                    [ FeatherIcons.info
+                        |> FeatherIcons.toHtml []
+                    , text <| "Expand " ++ String.fromInt successModel.response.size.rows ++ " updates"
+                    ]
+                , viewSuccess successModel
                 ]
 
 
-viewSuccess : SuccessModel -> Html Msg 
+viewSuccess : SuccessModel -> Html Msg
 viewSuccess successModel =
     if successModel.tickerOpen then
-         div 
-            [ class "ticker-wrap active" ] 
+        div
+            [ class "ticker-wrap active" ]
             [ viewContent successModel.response ]
-    else 
+
+    else
         div [] []
 
 
 viewContent : DetaResponse -> Html Msg
-viewContent {rows} =
+viewContent { rows } =
     div [ class "ticker" ] <|
-        List.map (\(english, chinese) -> viewRow english chinese) rows
+        List.map (\( english, chinese ) -> viewRow english chinese) rows
 
 
 viewRow : String -> String -> Html Msg
-viewRow english chinese =
-    div 
+viewRow english _ =
+    div
         [ class "ticker__item" ]
         [ text english ]
-    
 
 
 viewError : Http.Error -> Html Msg
