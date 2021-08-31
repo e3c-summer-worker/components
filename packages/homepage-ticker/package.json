@@ -22,7 +22,7 @@
     "uglify-js": "^3.14.0"
   },
   "publishConfig": {
-    "registry": "https://registry.npmjs.org/",
+    "registry": "http://localhost:4873",
     "access": "public"
   }
 }
