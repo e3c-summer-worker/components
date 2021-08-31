@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - "homepage-ticker/src/**"
+      - "packages/homepage-ticker/src/**"
       - ".github/workflows/publish-ticker.yml" # This file
 
 jobs:
@@ -26,15 +26,13 @@ jobs:
 
       - name: Build
         run: yarn build
-        working-directory: homepage-ticker
+        working-directory: packages/homepage-ticker
 
       - name: Archive production artifacts
         uses: actions/upload-artifact@v2
         with:
           name: build-data
-          path: |
-            homepage-ticker/public/homepage-ticker-elm.js
-            homepage-ticker/public/ticker.css
+          path: packages/homepage-ticker/build
 
   add-comment:
     runs-on: ubuntu-latest

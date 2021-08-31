@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - "scrolling-terrain-bg/src/**"
+      - "packages/scrolling-terrain-bg/src/**"
       - ".github/workflows/publish-scrolling-terrain.yml" # This file
 
 jobs:
@@ -21,13 +21,13 @@ jobs:
 
       - name: Build
         run: yarn build
-        working-directory: scrolling-terrain-bg
+        working-directory: packages/scrolling-terrain-bg
 
       - name: Archive production artifacts
         uses: actions/upload-artifact@v2
         with:
           name: build-data
-          path: scrolling-terrain-bg/build
+          path: packages/scrolling-terrain-bg/build
 
   add-comment:
     runs-on: ubuntu-latest
@@ -81,6 +81,7 @@ jobs:
           FOLDER: scrolling-terrain-bg/build # The directory where your assets are generated
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # GitHub will automatically add this - you don't need to bother getting a token
           MESSAGE: "Scrolling Terrain build: ({sha})\n{msg}" # The commit message
+
 
       # - name: Set up Node.js for NPM
       #   if: steps.check.outputs.changed == 'true'
