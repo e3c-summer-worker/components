@@ -1,9 +1,5 @@
-// each lantern has one particle inside it
-import { Particle } from './Particle';
-
 export class Lantern {
     p: p5;
-    particle: Particle;
     x: number;
     y: number;
 
@@ -15,6 +11,7 @@ export class Lantern {
     xSpeed: number;
     ySpeed: number;
     img: p5.Image;
+    depth: number;
 
 
     /**
@@ -40,9 +37,7 @@ export class Lantern {
         this.tint = p5.color(205 + depth * 25);
         this.width = 20;
         this.height = 30;
-
-        // initialize particle
-        // this.particle = new Particle(p5, this.r);
+        this.depth = depth;
 
         // initialize image
         this.img = lanternImg;
@@ -65,8 +60,8 @@ export class Lantern {
             return;
         }
 
-        this.x += this.xSpeed;
-        this.y += this.ySpeed;
+        this.x += this.xSpeed * (1 + this.depth * 0.50);
+        this.y += this.ySpeed * (1 + this.depth * 0.50);
 
         // change the xspeed a bit
         this.xSpeed += this.p.random(-0.025, 0.025);
