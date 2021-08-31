@@ -28,16 +28,13 @@ jobs:
 
       - name: Build
         run: yarn build
-        working-directory: navigation
+        working-directory: packages/navigation
 
-      # We can't upload the entire public/ folder because it has other content
-      # that helps us run the site locally.
       - name: Archive production artifacts
         uses: actions/upload-artifact@v2
         with:
           name: build-data
-          path: |
-            navigation/build
+          path: packages/navigation/build
 
   add-comment-desktop:
     runs-on: ubuntu-latest
