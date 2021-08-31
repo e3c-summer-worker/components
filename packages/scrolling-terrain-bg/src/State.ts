@@ -96,11 +96,11 @@ export class State {
         this.buttonX = this.width / 2;
         this.buttonY = this.height * 3 / 4;
 
-        // somehow setting the size to (24, 24) even though the actual image after padding is 48x48
+        // somehow setting the size to (16, 16) even though the actual image after padding 32x32
         // fixed the issue of the button being slightly off-center when we initially load the page (but not on reload)
-        const button = this.p5.createImg(zapIconSrc).size(24, 24);
+        const button = this.p5.createImg(zapIconSrc).size(16, 16);
         // attributes changing the size has to be here, before we center it.
-        button.style('padding', '12px');
+        button.style('padding', '8px');
         // positioning it with the X being 0 because we're gonna center it anyway
         // .position() uses the top left corner so it's kinda difficult to center it
         button.position(0, this.buttonY);
