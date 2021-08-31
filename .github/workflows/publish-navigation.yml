@@ -37,8 +37,7 @@ jobs:
         with:
           name: build-data
           path: |
-            navigation/public/desktopnav-elm.js
-            navigation/public/mobilenav-elm.js
+            navigation/build
 
   add-comment-desktop:
     runs-on: ubuntu-latest
