@@ -5,9 +5,9 @@ on:
     branches:
       - main
     paths:
-      - "navigation/src/**"
-      - "navigation/package.json"
-      - "navigation/elm.json"
+      - "packages/navigation/src/**"
+      - "packages/navigation/package.json"
+      - "packages/navigation/elm.json"
       - ".github/workflows/publish-navigation.yml" # This file
 
 jobs:
