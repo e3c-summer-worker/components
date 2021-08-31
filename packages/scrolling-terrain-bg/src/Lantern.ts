@@ -1,3 +1,5 @@
+import { getRandom } from './Misc';
+
 export class Lantern {
     p: p5;
     x: number;
@@ -24,11 +26,13 @@ export class Lantern {
         this.p = p5;
 
         // initialize speeds and position
-        this.x = p5.random(0, p5.width);
-        this.y = p5.random(0, p5.height);
+        // using Math.random() is usually better than using p5.random
+        // https://github.com/processing/p5.js/issues/1512
+        this.x = getRandom(0, p5.width);
+        this.y = getRandom(0, p5.height);
 
-        this.xSpeed = p5.random(-0.05, 0.05);
-        this.ySpeed = p5.random(-0.2, -0.3);
+        this.xSpeed = getRandom(-0.05, 0.05);
+        this.ySpeed = getRandom(-0.2, -0.3);
 
         // setting size
         // closer ones are bigger
@@ -64,14 +68,14 @@ export class Lantern {
         this.y += this.ySpeed * (1 + this.depth * 0.50);
 
         // change the xspeed a bit
-        this.xSpeed += this.p.random(-0.025, 0.025);
+        this.xSpeed += getRandom(-0.025, 0.025);
     }
 
     reset = () => {
         // moves to a random position at the bottom of the screen
         this.y = this.p.height - 10;
-        this.x = this.p.random(5, this.p.width - 5);
-        this.xSpeed = this.p.random(0, 0.05);
-        this.ySpeed = this.p.random(-0.2, -0.3);
+        this.x = getRandom(5, this.p.width - 5);
+        this.xSpeed = getRandom(0, 0.05);
+        this.ySpeed = getRandom(-0.2, -0.3);
     }
 }
