@@ -76,7 +76,7 @@ export class State {
             lanterns.push(terrainLanterns)
         }
 
-        this.stateType = 'dynamic';
+        this.stateType = 'static';
 
         // DYNAMIC TYPE
         this.lanternImg = lanternImg;

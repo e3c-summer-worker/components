@@ -1,5 +1,15 @@
 # scrolling-terrain-bg
 
+## 1.1.0
+
+### Minor Changes
+
+- Feature: Added size and tint based off of terrain depth
+
+### Patch Changes
+
+- CHange default stateType to be static
+
 ## 1.2.0
 
 ### Minor Changes
