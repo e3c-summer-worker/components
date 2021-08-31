@@ -1,5 +1,11 @@
 # scrolling-terrain-bg
 
+## 1.2.0
+
+### Minor Changes
+
+- 60fde4b: Made button smaller
+
 ## 1.1.0
 
 ### Minor Changes
