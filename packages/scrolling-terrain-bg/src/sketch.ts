@@ -9,9 +9,7 @@ const sketch = (node: HTMLElement) => (p5: p5) => {
     p5.preload = () => {
         // path must be relative to the html file loading the sketch
         // https://p5js.org/reference/#/p5/loadImage
-        // since loading an image online is a bit tricky, we just resort to a base64 representation of the image lol
-        // https://stackoverflow.com/a/51162033
-        console.log('Loading images:', { lanternSrc });
+        // the lanternSrc will be the url of the image at runtime (i think)
         lanternImg = p5.loadImage(lanternSrc);
     }
 
