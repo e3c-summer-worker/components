@@ -372,6 +372,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/p5", "npm:1.3.0"],
             ["browser-sync", "npm:2.27.5"],
             ["npm-run-all", "npm:4.1.5"],
+            ["terser-webpack-plugin", "virtual:9c189aa12b93fb4b588be3c254a1c4dbb6175093ec27abe1e6b72fa96989338547b6198fd0cee8ea914e2e4b1031cdd53a92b26e064bf666b687127e51ba9692#npm:5.2.4"],
             ["ts-loader", "virtual:9c189aa12b93fb4b588be3c254a1c4dbb6175093ec27abe1e6b72fa96989338547b6198fd0cee8ea914e2e4b1031cdd53a92b26e064bf666b687127e51ba9692#npm:9.2.5"],
             ["typescript", "patch:typescript@npm%3A3.9.10#~builtin<compat/typescript>::version=3.9.10&hash=d8b4e7"],
             ["uglify-js", "npm:3.14.1"],
@@ -5909,6 +5910,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["supports-color", "npm:8.1.1"]
           ],
           "linkType": "HARD",
+        }],
+        ["npm:27.1.1", {
+          "packageLocation": "./.yarn/cache/jest-worker-npm-27.1.1-b82c372a58-7bf3bd9b0f.zip/node_modules/jest-worker/",
+          "packageDependencies": [
+            ["jest-worker", "npm:27.1.1"],
+            ["@types/node", "npm:16.7.1"],
+            ["merge-stream", "npm:2.0.0"],
+            ["supports-color", "npm:8.1.1"]
+          ],
+          "linkType": "HARD",
         }]
       ]],
       ["js-base64", [
@@ -9448,6 +9459,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "linkType": "SOFT",
         }],
+        ["npm:5.2.4", {
+          "packageLocation": "./.yarn/cache/terser-webpack-plugin-npm-5.2.4-cc8bd7c055-ddbcdd28f9.zip/node_modules/terser-webpack-plugin/",
+          "packageDependencies": [
+            ["terser-webpack-plugin", "npm:5.2.4"]
+          ],
+          "linkType": "SOFT",
+        }],
         ["virtual:602e400325a4894a8def60b415cc2430842edf1cec95bdb2fed9c104c5d0cb1f51486632ded6de2b035318e22b065830a880d753c2d72d1228fd07c264c6cee2#npm:5.1.4", {
           "packageLocation": "./.yarn/__virtual__/terser-webpack-plugin-virtual-8c971c6a1f/0/cache/terser-webpack-plugin-npm-5.1.4-1c3135d8c0-7e5f97ac19.zip/node_modules/terser-webpack-plugin/",
           "packageDependencies": [
@@ -9463,6 +9481,31 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "packagePeers": [
             "@types/webpack",
+            "webpack"
+          ],
+          "linkType": "HARD",
+        }],
+        ["virtual:9c189aa12b93fb4b588be3c254a1c4dbb6175093ec27abe1e6b72fa96989338547b6198fd0cee8ea914e2e4b1031cdd53a92b26e064bf666b687127e51ba9692#npm:5.2.4", {
+          "packageLocation": "./.yarn/__virtual__/terser-webpack-plugin-virtual-bf0a35b7b4/0/cache/terser-webpack-plugin-npm-5.2.4-cc8bd7c055-ddbcdd28f9.zip/node_modules/terser-webpack-plugin/",
+          "packageDependencies": [
+            ["terser-webpack-plugin", "virtual:9c189aa12b93fb4b588be3c254a1c4dbb6175093ec27abe1e6b72fa96989338547b6198fd0cee8ea914e2e4b1031cdd53a92b26e064bf666b687127e51ba9692#npm:5.2.4"],
+            ["@swc/core", null],
+            ["@types/webpack", null],
+            ["esbuild", null],
+            ["jest-worker", "npm:27.1.1"],
+            ["p-limit", "npm:3.1.0"],
+            ["schema-utils", "npm:3.1.1"],
+            ["serialize-javascript", "npm:6.0.0"],
+            ["source-map", "npm:0.6.1"],
+            ["terser", "npm:5.7.2"],
+            ["uglify-js", "npm:3.14.1"],
+            ["webpack", "virtual:9c189aa12b93fb4b588be3c254a1c4dbb6175093ec27abe1e6b72fa96989338547b6198fd0cee8ea914e2e4b1031cdd53a92b26e064bf666b687127e51ba9692#npm:5.51.1"]
+          ],
+          "packagePeers": [
+            "@swc/core",
+            "@types/webpack",
+            "esbuild",
+            "uglify-js",
             "webpack"
           ],
           "linkType": "HARD",

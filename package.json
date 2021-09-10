@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "add-changesets": "changeset add",
-    "release-ci": "yarn workspaces foreach run build && lerna publish from-package --y --no-verify-access"
+    "build": "yarn workspaces foreach run build",
+    "release-ci": "yarn build && lerna publish from-package --y --no-verify-access"
   },
   "repository": {
     "type": "git",
