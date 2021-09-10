@@ -1,5 +1,11 @@
 # scrolling-terrain-bg
 
+## 1.2.1
+
+### Minor Design changes
+
+- lanterns look slightly different now.
+
 ## 1.2.0
 
 ### Minor Changes

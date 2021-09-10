@@ -6,6 +6,8 @@ website.
 Most of the directions for running locally and implementing them remotely are in the respective folders. 
 I am using [Yarn Workspaces](https://yarnpkg.com/features/workspaces) and [changesets](https://github.com/atlassian/changesets/blob/main/packages/cli/README.md) for versioning.
 
+This repo structure is based off of [monorepo-release-changesets](https://github.com/azu/monorepo-release-changesets).
+
 ## Local development
 
 Make sure you have the following installed:
