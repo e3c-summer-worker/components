@@ -1,5 +1,13 @@
 # scrolling-terrain-bg
 
+## 1.2.3
+
+### Patch Changes
+
+- 9cfbd32: Scrolling terrain updates [#12](https://github.com/e3c-summer-worker/components/pull/12)
+
+  null
+
 ## 1.2.2
 
 ### Patch Changes
