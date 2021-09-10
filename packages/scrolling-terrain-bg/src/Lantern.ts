@@ -64,8 +64,11 @@ export class Lantern {
             return;
         }
 
-        this.x += this.xSpeed * (1 + this.depth * 0.50);
-        this.y += this.ySpeed * (1 + this.depth * 0.50);
+        // unfortunately got some magic numbers here
+        // `0.8` is the baseline size
+        // `0.75` is how much the size increases/decreases for the depth.
+        this.x += this.xSpeed * (0.8 + this.depth * 0.75);
+        this.y += this.ySpeed * (0.8 + this.depth * 0.75);
 
         // change the xspeed a bit
         this.xSpeed += getRandom(-0.025, 0.025);
