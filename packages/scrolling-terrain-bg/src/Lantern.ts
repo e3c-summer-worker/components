@@ -47,12 +47,14 @@ export class Lantern {
         this.img = lanternImg;
     }
 
+
     // creation of a particle.
     draw = () => {
         // draw lantern
         this.p.tint(this.tint);
         this.p.image(this.img, this.x, this.y, this.r, this.r);
     }
+
 
     // setting the particle in motion.
     move = () => {
@@ -73,6 +75,7 @@ export class Lantern {
         // change the xspeed a bit
         this.xSpeed += getRandom(-0.025, 0.025);
     }
+
 
     reset = () => {
         // moves to a random position at the bottom of the screen
