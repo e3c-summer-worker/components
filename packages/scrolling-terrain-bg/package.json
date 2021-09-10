@@ -1,7 +1,7 @@
 {
   "name": "@e3c-summer-worker/scrolling-terrain-bg",
   "main": "build/scrolling-terrain.min.js",
-  "version": "1.2.1",
+  "version": "1.2.5",
   "files": [
     "build/**"
   ],
