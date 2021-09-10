@@ -32,7 +32,7 @@ const sketch = (node: HTMLElement) => (p5: p5) => {
 
 }
 
-// Namespace
-// we'll use it as PolygonSketch.sketch
-// see webpack.common.js to change the PolygonSketch name
+// exporting the sketch to use it as a namespace
+// In production, we'll use it as `TerrainSketch.sketch()`
+// see webpack.common.js to change the `TerrainSketch` name
 export { sketch };
