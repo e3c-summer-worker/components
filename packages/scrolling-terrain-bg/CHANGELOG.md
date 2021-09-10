@@ -1,5 +1,13 @@
 # scrolling-terrain-bg
 
+## 1.2.2
+
+### Patch Changes
+
+- c40f21f: Scrolling terrain updates [#10](https://github.com/e3c-summer-worker/components/pull/10)
+
+  Hopefully this will make the npm stuff work
+
 ## 1.2.1
 
 ### Minor Design changes
