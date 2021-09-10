@@ -111,6 +111,7 @@ export class State {
         this.button = button;
     }
 
+
     draw = (): void => {
         if (this.stateType === 'static') {
             // fill top level to be white
@@ -143,6 +144,7 @@ export class State {
         }
     }
 
+
     private toggleState = () => {
         if (this.stateType === 'static') {
             this.stateType = 'dynamic';
@@ -151,7 +153,6 @@ export class State {
             this.stateType = 'static';
             this.button.attribute('src', zapIconSrc);
         }
-
     }
 
 
@@ -167,6 +168,7 @@ export class State {
         this.p5.endShape();
     }
 
+
     // can I use a for-loop? maybe put the terrainPoints in an array?
     // nah I'm too small brain B)
     private updateOffsets = (): void => {
@@ -175,12 +177,14 @@ export class State {
         this.offsets[2] = (this.offsets[2] + this.speed * 1.5) % this.terrainPoints3.length
     }
 
+
     private updateLanterns = (idx: number): void => {
         for (let i = 0; i < this.lanterns[idx].length; i++) {
             this.lanterns[idx][i].move();
             this.lanterns[idx][i].draw();
         }
     }
+
 
 }
 
