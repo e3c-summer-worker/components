@@ -141,7 +141,7 @@ view model =
                         [ text "Community" ]
                     , div [ class "subnav" ]
                         [ div [ class "collection" ]
-                            [ a [ href "/adult-cell-groups" ]
+                            [ a [ href "/smallgroups" ]
                                 [ text "Adult Cell Groups" ]
                             ]
                         , div [ class "collection" ]
