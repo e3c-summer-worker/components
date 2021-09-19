@@ -99,7 +99,7 @@ view _ =
                     , div [ class "subnav" ]
                         [ div [ class "collection" ]
                             [ a [ href "/smallgroups" ]
-                                [ text "Adult Cell Groups" ]
+                                [ text "Small Groups" ]
                             ]
                         , div [ class "collection" ]
                             [ a [ href "/iwg" ]
