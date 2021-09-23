@@ -81,6 +81,7 @@ $warningYellow: #f5a623;
     cursor: pointer;
     color: black;
     background-color: white;
+    border: 1px solid white;
 
     border-radius: 1em;
 
@@ -89,7 +90,6 @@ $warningYellow: #f5a623;
 
     &:hover {
       background-color: transparent;
-      border: 1px solid white;
     }
     // remove vertical line on the bottom of the svg element
     // https://stackoverflow.com/a/24626986
