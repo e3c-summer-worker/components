@@ -1,7 +1,8 @@
 // Ticker Animation
 // Animation Based off of https://codepen.io/lewismcarey/pen/GJZVoG
 
-$duration: 10s;
+$duration: 15s;
+$warningYellow: #f5a623;
 
 @-webkit-keyframes ticker {
   0% {
@@ -29,6 +30,46 @@ $duration: 10s;
   }
 }
 
+.ticker-toggle-btn {
+  margin: auto; // centers element horizontally
+
+  width: fit-content;
+  height: fit-content;
+
+  cursor: pointer;
+  border: 1px solid $warningYellow;
+  background-color: $warningYellow;
+  border-radius: 1em;
+  padding: 0.5em 0.75em;
+
+  display: grid;
+  // HARDCODED the icon size
+  grid-template-columns: 18px 1fr;
+  column-gap: 8px;
+  align-items: center; // vertical centering
+
+  &:hover {
+    background-color: transparent;
+    border-color: white;
+  }
+
+  p.ticker-toggle-btn-txt {
+    margin: 0;
+    color: white;
+  }
+
+  .ticker-toggle-btn-icon {
+    height: fit-content;
+
+    // remove vertical line on the bottom of the svg element
+    // https://stackoverflow.com/a/24626986
+    svg {
+      vertical-align: top;
+      color: white;
+    }
+  }
+}
+
 .ticker-wrap {
   position: absolute;
   bottom: 0;
@@ -38,6 +79,8 @@ $duration: 10s;
   height: 4rem;
   padding-left: 100%;
   box-sizing: content-box;
+
+  background-color: #ffffff69; // hehe funni nubmer
 
   .ticker {
     display: inline-block;

@@ -99,15 +99,25 @@ view model =
             div [] [ viewError error ]
 
         Success successModel ->
+            let
+                numUpdates = String.fromInt successModel.response.size.rows
+                actionText = if successModel.tickerOpen then "Collapse" else "Expand"
+            in
             div
                 []
                 [ div
                     [ Html.Events.onClick ToggleTicker
-                    , Html.Attributes.style "mouse" "pointer"
+                    , Html.Attributes.class "ticker-toggle-btn"
                     ]
-                    [ FeatherIcons.info
+                    [ -- NOTE: If you change the size, also change the code in ticker.scss that unfortunately hardcodes the icon size
+                    FeatherIcons.info
+                        |> FeatherIcons.withSize 18
                         |> FeatherIcons.toHtml []
-                    , text <| "Expand " ++ String.fromInt successModel.response.size.rows ++ " updates"
+                        |> List.singleton
+                        |> Html.div [Html.Attributes.class "ticker-toggle-btn-icon" ]
+                    , Html.p 
+                        [Html.Attributes.class "ticker-toggle-btn-txt" ] 
+                        [text <| actionText ++ " " ++ numUpdates ++ " updates"]
                     ]
                 , viewSuccess successModel
                 ]
