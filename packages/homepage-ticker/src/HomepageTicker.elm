@@ -108,7 +108,7 @@ view model =
         Success successModel ->
             let
                 numUpdates = String.fromInt successModel.response.size.rows
-                actionText = if successModel.tickerOpen then "Collapse" else "Expand"
+                actionText = if successModel.tickerOpen then "Hide" else "Show"
             in
             div
                 []
