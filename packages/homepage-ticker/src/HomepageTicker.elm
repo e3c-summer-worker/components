@@ -36,13 +36,14 @@ type Model
 type alias SuccessModel =
     { response : DetaResponse
     , tickerOpen : Bool
+    , english : Bool -- english or chinese
     }
-
 
 initSuccess : DetaResponse -> SuccessModel
 initSuccess response =
     { response = response
     , tickerOpen = False
+    , english = True
     }
 
 
@@ -63,6 +64,7 @@ init () =
 type Msg
     = GotDetaResponse (Result Http.Error DetaResponse)
     | ToggleTicker
+    | ToggleLanguage
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
@@ -80,6 +82,11 @@ update msg model =
             ( Success <| { m | tickerOpen = not m.tickerOpen }
             , Cmd.none
             )
+        
+        ( Success m, ToggleLanguage ) ->
+            ( Success <| { m | english = not m.english }
+            , Cmd.none
+            )
 
         _ ->
             ( model, Cmd.none )
@@ -93,7 +100,7 @@ view : Model -> Html Msg
 view model =
     case model of
         Loading ->
-            div [ class "ticker-wrap" ] []
+            div [] []
 
         Error error ->
             div [] [ viewError error ]
@@ -106,10 +113,13 @@ view model =
             div
                 []
                 [ div
-                    [ Html.Events.onClick ToggleTicker
-                    , Html.Attributes.class "ticker-toggle-btn"
+                    [ Html.Attributes.class "ticker-toggle-wrapper"
                     ]
-                    [ -- NOTE: If you change the size, also change the code in ticker.scss that unfortunately hardcodes the icon size
+                    [ div 
+                        [Html.Events.onClick ToggleTicker
+                        , Html.Attributes.class "ticker-toggle-btn"
+                        ]
+                        [-- NOTE: If you change the size, also change the code in ticker.scss that unfortunately hardcodes the icon size
                     FeatherIcons.info
                         |> FeatherIcons.withSize 18
                         |> FeatherIcons.toHtml []
@@ -118,6 +128,16 @@ view model =
                     , Html.p 
                         [Html.Attributes.class "ticker-toggle-btn-txt" ] 
                         [text <| actionText ++ " " ++ numUpdates ++ " updates"]
+                        ]
+                    -- toggles language
+                    , FeatherIcons.globe
+                        |> FeatherIcons.withSize 18
+                        |> FeatherIcons.toHtml []
+                        |> List.singleton
+                        |> Html.div 
+                            [ Html.Attributes.class "ticker-btn-globe-icon" 
+                            , Html.Events.onClick ToggleLanguage
+                            ]
                     ]
                 , viewSuccess successModel
                 ]
@@ -128,23 +148,27 @@ viewSuccess successModel =
     if successModel.tickerOpen then
         div
             [ class "ticker-wrap active" ]
-            [ viewContent successModel.response ]
+            [ viewContent successModel.response successModel.english ]
 
     else
         div [] []
 
 
-viewContent : DetaResponse -> Html Msg
-viewContent { rows } =
+viewContent : DetaResponse -> Bool -> Html Msg
+viewContent { rows } isEnglish =
     div [ class "ticker" ] <|
-        List.map (\( english, chinese ) -> viewRow english chinese) rows
+        List.map (\( english, chinese ) -> viewRow english chinese isEnglish) rows
 
 
-viewRow : String -> String -> Html Msg
-viewRow english _ =
+viewRow : String -> String -> Bool -> Html Msg
+viewRow english chinese isEnglish =
+    let 
+        rowText = 
+            if isEnglish then english else chinese
+    in
     div
         [ class "ticker__item" ]
-        [ text english ]
+        [ text rowText ]
 
 
 viewError : Http.Error -> Html Msg

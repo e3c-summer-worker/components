@@ -30,42 +30,71 @@ $warningYellow: #f5a623;
   }
 }
 
-.ticker-toggle-btn {
+.ticker-toggle-wrapper {
   margin: auto; // centers element horizontally
 
   width: fit-content;
   height: fit-content;
 
-  cursor: pointer;
-  border: 1px solid $warningYellow;
-  background-color: $warningYellow;
-  border-radius: 1em;
-  padding: 0.5em 0.75em;
-
   display: grid;
   // HARDCODED the icon size
-  grid-template-columns: 18px 1fr;
-  column-gap: 8px;
+  grid-template-columns: 1fr 18px;
+  column-gap: 1em;
   align-items: center; // vertical centering
 
-  &:hover {
-    background-color: transparent;
-    border-color: white;
+  .ticker-toggle-btn {
+    cursor: pointer;
+    border: 1px solid $warningYellow;
+    background-color: $warningYellow;
+    border-radius: 0.8em;
+    padding: 0.5em 0.75em;
+
+    display: grid;
+    // HARDCODED the icon size
+    grid-template-columns: 18px 1fr;
+    column-gap: 8px;
+    align-items: center; // vertical centering
+
+    &:hover {
+      background-color: transparent;
+      border-color: white;
+    }
+
+    p.ticker-toggle-btn-txt {
+      margin: 0;
+      color: white;
+    }
+
+    .ticker-toggle-btn-icon {
+      height: fit-content;
+
+      // remove vertical line on the bottom of the svg element
+      // https://stackoverflow.com/a/24626986
+      svg {
+        vertical-align: top;
+        color: white;
+      }
+    }
   }
 
-  p.ticker-toggle-btn-txt {
-    margin: 0;
-    color: white;
-  }
+  .ticker-btn-globe-icon {
+    cursor: pointer;
+    color: black;
+    background-color: white;
 
-  .ticker-toggle-btn-icon {
-    height: fit-content;
+    border-radius: 1em;
 
+    padding: 0.5em;
+    width: fit-content;
+
+    &:hover {
+      background-color: transparent;
+      border: 1px solid white;
+    }
     // remove vertical line on the bottom of the svg element
     // https://stackoverflow.com/a/24626986
     svg {
       vertical-align: top;
-      color: white;
     }
   }
 }
@@ -80,7 +109,7 @@ $warningYellow: #f5a623;
   padding-left: 100%;
   box-sizing: content-box;
 
-  background-color: #ffffff69; // hehe funni nubmer
+  background-color: #ffffff96;
 
   .ticker {
     display: inline-block;
