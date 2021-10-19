@@ -1,5 +1,11 @@
 # @e3c-summer-worker/navigation
 
+## 1.0.5
+
+### Patch Changes
+
+- Added some links
+
 ## 1.0.4
 
 ### Patch Changes
