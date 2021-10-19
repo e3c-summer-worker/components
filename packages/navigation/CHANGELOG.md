@@ -1,5 +1,11 @@
 # @e3c-summer-worker/navigation
 
+## 1.0.6
+
+### Patch Changes
+
+- the previous change got messed up because I didn't run npm run build oops
+
 ## 1.0.5
 
 ### Patch Changes

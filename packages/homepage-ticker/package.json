@@ -6,8 +6,8 @@
   ],
   "scripts": {
     "start": "concurrently \"npm:start:*\"",
-    "start:elm": "elm-live src/HomepageTicker.elm -H -p 8000 --dir=./build -- --output=build/homepage-ticker-elm.js",
-    "start:scss": "npm run build:scss && node-sass src/ticker.scss -o build -w",
+    "start:elm": "elm-live src/HomepageTicker.elm -H -p 8000 --dir=./public -- --output=public/homepage-ticker-elm.js",
+    "start:scss": "node-sass src/ticker.scss -o public && node-sass src/ticker.scss -o public -w",
     "build": "concurrently \"npm:build:*\"",
     "build:scss": "node-sass src/ticker.scss -o build",
     "build:elm": "npm run build:preprocess && npm run uglify && rm buffer.js",
