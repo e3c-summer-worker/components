@@ -31,11 +31,3 @@ yarn start
 # for minification:
 yarn build
 ```
-
-## Production
-
-Similar to the Scrolling Terrain Background, we are using Github Actions to deploy the build to a new branch (`navigation`). On the Squarespace site,
-we use jsDelivr to retrieve the files. You can access the files at this link:
-
-- [https://cdn.jsdelivr.net/gh/e3c-summer-worker/components@navigation/desktopnav-elm.js](https://cdn.jsdelivr.net/gh/e3c-summer-worker/components@scrolling-terrain/desktopnav-elm.js).
-- [https://cdn.jsdelivr.net/gh/e3c-summer-worker/components@navigation/mobilenav-elm.js](https://cdn.jsdelivr.net/gh/e3c-summer-worker/components@scrolling-terrain/mobilenav-elm.js).
