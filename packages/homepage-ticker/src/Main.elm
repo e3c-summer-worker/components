@@ -1,4 +1,4 @@
-module HomepageTicker exposing (main)
+module Main exposing (main)
 
 import Browser
 import DetaResponse exposing (DetaResponse)
@@ -38,6 +38,7 @@ type alias SuccessModel =
     , tickerOpen : Bool
     , english : Bool -- english or chinese
     }
+
 
 initSuccess : DetaResponse -> SuccessModel
 initSuccess response =
@@ -82,7 +83,7 @@ update msg model =
             ( Success <| { m | tickerOpen = not m.tickerOpen }
             , Cmd.none
             )
-        
+
         ( Success m, ToggleLanguage ) ->
             ( Success <| { m | english = not m.english }
             , Cmd.none
@@ -107,35 +108,43 @@ view model =
 
         Success successModel ->
             let
-                numUpdates = String.fromInt successModel.response.size.rows
-                actionText = if successModel.tickerOpen then "Hide" else "Show"
+                numUpdates =
+                    String.fromInt successModel.response.size.rows
+
+                actionText =
+                    if successModel.tickerOpen then
+                        "Hide"
+
+                    else
+                        "Show"
             in
             div
                 []
                 [ div
                     [ Html.Attributes.class "ticker-toggle-wrapper"
                     ]
-                    [ div 
-                        [Html.Events.onClick ToggleTicker
+                    [ div
+                        [ Html.Events.onClick ToggleTicker
                         , Html.Attributes.class "ticker-toggle-btn"
                         ]
-                        [-- NOTE: If you change the size, also change the code in ticker.scss that unfortunately hardcodes the icon size
-                    FeatherIcons.info
-                        |> FeatherIcons.withSize 18
-                        |> FeatherIcons.toHtml []
-                        |> List.singleton
-                        |> Html.div [Html.Attributes.class "ticker-toggle-btn-icon" ]
-                    , Html.p 
-                        [Html.Attributes.class "ticker-toggle-btn-txt" ] 
-                        [text <| actionText ++ " " ++ numUpdates ++ " updates"]
+                        [ -- NOTE: If you change the size, also change the code in ticker.scss that unfortunately hardcodes the icon size
+                          FeatherIcons.info
+                            |> FeatherIcons.withSize 18
+                            |> FeatherIcons.toHtml []
+                            |> List.singleton
+                            |> Html.div [ Html.Attributes.class "ticker-toggle-btn-icon" ]
+                        , Html.p
+                            [ Html.Attributes.class "ticker-toggle-btn-txt" ]
+                            [ text <| actionText ++ " " ++ numUpdates ++ " updates" ]
                         ]
+
                     -- toggles language
                     , FeatherIcons.globe
                         |> FeatherIcons.withSize 18
                         |> FeatherIcons.toHtml []
                         |> List.singleton
-                        |> Html.div 
-                            [ Html.Attributes.class "ticker-btn-globe-icon" 
+                        |> Html.div
+                            [ Html.Attributes.class "ticker-btn-globe-icon"
                             , Html.Events.onClick ToggleLanguage
                             ]
                     ]
@@ -162,9 +171,13 @@ viewContent { rows } isEnglish =
 
 viewRow : String -> String -> Bool -> Html Msg
 viewRow english chinese isEnglish =
-    let 
-        rowText = 
-            if isEnglish then english else chinese
+    let
+        rowText =
+            if isEnglish then
+                english
+
+            else
+                chinese
     in
     div
         [ class "ticker__item" ]
