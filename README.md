@@ -8,24 +8,27 @@ I am using [Yarn Workspaces](https://yarnpkg.com/features/workspaces) and [chang
 
 This repo structure is based off of [monorepo-release-changesets](https://github.com/azu/monorepo-release-changesets).
 
+## Overview of the components
+
+All the components are in the `packages/*` folder, save for the `elm-webpack-loader`, which is there to fix an unfortunate bug in the Elm webpack compiler.
+
+* Homepage Ticker (`packages/homepage-ticker`)
+* Navigation (`packages/navigation`)
+* Scrolling Terrain (`packages/scrolling-terrain`)
+
+
+
 ## Local development
 
 Make sure you have the following installed:
 
 * [Yarn 3](https://yarnpkg.com/)
 
-I'm using Yarn's [Plug'n'Play](https://yarnpkg.com/features/pnp) as my dependency management system, so theoretically you don't even need to run `yarn install` (but maybe run it anyway?). The dependencies should all be in the `.pnp.cjs` file. But just in case:
+I'm using Yarn's [Plug'n'Play](https://yarnpkg.com/features/pnp) as my dependency management system, so theoretically you don't even need to run `yarn install` (but maybe run it anyway?). The dependencies should all be in the `.pnp.cjs` file. The benefit of this is that installations are generally super fast, but the git diffs can get pretty crazy. If anything goes wrong, you shoudl be able to fix it by reinstalling the packages: 
 
 ```bash
 yarn
 ```
-
-## Production
-
-Most of the components have an associated Github Action that pushes it to a new branch, where you can then access it via a CDN, like jsDelivr (which is what I'm using primarily).
-
-Some pages on Squarespace may still use jsDelivr links in the [SummerWorkerECCC.github.io](https://github.com/SummerWorkerECCC/SummerWorkerECCC.github.io) repository (I used to manually add the compiled code to the repo very time I made new changes), which I have kept there for backward compatibility.
-ersions
 
 ### Updating Versions
 

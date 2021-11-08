@@ -52,7 +52,7 @@ init : () -> ( Model, Cmd Msg )
 init () =
     ( Loading
     , Http.get
-        { url = "https://q77r6a.deta.dev/sheet/1E7MW3HpJJNEtByxD2Ej55V60q9OU13t7rGy_le5FcTo"
+        { url = "https://api.sheets.eccchurch.ca/sheet/1E7MW3HpJJNEtByxD2Ej55V60q9OU13t7rGy_le5FcTo"
         , expect = Http.expectJson GotDetaResponse DetaResponse.decoder
         }
     )

@@ -6,7 +6,8 @@
     "build/*"
   ],
   "scripts": {
-    "webpack": "webpack",
+    "start:webpack": "webpack --config webpack.dev.js",
+    "build:webpack": "webpack --config webpack.prod.js",
     "start": "concurrently \"npm:start:*\"",
     "start:elm": "elm-live src/HomepageTicker.elm -H -p 8000 --dir=./public -- --output=public/homepage-ticker-elm.js",
     "start:scss": "node-sass src/ticker.scss -o public && node-sass src/ticker.scss -o public -w",
@@ -23,6 +24,7 @@
     "elm-format": "^0.8.5",
     "elm-live": "^4.0.2",
     "file-loader": "^6.2.0",
+    "live-server": "^1.2.1",
     "mini-css-extract-plugin": "^2.4.4",
     "node-sass": "^6.0.1",
     "sass": "^1.43.4",

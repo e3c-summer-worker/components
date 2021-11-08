@@ -1,24 +1,18 @@
-
-
 const path = require('path');
 
-
-const elmEntryPath = path.join(__dirname, 'build/homepage-ticker-elm.js');
-const outputPath = path.join(__dirname, 'build');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const devMode = process.env.NODE_ENV !== "production";
+
 
 
 /**
- * We want multiple entries and outputs (one for the .js, one for the .css)
- * 
- * https://webpack.js.org/guides/entry-advanced/
+ * Outputting everything to /build
  */
 module.exports = {
-    // this will only apply to .js files, since the scss will override the .js stuff I'm guessing
-    // output: {
-    //     path: __dirname + 'build',
-    //     filename: 'ticker.js'
-    // },
+    output: {
+        path: path.join(__dirname, 'build'),
+        filename: 'ticker.js'
+    },
     module: {
         rules: [{
             test: /\.elm$/,
@@ -27,8 +21,9 @@ module.exports = {
             loader: './../elm-webpack-loader/index.js',
         }, {
             test: /\.scss$/,
+            // https://webpack.js.org/loaders/css-loader/#recommend
             use: [
-                // MiniCssExtractPlugin.loader,
+                devMode ? "style-loader" : MiniCssExtractPlugin.loader,
                 'css-loader',
                 'sass-loader',
             ],
@@ -38,9 +33,6 @@ module.exports = {
         contentBase: path.join(__dirname, 'build'),
         stats: 'errors-only'
     },
-    plugins: [
-        new MiniCssExtractPlugin({
-            filename: '[name].css',
-        }),
-    ],
+    plugins: [].concat(devMode ? [] : [new MiniCssExtractPlugin()]),
+
 };
