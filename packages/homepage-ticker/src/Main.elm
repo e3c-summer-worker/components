@@ -43,13 +43,13 @@ type alias SuccessModel =
 initSuccess : DetaResponse -> SuccessModel
 initSuccess response =
     { response = response
-    , tickerOpen = False
+    , tickerOpen = True
     , english = True
     }
 
 
 init : () -> ( Model, Cmd Msg )
-init () =
+init _ =
     ( Loading
     , Http.get
         { url = "https://api.sheets.eccchurch.ca/sheet/1E7MW3HpJJNEtByxD2Ej55V60q9OU13t7rGy_le5FcTo"
@@ -119,7 +119,7 @@ view model =
                         "Show"
             in
             div
-                []
+                [ Html.Attributes.class "ticker-wrapper" ]
                 [ div
                     [ Html.Attributes.class "ticker-toggle-wrapper"
                     ]

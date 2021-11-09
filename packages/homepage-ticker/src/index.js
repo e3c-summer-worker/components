@@ -8,7 +8,6 @@ import { Elm } from './Main.elm';
 window.addEventListener('load', () => {
     const elem = document.querySelector('.sqs-slice-group.group-copy.align-center-vert.full-width');
     const elm = document.createElement('div');
-    elm.setAttribute('id', 'elm');
 
     // insert after wrapper
     // https://stackoverflow.com/a/4793630

@@ -18,8 +18,15 @@ yarn
 yarn start
 ```
 
+This will watch the files in `src/` and rebuild `build/ticker.js` whenever they change.
+
+Open a local dev server to host the html in the `public/` folder. I use [Five Server](https://marketplace.visualstudio.com/items?itemName=yandeu.five-server) to do this. NOTE: make sure the url ends in `index.html`, otherwise the server will not serve the files correctly.
+
 ## Production
 
-You'll need both the `homepage-ticker-elm.js` and the `ticker.css` files to be included.
+```bash
+yarn build
+```
+The live server can also be used to test that the compiled code is working.
 
-Github actions should automatically build the files and publish them to a CDN on deployment, so you shouldn't worry about production.
+The distributed files will be in the `build/` folder (`ticker.js`, and `ticker.css`).
