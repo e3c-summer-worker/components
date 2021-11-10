@@ -20,7 +20,7 @@ Make sure you have the following installed:
 
 * [Yarn 3](https://yarnpkg.com/)
 
-I'm using Yarn's [Plug'n'Play](https://yarnpkg.com/features/pnp) as my dependency management system, so theoretically you don't even need to run `yarn install` (but maybe run it anyway?). The dependencies should all be in the `.pnp.cjs` file. The benefit of this is that installations are generally super fast, but the git diffs can get pretty crazy. If anything goes wrong, you shoudl be able to fix it by reinstalling the packages:
+I'm using Yarn's [Plug'n'Play](https://yarnpkg.com/features/pnp) as my dependency management system, so theoretically you don't even need to run `yarn` (but maybe run it anyway?). The dependencies should all be in the `.pnp.cjs` file. The benefit of this is that installations are generally super fast, but the git diffs can get pretty crazy. If anything goes wrong, you should be able to fix it by reinstalling the packages:
 
 ```bash
 yarn
@@ -43,4 +43,10 @@ yarn workspaces foreach run build   # Build every project in the workspace
 yarn changeset publish              # Publish to NPM
 ```
 
+### TODO: Github Action
+
 I should really automate this in GH Actions, but I'm too smooth brained to do that right now. The monorepo-release-changesets repo has the GH actions, but it's buggy lmao.
+
+Looking into it, it could be done with the [Changeset Actions Bot](https://github.com/changesets/action). Looking at the docs, this means I only do the first command above, because this bot does the second command for us, making a PR with the updated version number and changelog.
+
+We can then configure it to push to NPM.
