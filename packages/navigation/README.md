@@ -22,7 +22,7 @@ Note that we are using yarn workspaces, so the installations will be mostly cons
 
 The [`site.css`](./public/site.css) is the squarespace compiled css, and the [`styles.css`](./public/styles.css) are our styles.
 
-## Local Development
+### Local Development
 
 ```bash
 yarn
@@ -31,8 +31,36 @@ yarn start
 
 Note that the styles will be quite a bit different than production, this is because I only copied a subset of the HTML into our `public/` html file. The important thing is that the navigation bar is functional.
 
-## Production Build
+### Production Build
 
 ```bash
 yarn build
+```
+
+## Usage
+
+### V2
+
+In v2, only the import is needed.
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/@e3c-summer-worker/navigation@2/build/navigation.js"></script>
+```
+
+### V1
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/@e3c-summer-worker/navigation@1/build/mobilenav-elm.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@e3c-summer-worker/navigation@1/build/desktopnav-elm.js"></script>
+<script>
+    window.onload = function () {
+        // desktop navigation
+        const headerNav = document.getElementById('headerNav');
+        const app_d = Elm.DesktopNav.init({ node: headerNav });
+
+        // mobile navigation
+        const sidecarNav = document.getElementById('sidecarNav');
+        const app_m = Elm.MobileNav.init({ node: sidecarNav });
+    }
+</script>
 ```
