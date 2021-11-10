@@ -9,7 +9,11 @@ be watched for changes as well.
 
 ## **NOTE**
 
-This is modified from the original [elm-webpack-loader](https://github.com/elm-community/elm-webpack-loader) to fix [#200](https://github.com/elm-community/elm-webpack-loader/issues/200). Should any webpack stuff fail (`yarn start` or `yarn build`), running `yarn` might work.
+This is modified from the original [elm-webpack-loader](https://github.com/elm-community/elm-webpack-loader) to fix [#200](https://github.com/elm-community/elm-webpack-loader/issues/200). Should any webpack stuff fail (`yarn`) would fix it.
+
+Note I have to keep this as a package so yarn would install the necessary dependencies (temp) into `pnp.cjs`, so the elm webpack can use it.
+
+Sometimes I think to myself, "is this worth the effort?".
 
 The README below is the original.
 
