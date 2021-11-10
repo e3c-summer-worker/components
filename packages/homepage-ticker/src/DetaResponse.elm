@@ -6,6 +6,10 @@ import Json.Decode as Decode exposing (Decoder)
 import Json.Decode.Pipeline as Pipeline
 
 
+
+---- TYPE
+
+
 type alias DetaResponse =
     { size : Size
     , columnNames : List String
@@ -29,6 +33,10 @@ type alias Size =
     { cols : Int
     , rows : Int
     }
+
+
+
+---- DECODER
 
 
 decoder : Decoder DetaResponse

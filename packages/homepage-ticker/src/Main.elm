@@ -10,7 +10,7 @@ import Http
 
 
 
--- MAIN
+---- MAIN
 
 
 main : Program () Model Msg
@@ -24,7 +24,7 @@ main =
 
 
 
--- MODEL
+---- MODEL
 
 
 type Model
@@ -61,7 +61,7 @@ init _ =
 
 
 
--- UPDATE
+---- UPDATE
 
 
 type Msg
@@ -102,7 +102,7 @@ update msg model =
 
 
 
--- VIEW
+---- VIEW
 
 
 view : Model -> Html Msg
