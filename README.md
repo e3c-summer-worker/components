@@ -31,7 +31,8 @@ yarn
 I should really automate this in GH Actions, but I'm too smooth brained to do that right now.
 
 ```bash
-yarn changeset         # To generate changesets
-yarn changeset version # To update the version number based off of changesets
-yarn changeset publish # Publish to NPM
+yarn changeset                      # To generate changesets
+yarn changeset version              # To update the version number based off of changesets
+yarn workspaces foreach run build   # Build every project
+yarn changeset publish              # Publish to NPM
 ```
