@@ -1,5 +1,11 @@
 # @e3c-summer-worker/homepage-ticker
 
+## 2.0.1
+
+### Patch Changes
+
+- NPM prepublish command didn't work and I didn't publish the build files oops.
+
 ## 2.0.0
 
 ### Major Changes
