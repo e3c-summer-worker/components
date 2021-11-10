@@ -16,8 +16,6 @@ All the components are in the `packages/*` folder, save for the `elm-webpack-loa
 * Navigation (`packages/navigation`)
 * Scrolling Terrain (`packages/scrolling-terrain`)
 
-
-
 ## Local development
 
 Make sure you have the following installed:
