@@ -29,7 +29,7 @@ yarn
 yarn start
 ```
 
-Note that the fonts won't look the same since it's our site uses Europa, which is licensed by Adobe Fonts.
+Note that the styles will be quite a bit different than production, this is because I only copied a subset of the HTML into our `public/` html file. The important thing is that the navigation bar is functional.
 
 ## Production Build
 
