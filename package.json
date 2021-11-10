@@ -22,7 +22,9 @@
   "private": true,
   "workspaces": {
     "packages": [
-      "packages/*"
+      "packages/homepage-ticker",
+      "packages/navigation",
+      "packages/scrolling-terrain-bg"
     ]
   },
   "devDependencies": {

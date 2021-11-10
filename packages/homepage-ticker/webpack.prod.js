@@ -1,7 +1,7 @@
 const { merge } = require('webpack-merge');
 const common = require('./webpack.common.js');
-const webpack = require('webpack');
 const TerserPlugin = require("terser-webpack-plugin");
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 
 // adds version number to the top of the build file
@@ -27,6 +27,22 @@ module.exports = merge(common, {
     devtool: 'source-map',
     optimization: {
         minimizer: [minimizer],
-    }
+    },
+    module: {
+        rules: [{
+            test: /\.scss$/,
+            // https://webpack.js.org/loaders/css-loader/#recommend
+            use: [
+                MiniCssExtractPlugin.loader,
+                'css-loader',
+                'sass-loader',
+            ],
+        }]
+    },
+    plugins: [
+        new MiniCssExtractPlugin({
+            filename: 'ticker.css'
+        })
+    ]
 });
 

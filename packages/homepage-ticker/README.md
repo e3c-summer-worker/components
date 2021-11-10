@@ -1,15 +1,12 @@
 # Homepage Ticker
 
-Ticker for the home page, writen in Elm. Inspired by Rev. Doo, possibly implemented via [this thing](https://codepen.io/lewismcarey/pen/GJZVoG).
+Ticker for the home page, writen in Elm and directed by Rev. Doo.
 
 What it does is fetch the data from the deta micro server and display it in a simple HTML element.
 
-It uses the deta micro server on the cloud, if you want to run it locally, you need to change the `url` in `src/HomepageTicker.elm`
-to whatever you have the micro server running on (`http://localhost:3001` unless configured otherwise).
+It uses a [Deta Micro server](https://docs.deta.sh/docs/micros/about/) for the HTTP endpoint, which is a free cloud service built on AWS. The data is located in a Google Spreadsheet at [this link](https://docs.google.com/spreadsheets/d/1E7MW3HpJJNEtByxD2Ej55V60q9OU13t7rGy_le5FcTo/edit?usp=sharing). The code handling this logic resides in [this repository](https://github.com/e3c-summer-worker/google-sheets).
 
-The data is located in a Google Spreadsheet at [this link](https://docs.google.com/spreadsheets/d/1E7MW3HpJJNEtByxD2Ej55V60q9OU13t7rGy_le5FcTo/edit?usp=sharing).
-
-Note that we are using yarn workspaces, so the installations will be mostly consolidated at a top-level `node_modules/` folder.
+On the Deta web view, the project is under `sheets-api`. Note that the project is not `homepage-ticker`, that was an old one that should be deleted, but Deta doesn't allow project deletions yet!
 
 ## Local Development
 
@@ -18,8 +15,16 @@ yarn
 yarn start
 ```
 
+This will watch the files in `src/` and rebuild `build/ticker.js` whenever they change.
+
+Open a local dev server to host the html in the `public/` folder to see the result. I use [Five Server](https://marketplace.visualstudio.com/items?itemName=yandeu.five-server) to do this. NOTE: make sure the url ends in `public/index.html`, otherwise the server will not serve the files correctly.
+
 ## Production
 
-You'll need both the `homepage-ticker-elm.js` and the `ticker.css` files to be included.
+```bash
+yarn build
+```
 
-Github actions should automatically build the files and publish them to a CDN on deployment, so you shouldn't worry about production.
+The live server can also be used to test that the compiled code is working.
+
+The distributed files will be in the `build/` folder (`ticker.js` and `ticker.css`).
