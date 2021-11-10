@@ -26,13 +26,21 @@ I'm using Yarn's [Plug'n'Play](https://yarnpkg.com/features/pnp) as my dependenc
 yarn
 ```
 
-### Updating Versions
+## Usage
 
-I should really automate this in GH Actions, but I'm too smooth brained to do that right now.
+To use the components, you must [inject custom code in the Squarespace page header](https://support.squarespace.com/hc/en-us/articles/205815908-Using-Code-Injection) (`Page settings -> Advanced -> Page Header Code Injection`). More details are in each component's README.
+
+## Updating Versions
+
+If you are making changes in another branch, you should run the first two commands before merging the PR (so the `package.json` version will be updated before you merge).
+
+Once you merge, checkout to the main branch on your local machine and run the third and fourth commands. These will NOT change anything, they will just publish to NPM.
 
 ```bash
 yarn changeset                      # To generate changesets
 yarn changeset version              # To update the version number based off of changesets
-yarn workspaces foreach run build   # Build every project
+yarn workspaces foreach run build   # Build every project in the workspace
 yarn changeset publish              # Publish to NPM
 ```
+
+I should really automate this in GH Actions, but I'm too smooth brained to do that right now. The monorepo-release-changesets repo has the GH actions, but it's buggy lmao.
