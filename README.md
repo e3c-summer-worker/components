@@ -39,7 +39,7 @@ Once you merge, checkout to the main branch on your local machine and run the th
 ```bash
 yarn changeset                      # To generate changesets
 yarn changeset version              # To update the version number based off of changesets
-yarn workspaces foreach run build   # Build every project in the workspace
+yarn build                          # Build every project in the workspace
 yarn changeset publish              # Publish to NPM
 ```
 

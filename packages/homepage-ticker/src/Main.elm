@@ -10,7 +10,7 @@ import Http
 
 
 
--- MAIN
+---- MAIN
 
 
 main : Program () Model Msg
@@ -24,7 +24,7 @@ main =
 
 
 
--- MODEL
+---- MODEL
 
 
 type Model
@@ -61,7 +61,7 @@ init _ =
 
 
 
--- UPDATE
+---- UPDATE
 
 
 type Msg
@@ -102,62 +102,73 @@ update msg model =
 
 
 
--- VIEW
+---- VIEW
 
 
 view : Model -> Html Msg
 view model =
     case model of
         Loading ->
-            div [ class "loading", id "elm" ] []
+            div [ class "loading", id "elm" ] [ buttons model ]
 
         Error error ->
             div [ class "error", id "elm" ] [ viewError error ]
 
         Success successModel ->
-            let
-                numUpdates =
-                    String.fromInt successModel.response.size.rows
+            div
+                [ Html.Attributes.class "sqs-slice yui3-widget ticker-wrapper", id "elm" ]
+                [ buttons model
+                , viewSuccess successModel
+                ]
 
-                actionText =
-                    if successModel.tickerOpen then
+
+
+-- ensures that the buttons will still be there, even when we're loading
+
+
+buttons : Model -> Html Msg
+buttons model =
+    let
+        actionText =
+            case model of
+                Success m ->
+                    if m.tickerOpen then
                         "Hide"
 
                     else
                         "Show"
-            in
-            div
-                [ Html.Attributes.class "sqs-slice yui3-widget ticker-wrapper" ]
-                [ div
-                    [ Html.Attributes.class "ticker-toggle-wrapper"
-                    ]
-                    [ div
-                        [ Html.Events.onClick ToggleTicker
-                        , Html.Attributes.class "ticker-toggle-btn"
-                        ]
-                        [ -- NOTE: If you change the size, also change the code in ticker.scss that unfortunately hardcodes the icon size
-                          FeatherIcons.info
-                            |> FeatherIcons.withSize 18
-                            |> FeatherIcons.toHtml []
-                            |> List.singleton
-                            |> Html.div [ Html.Attributes.class "ticker-toggle-btn-icon" ]
-                        , Html.p
-                            [ Html.Attributes.class "ticker-toggle-btn-txt unselectable" ]
-                            [ text <| actionText ++ " " ++ numUpdates ++ " updates" ]
-                        ]
 
-                    -- toggles language
-                    , FeatherIcons.globe
-                        |> FeatherIcons.withSize 18
-                        |> FeatherIcons.toHtml []
-                        |> List.singleton
-                        |> Html.div
-                            [ Html.Attributes.class "ticker-btn-globe-icon"
-                            , Html.Events.onClick ToggleLanguage
-                            ]
-                    ]
-                , viewSuccess successModel
+                -- default to "hide" because that's what we initialize it to be anyway
+                _ ->
+                    "Hide"
+    in
+    div
+        [ Html.Attributes.class "ticker-toggle-wrapper" ]
+        [ div
+            [ Html.Events.onClick ToggleTicker
+            , Html.Attributes.class "ticker-toggle-btn"
+            ]
+            [ -- NOTE: If you change the size, also change the code in ticker.scss that unfortunately hardcodes the icon size
+              FeatherIcons.info
+                |> FeatherIcons.withSize 18
+                |> FeatherIcons.toHtml []
+                |> List.singleton
+                |> Html.div [ Html.Attributes.class "ticker-toggle-btn-icon" ]
+            , Html.p
+                [ Html.Attributes.class "ticker-toggle-btn-txt unselectable" ]
+                [ text <| actionText ++ " updates" ]
+            ]
+
+        -- toggles language
+        , FeatherIcons.globe
+            |> FeatherIcons.withSize 18
+            |> FeatherIcons.toHtml []
+            |> List.singleton
+            |> Html.div
+                [ Html.Attributes.class "ticker-btn-globe-icon"
+                , Html.Events.onClick ToggleLanguage
                 ]
+        ]
 
 
 viewSuccess : SuccessModel -> Html Msg
