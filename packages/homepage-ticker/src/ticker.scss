@@ -1,7 +1,7 @@
 // Ticker Animation
 // Animation Based off of https://codepen.io/lewismcarey/pen/GJZVoG
 
-$duration: 15s;
+$duration: 12s;
 $warningYellow: #f5a623;
 
 @-webkit-keyframes ticker {
@@ -100,6 +100,12 @@ $warningYellow: #f5a623;
   }
 }
 
+.ticker-wrapper,
+#elm {
+  height: 116px;
+  margin-bottom: 1em;
+}
+
 .ticker-wrap {
   // fill 100% of the viewport
   width: 100vw;
@@ -110,6 +116,9 @@ $warningYellow: #f5a623;
   box-sizing: content-box;
 
   background-color: #ffffff96;
+
+  // when the user clicks, the ticker will play/pause
+  cursor: pointer;
 
   .ticker {
     display: inline-block;
@@ -128,6 +137,11 @@ $warningYellow: #f5a623;
     -webkit-animation-duration: $duration;
     animation-duration: $duration;
 
+    &.paused {
+      -webkit-animation-play-state: paused;
+      animation-play-state: paused;
+    }
+
     &__item {
       display: inline-block;
 
@@ -135,4 +149,11 @@ $warningYellow: #f5a623;
       font-size: 2rem;
     }
   }
+}
+
+.unselectable {
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
 }

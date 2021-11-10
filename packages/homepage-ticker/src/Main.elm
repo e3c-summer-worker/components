@@ -4,7 +4,7 @@ import Browser
 import DetaResponse exposing (DetaResponse)
 import FeatherIcons
 import Html exposing (Html, div, text)
-import Html.Attributes exposing (class)
+import Html.Attributes exposing (class, id)
 import Html.Events
 import Http
 
@@ -37,6 +37,7 @@ type alias SuccessModel =
     { response : DetaResponse
     , tickerOpen : Bool
     , english : Bool -- english or chinese
+    , paused : Bool -- whether the thing is stopped or not
     }
 
 
@@ -45,6 +46,7 @@ initSuccess response =
     { response = response
     , tickerOpen = True
     , english = True
+    , paused = False
     }
 
 
@@ -66,6 +68,7 @@ type Msg
     = GotDetaResponse (Result Http.Error DetaResponse)
     | ToggleTicker
     | ToggleLanguage
+    | TogglePlayPause
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
@@ -89,6 +92,11 @@ update msg model =
             , Cmd.none
             )
 
+        ( Success m, TogglePlayPause ) ->
+            ( Success <| { m | paused = not m.paused }
+            , Cmd.none
+            )
+
         _ ->
             ( model, Cmd.none )
 
@@ -101,10 +109,10 @@ view : Model -> Html Msg
 view model =
     case model of
         Loading ->
-            div [] []
+            div [ class "loading", id "elm" ] []
 
         Error error ->
-            div [] [ viewError error ]
+            div [ class "error", id "elm" ] [ viewError error ]
 
         Success successModel ->
             let
@@ -119,7 +127,7 @@ view model =
                         "Show"
             in
             div
-                [ Html.Attributes.class "ticker-wrapper" ]
+                [ Html.Attributes.class "sqs-slice yui3-widget ticker-wrapper" ]
                 [ div
                     [ Html.Attributes.class "ticker-toggle-wrapper"
                     ]
@@ -134,7 +142,7 @@ view model =
                             |> List.singleton
                             |> Html.div [ Html.Attributes.class "ticker-toggle-btn-icon" ]
                         , Html.p
-                            [ Html.Attributes.class "ticker-toggle-btn-txt" ]
+                            [ Html.Attributes.class "ticker-toggle-btn-txt unselectable" ]
                             [ text <| actionText ++ " " ++ numUpdates ++ " updates" ]
                         ]
 
@@ -156,17 +164,31 @@ viewSuccess : SuccessModel -> Html Msg
 viewSuccess successModel =
     if successModel.tickerOpen then
         div
-            [ class "ticker-wrap active" ]
-            [ viewContent successModel.response successModel.english ]
+            [ class "ticker-wrap"
+            , Html.Events.onClick TogglePlayPause
+            ]
+            [ viewTicker successModel successModel.english ]
 
     else
         div [] []
 
 
-viewContent : DetaResponse -> Bool -> Html Msg
-viewContent { rows } isEnglish =
-    div [ class "ticker" ] <|
-        List.map (\( english, chinese ) -> viewRow english chinese isEnglish) rows
+
+-- this is the thing that actually moves
+
+
+viewTicker : SuccessModel -> Bool -> Html Msg
+viewTicker { response, paused } isEnglish =
+    let
+        pausedClass =
+            if paused then
+                "paused"
+
+            else
+                ""
+    in
+    div [ class ("ticker " ++ pausedClass) ] <|
+        List.map (\( english, chinese ) -> viewRow english chinese isEnglish) response.rows
 
 
 viewRow : String -> String -> Bool -> Html Msg
