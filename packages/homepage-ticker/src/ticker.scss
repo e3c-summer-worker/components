@@ -1,7 +1,7 @@
 // Ticker Animation
 // Animation Based off of https://codepen.io/lewismcarey/pen/GJZVoG
 
-$duration: 15s;
+$duration: 12s;
 $warningYellow: #f5a623;
 
 @-webkit-keyframes ticker {
@@ -32,6 +32,7 @@ $warningYellow: #f5a623;
 
 .ticker-toggle-wrapper {
   margin: auto; // centers element horizontally
+  padding: 0.5em 0; // extra padding on the top and bottom
 
   width: fit-content;
   height: fit-content;
@@ -99,24 +100,32 @@ $warningYellow: #f5a623;
   }
 }
 
+.ticker-wrapper,
+#elm {
+  height: 116px;
+  margin-bottom: 1em;
+}
+
 .ticker-wrap {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
+  // fill 100% of the viewport
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+
   overflow: hidden;
   height: 4rem;
-  padding-left: 100%;
   box-sizing: content-box;
 
   background-color: #ffffff96;
+
+  // when the user clicks, the ticker will play/pause
+  cursor: pointer;
 
   .ticker {
     display: inline-block;
     height: 4rem;
     line-height: 4rem;
     white-space: nowrap;
-    padding-right: 100%;
+    padding-left: 100%;
     box-sizing: content-box;
 
     -webkit-animation-iteration-count: infinite;
@@ -128,6 +137,11 @@ $warningYellow: #f5a623;
     -webkit-animation-duration: $duration;
     animation-duration: $duration;
 
+    &.paused {
+      -webkit-animation-play-state: paused;
+      animation-play-state: paused;
+    }
+
     &__item {
       display: inline-block;
 
@@ -135,4 +149,11 @@ $warningYellow: #f5a623;
       font-size: 2rem;
     }
   }
+}
+
+.unselectable {
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
 }

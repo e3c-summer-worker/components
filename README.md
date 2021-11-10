@@ -1,9 +1,7 @@
 # Components
 
-A list of components (written mostly using React or Elm) that I am using for the
-website.
+A list of components (written mostly using React or Elm) that I am using for the website. The code is bundled, then hosted on NPM, where it is served by JSDelivr's CDN. For more information on using them, check out the [Custom Header repo](https://github.com/e3c-summer-worker/custom-header).
 
-Most of the directions for running locally and implementing them remotely are in the respective folders. 
 I am using [Yarn Workspaces](https://yarnpkg.com/features/workspaces) and [changesets](https://github.com/atlassian/changesets/blob/main/packages/cli/README.md) for versioning.
 
 This repo structure is based off of [monorepo-release-changesets](https://github.com/azu/monorepo-release-changesets).
@@ -15,8 +13,6 @@ All the components are in the `packages/*` folder, save for the `elm-webpack-loa
 * Homepage Ticker (`packages/homepage-ticker`)
 * Navigation (`packages/navigation`)
 * Scrolling Terrain (`packages/scrolling-terrain`)
-
-
 
 ## Local development
 
