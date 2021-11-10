@@ -27,7 +27,12 @@ The [`site.css`](./public/site.css) is the squarespace compiled css, and the [`s
 ```bash
 yarn
 yarn start
+```
 
-# for minification:
+Note that the fonts won't look the same since it's our site uses Europa, which is licensed by Adobe Fonts.
+
+## Production Build
+
+```bash
 yarn build
 ```
