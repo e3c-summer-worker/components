@@ -1,5 +1,11 @@
 # @e3c-summer-worker/homepage-ticker
 
+## 2.1.0
+
+### Minor Changes
+
+- 40610bc: Fixes #24, reduces glitchiness on startup
+
 ## 2.0.1
 
 ### Patch Changes
