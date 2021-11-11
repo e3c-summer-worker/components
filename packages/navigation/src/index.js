@@ -2,7 +2,7 @@ import { Elm as DesktopElm } from './DesktopNav.elm';
 import { Elm as MobileElm } from './MobileNav.elm';
 
 
-window.onload = () => {
+window.addEventListener('load', () => {
     // desktop navigation
     const headerNav = document.getElementById('headerNav');
     DesktopElm.DesktopNav.init({ node: headerNav });
@@ -10,4 +10,4 @@ window.onload = () => {
     // mobile navigation
     const sidecarNav = document.getElementById('sidecarNav');
     MobileElm.MobileNav.init({ node: sidecarNav });
-}
+})
