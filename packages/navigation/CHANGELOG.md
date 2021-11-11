@@ -1,5 +1,11 @@
 # @e3c-summer-worker/navigation
 
+## 2.0.2
+
+### Patch Changes
+
+- Fix build issue (accidentally published 2.0.0)
+
 ## 2.0.1
 
 ### Patch Changes
