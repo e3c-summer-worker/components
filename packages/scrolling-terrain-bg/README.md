@@ -15,5 +15,17 @@ Then start a local server and go to index.html to see the results.
 
 ## Production
 
-GIthub actions **will** be used to deploy to production. You can then access the files with jsdelivr on this link:
-[https://cdn.jsdelivr.net/npm/scrolling-terrain-bg@1.2.0/build/scrolling-terrain.min.js](https://cdn.jsdelivr.net/npm/@e3c-summer-worker/scrolling-terrain-bg/build/scrolling-terrain.min.js).
+To build for production, run the following command:
+
+```bash
+yarn build
+```
+
+## Usage
+
+```html
+<script>
+    const containerElement = document.getElementById('thumbnail');
+    new p5(TerrainSketch.sketch(containerElement), containerElement);
+</script>
+```
