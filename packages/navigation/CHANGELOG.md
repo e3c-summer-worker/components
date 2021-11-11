@@ -1,5 +1,11 @@
 # @e3c-summer-worker/navigation
 
+## 2.0.1
+
+### Patch Changes
+
+- fca3714: Fixes #30
+
 ## 2.0.0
 
 ### Major Changes
