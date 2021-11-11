@@ -1,26 +1,19 @@
 {
   "name": "@e3c-summer-worker/navigation",
-  "version": "1.0.6",
+  "version": "2.0.0",
   "files": [
     "build/*"
   ],
   "scripts": {
-    "start": "concurrently \"npm:start:*\"",
-    "start:desktop": "elm-live src/DesktopNav.elm -H --dir=./build -- --output=build/desktopnav-elm.js",
-    "start:mobile": "elm-live src/MobileNav.elm -H --dir=./build -- --output=build/mobileNav-elm.js",
-    "build": "npm run build:touch && npm run build:preprocess && npm run uglify && rm buffer_desktop.js && rm buffer_mobile.js",
-    "build:touch": "rm -rf build/ && mkdir build && touch build/desktopnav-elm.js && touch build/mobilenav-elm.js",
-    "build:preprocess": "elm make src/DesktopNav.elm --optimize --output=buffer_desktop.js && elm make src/MobileNav.elm --optimize --output=buffer_mobile.js",
-    "uglify": "npm run uglify:desktop && npm run uglify:mobile",
-    "uglify:desktop": "uglifyjs buffer_desktop.js --compress 'pure_funcs=[F2,F3,F4,F5,F6,F7,F8,F9,A2,A3,A4,A5,A6,A7,A8,A9],pure_getters,keep_fargs=false,unsafe_comps,unsafe' | uglifyjs --mangle --output build/desktopnav-elm.js",
-    "uglify:mobile": "uglifyjs buffer_mobile.js --compress 'pure_funcs=[F2,F3,F4,F5,F6,F7,F8,F9,A2,A3,A4,A5,A6,A7,A8,A9],pure_getters,keep_fargs=false,unsafe_comps,unsafe' | uglifyjs --mangle --output build/mobilenav-elm.js",
+    "test": "echo: \"No Tests for this project\"",
+    "start": "webpack --config webpack.dev.js",
+    "build": "webpack --config webpack.prod.js",
     "prepublish": "npm run build"
   },
   "devDependencies": {
-    "concurrently": "^6.2.1",
-    "elm-live": "^4.0.2",
-    "uglify-js": "^3.13.9",
-    "webpack": "^5.62.1",
+    "clean-webpack-plugin": "^4.0.0",
+    "terser-webpack-plugin": "^5.2.5",
+    "webpack": "^5.63.0",
     "webpack-cli": "^4.9.1",
     "webpack-merge": "^5.8.0"
   },

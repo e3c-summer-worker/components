@@ -9,28 +9,17 @@
     <link type="text/css" rel="stylesheet" href="./styles.css">
     <title>Elm App</title>
     <!-- Loads our app -->
-    <script src="./../build/desktopnav-elm.js"></script>
-    <script src="./../build/mobilenav-elm.js"></script>
-    <script>
-        window.onload = () => {
-            // desktop navigation
-            const headerNav = document.getElementById('headerNav');
-            Elm.DesktopNav.init({ node: headerNav });
-
-            // mobile navigation
-            const sidecarNav = document.getElementById('sidecarNav');
-            Elm.MobileNav.init({ node: sidecarNav });
-        }
-    </script>
+    <script src="./../build/navigation.js"></script>
 </head>
 
 <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="sidecarNav"></div>
     <div id="siteWrapper" className="clearfix">
-        <header id="header">
-            <div className="header-inner">
-                <div class="mobile-nav-toggle" id="yui_3_17_2_1_1624829667654_327">
+        <header id="header" class="show-on-scroll" data-offset-el=".index-section" data-offset-behavior="bottom"
+            role="banner">
+            <div class="header-inner">
+                <div class="mobile-nav-toggle">
                     <div class="top-bar"></div>
                     <div class="middle-bar"></div>
                     <div class="bottom-bar"></div>

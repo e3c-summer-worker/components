@@ -6,6 +6,7 @@
     "build/*"
   ],
   "scripts": {
+    "test": "npx elm-test",
     "start": "webpack --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",
     "prepublish": "npm run build"
@@ -13,6 +14,7 @@
   "devDependencies": {
     "clean-webpack-plugin": "^4.0.0",
     "css-loader": "^6.5.1",
+    "elm-test": "^0.19.1-revision7",
     "mini-css-extract-plugin": "^2.4.4",
     "sass": "^1.43.4",
     "sass-loader": "^12.3.0",
