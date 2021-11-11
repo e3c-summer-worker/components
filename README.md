@@ -32,6 +32,8 @@ To use the components, you must [inject custom code in the Squarespace page head
 
 ## Updating Versions
 
+**Make sure you are at the root of the repo**.
+
 If you are making changes in another branch, you should run the first two commands (committing in between) before merging the PR (so the `package.json` version will be updated before you merge).
 
 Once you merge, checkout to the main branch on your local machine and run the third and fourth commands. These will NOT change anything, they will just publish to NPM.
