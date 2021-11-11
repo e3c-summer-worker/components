@@ -4,7 +4,8 @@
   "description": "A list of components (written mostly using React or Elm) that I am using for the website.",
   "main": "index.js",
   "scripts": {
-    "build": "yarn workspaces foreach run build"
+    "build": "yarn workspaces foreach run build",
+    "test": "yarn workspaces foreach run test"
   },
   "repository": {
     "type": "git",

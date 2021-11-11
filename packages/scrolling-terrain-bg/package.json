@@ -7,7 +7,7 @@
   ],
   "description": "Adds a cool scrolling terrain effect to a website.",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "echo \"No tests for Scrolling Terrain!\"",
     "start": "webpack --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",
     "prepublish": "npm run build"

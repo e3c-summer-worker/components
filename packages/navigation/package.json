@@ -5,7 +5,7 @@
     "build/*"
   ],
   "scripts": {
-    "test": "echo: \"No Tests for this project\"",
+    "test": "echo \"No Tests for Navigation!\"",
     "start": "webpack --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",
     "prepublish": "npm run build"
