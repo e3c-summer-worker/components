@@ -7,7 +7,7 @@ import Html.Events exposing (onClick)
 
 
 
--- MAIN
+---- MAIN
 
 
 main : Program () Model Msg
@@ -16,7 +16,7 @@ main =
 
 
 
--- MODEL
+---- MODEL
 
 
 type alias Model =
@@ -37,7 +37,7 @@ init =
 
 
 
--- UPDATE
+---- UPDATE
 
 
 type Msg
@@ -49,6 +49,10 @@ type Folder
     | JoinUs
     | Community
     | Resources
+
+
+
+-- Toggle classname reacts to the click event on the folder link.
 
 
 update : Msg -> Model -> Model
@@ -68,7 +72,7 @@ update (ToggleClassname folder) model =
 
 
 
--- VIEW
+---- VIEW
 
 
 view : Model -> Html Msg

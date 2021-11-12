@@ -6,7 +6,7 @@ import Html.Attributes exposing (attribute, class, href, id)
 
 
 
--- MAIN
+---- MAIN
 
 
 main : Program () Model Never
@@ -15,7 +15,7 @@ main =
 
 
 
--- MODEL
+---- MODEL
 
 
 type alias Model =
@@ -28,7 +28,7 @@ init =
 
 
 
--- UPDATE
+---- UPDATE
 
 
 update : Never -> Model -> Model
@@ -37,7 +37,8 @@ update _ model =
 
 
 
--- VIEW
+---- VIEW
+-- note that this view will never react to any messages (such as user input), that's why it's an Html Never
 
 
 view : Model -> Html Never
