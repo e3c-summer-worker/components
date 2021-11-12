@@ -32,6 +32,8 @@ To use the components, you must [inject custom code in the Squarespace page head
 
 ## Updating Versions
 
+You must update the version in `package.json` before you can push new code to NPM, which is in turn read by the jsDelivr CDN to serve the files. Note that it may take a few hours for the CDN to update their caches.
+
 **Make sure you are at the root of the repo**.
 
 If you are making changes in another branch, you should run the first two commands (committing in between) before merging the PR (so the `package.json` version will be updated before you merge).
