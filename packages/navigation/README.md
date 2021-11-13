@@ -1,15 +1,11 @@
 # Navigations
 
-Source code for the navigation component, that distributed via jsDelivr.
-
-## Motivation
-
 Making our custom headers is a bit involved. We have to copy a lot of HTML code
 into the scripts, and it's confusing and difficult to debug if something changes
 and goes wrong, especially if our only text editor is the one built into
 Squarespace.
 
-Making the navigation in another component where you then import it is easier to debug and move around;
+Making the navigation in another component where you ethen import it is easier to debug and move around;
 you copy less code between pages and the development process is better if you're
 using something like VSCode.
 
@@ -20,7 +16,7 @@ The header code in `public/index.html` is almost exactly what you'd see copy and
 pasted into Squarespace (instead of importing the local `.js` file we use
 [JSDelivr](https://www.jsdelivr.com/), and we need to add the contents in and [`styles.css`](./public/styles.css).
 
-Note that we are using yarn workspaces, so the installations will be mostly consolidated at a top-level `.yarn` folder.
+Note that we are using yarn workspaces, so the installations will be mostly consolidated at a top-level `node_modules/` folder.
 
 ## Important
 
@@ -39,22 +35,8 @@ Also, when you switch to Desktop to Mobile view, refresh the page to get the fun
 
 ### Production Build
 
-This creates the `build/navigation.js` file that is ready to be distributed by the CDN.
-
 ```bash
 yarn build
-```
-
-### Publish to NPM
-
-Before you distribute it to CDN, you must publish it to NPM, where the javascript files will be hosted and read.
-To do this, also refer to the `README.md` file at the root of the directory.
-
-```bash
-yarn changeset                      # To generate changesets
-yarn changeset version              # To update the version number based off of changesets
-yarn build                          # Build every project in the workspace
-yarn changeset publish              # Publish to NPM
 ```
 
 ## Usage
