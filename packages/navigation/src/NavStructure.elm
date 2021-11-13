@@ -29,7 +29,7 @@ type alias NavbarItem =
 
 type alias NavItem =
     { name : String
-    , url : String
+    , link : String
     }
 
 
@@ -45,16 +45,16 @@ navbar =
           , { link = "/meet-the-team-1"
             , dropdown =
                 [ { name = "Meet Our Team"
-                  , url = "/meet-the-team-1"
+                  , link = "/meet-the-team-1"
                   }
                 , { name = "History"
-                  , url = "/history"
+                  , link = "/history"
                   }
                 , { name = "What we Believe"
-                  , url = "/what-we-believe"
+                  , link = "/what-we-believe"
                   }
                 , { name = "Careers"
-                  , url = "/jobs"
+                  , link = "/jobs"
                   }
                 ]
             }
@@ -63,19 +63,19 @@ navbar =
           , { link = "englishservice"
             , dropdown =
                 [ { name = "Sunday Service"
-                  , url = "/englishservice"
+                  , link = "/englishservice"
                   }
                 , { name = "Sunday School"
-                  , url = "/sunday-school"
+                  , link = "/sunday-school"
                   }
                 , { name = "Calendar"
-                  , url = "/english-calendar"
+                  , link = "/english-calendar"
                   }
                 , { name = "News and Updates"
-                  , url = "/englishupdates"
+                  , link = "/englishupdates"
                   }
                 , { name = "E3C Connect"
-                  , url = "https://drive.google.com/drive/folders/1_cfpL4tmCzmzkm4oDtOhSXOF3uO7pBfK?usp=sharing"
+                  , link = "https://drive.google.com/drive/folders/1_cfpL4tmCzmzkm4oDtOhSXOF3uO7pBfK?usp=sharing"
                   }
                 ]
             }
@@ -83,20 +83,20 @@ navbar =
         , ( "Community"
           , { link = "/english-index"
             , dropdown =
-                [ { name = "Small Groups", url = "/smallgroups" }
-                , { name = "IWG", url = "/iwg" }
-                , { name = "Life Support", url = "/life-support" }
-                , { name = "Petros", url = "/petros" }
-                , { name = "Samuel", url = "/samuel" }
-                , { name = "ECCC Kids", url = "/kids" }
+                [ { name = "Small Groups", link = "/smallgroups" }
+                , { name = "IWG", link = "/iwg" }
+                , { name = "Life Support", link = "/life-support" }
+                , { name = "Petros", link = "/petros" }
+                , { name = "Samuel", link = "/samuel" }
+                , { name = "ECCC Kids", link = "/kids" }
                 ]
             }
           )
         , ( "Resources"
           , { link = "/Resources"
             , dropdown =
-                [ { name = "Docs/Forms", url = "https://drive.google.com/drive/folders/13Yj9ck9_EMYKBtM-F6mx3aa-szyW0ZRS?usp=sharing" }
-                , { name = "External Resources", url = "/eng-external-resources" }
+                [ { name = "Docs/Forms", link = "https://drive.google.com/drive/folders/13Yj9ck9_EMYKBtM-F6mx3aa-szyW0ZRS?usp=sharing" }
+                , { name = "External Resources", link = "/eng-external-resources" }
                 ]
             }
           )
