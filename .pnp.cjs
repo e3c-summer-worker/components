@@ -368,6 +368,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["@e3c-summer-worker/navigation", "workspace:packages/navigation"],
             ["clean-webpack-plugin", "virtual:f5076651b9b0507f2364fd0f0b9f2d9328475767944362554652defbe69f108878bb27e299c8c7a37c184e618f01358752cc69cf5e92ea0761f63dd40f786f65#npm:4.0.0"],
+            ["elm-test", "npm:0.19.1"],
             ["terser-webpack-plugin", "virtual:f5076651b9b0507f2364fd0f0b9f2d9328475767944362554652defbe69f108878bb27e299c8c7a37c184e618f01358752cc69cf5e92ea0761f63dd40f786f65#npm:5.2.5"],
             ["webpack", "virtual:f5076651b9b0507f2364fd0f0b9f2d9328475767944362554652defbe69f108878bb27e299c8c7a37c184e618f01358752cc69cf5e92ea0761f63dd40f786f65#npm:5.63.0"],
             ["webpack-cli", "virtual:f5076651b9b0507f2364fd0f0b9f2d9328475767944362554652defbe69f108878bb27e299c8c7a37c184e618f01358752cc69cf5e92ea0761f63dd40f786f65#npm:4.9.1"],

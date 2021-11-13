@@ -287,6 +287,7 @@ __metadata:
   resolution: "@e3c-summer-worker/navigation@workspace:packages/navigation"
   dependencies:
     clean-webpack-plugin: ^4.0.0
+    elm-test: ^0.19.1-revision7
     terser-webpack-plugin: ^5.2.5
     webpack: ^5.63.0
     webpack-cli: ^4.9.1
