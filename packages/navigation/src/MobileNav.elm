@@ -4,6 +4,8 @@ import Browser
 import Html exposing (Html, a, div, nav, text)
 import Html.Attributes exposing (attribute, class, classList, href, id)
 import Html.Events exposing (onClick)
+import NavStructure exposing (..)
+import Set exposing (Set)
 
 
 
@@ -20,20 +22,12 @@ main =
 
 
 type alias Model =
-    { aboutOpened : Bool
-    , joinusOpened : Bool
-    , communityOpened : Bool
-    , resourcesOpened : Bool
-    }
+    { foldersOpened : Set String }
 
 
 init : Model
 init =
-    { aboutOpened = False
-    , joinusOpened = False
-    , communityOpened = False
-    , resourcesOpened = False
-    }
+    { foldersOpened = Set.empty }
 
 
 
@@ -41,14 +35,7 @@ init =
 
 
 type Msg
-    = ToggleClassname Folder
-
-
-type Folder
-    = About
-    | JoinUs
-    | Community
-    | Resources
+    = ToggleClassname String
 
 
 
@@ -56,19 +43,12 @@ type Folder
 
 
 update : Msg -> Model -> Model
-update (ToggleClassname folder) model =
-    case folder of
-        About ->
-            { model | aboutOpened = not model.aboutOpened }
+update (ToggleClassname folder) { foldersOpened } =
+    if Set.member folder foldersOpened then
+        { foldersOpened = Set.remove folder foldersOpened }
 
-        JoinUs ->
-            { model | joinusOpened = not model.joinusOpened }
-
-        Community ->
-            { model | communityOpened = not model.communityOpened }
-
-        Resources ->
-            { model | resourcesOpened = not model.resourcesOpened }
+    else
+        { foldersOpened = Set.insert folder foldersOpened }
 
 
 
@@ -87,8 +67,8 @@ view model =
                 , div [ class "folder" ]
                     [ div
                         [ attribute "data-href" "/folder"
-                        , onClick (ToggleClassname About)
-                        , classList [ ( "folder-toggle", True ), ( "active", model.aboutOpened ) ]
+                        , onClick (ToggleClassname "About")
+                        , classList [ ( "folder-toggle", True ), ( "active", Set.member "About" model.foldersOpened ) ]
                         ]
                         [ text "About" ]
                     , div [ class "subnav" ]
@@ -113,8 +93,8 @@ view model =
                 , div [ class "folder" ]
                     [ div
                         [ attribute "data-href" "/folder"
-                        , onClick (ToggleClassname JoinUs)
-                        , classList [ ( "folder-toggle", True ), ( "active", model.joinusOpened ) ]
+                        , onClick (ToggleClassname "JoinUs")
+                        , classList [ ( "folder-toggle", True ), ( "active", Set.member "JoinUs" model.foldersOpened ) ]
                         ]
                         [ text "Join Us" ]
                     , div [ class "subnav" ]
@@ -143,8 +123,8 @@ view model =
                 , div [ class "folder" ]
                     [ div
                         [ attribute "data-href" "/folder"
-                        , onClick (ToggleClassname Community)
-                        , classList [ ( "folder-toggle", True ), ( "active", model.communityOpened ) ]
+                        , onClick (ToggleClassname "Community")
+                        , classList [ ( "folder-toggle", True ), ( "active", Set.member "Community" model.foldersOpened ) ]
                         ]
                         [ text "Community" ]
                     , div [ class "subnav" ]
@@ -177,8 +157,8 @@ view model =
                 , div [ class "folder" ]
                     [ div
                         [ attribute "data-href" "/folder"
-                        , onClick (ToggleClassname Resources)
-                        , classList [ ( "folder-toggle", True ), ( "active", model.resourcesOpened ) ]
+                        , onClick (ToggleClassname "Resources")
+                        , classList [ ( "folder-toggle", True ), ( "active", Set.member "Resources" model.foldersOpened ) ]
                         ]
                         [ text "Resources" ]
                     , div [ class "subnav" ]
@@ -198,4 +178,16 @@ view model =
                     ]
                 ]
             ]
+        ]
+
+
+
+-- same as DesktopNav, but the duplicate code isn't a lot anyway lol
+
+
+viewDropdownItem : DropdownItem -> Html Never
+viewDropdownItem navItem =
+    div [ class "collection" ]
+        [ a [ href navItem.link ]
+            [ text navItem.name ]
         ]
