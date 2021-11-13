@@ -1,5 +1,11 @@
 # @e3c-summer-worker/navigation
 
+## 2.0.3
+
+### Patch Changes
+
+- Small changes due to refactoring
+
 ## 2.0.2
 
 ### Patch Changes
