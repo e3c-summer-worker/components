@@ -1,5 +1,11 @@
 # @e3c-summer-worker/navigation
 
+## 2.0.4
+
+### Patch Changes
+
+- Change 'docs/forms' to 'docs and forms'
+
 ## 2.0.3
 
 ### Patch Changes

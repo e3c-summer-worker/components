@@ -106,7 +106,7 @@ navbar =
     , ( "Resources"
       , { link = "/Resources"
         , dropdown =
-            [ { name = "Docs/Forms"
+            [ { name = "Docs and Forms"
               , link = "https://drive.google.com/drive/folders/13Yj9ck9_EMYKBtM-F6mx3aa-szyW0ZRS?usp=sharing"
               }
             , { name = "External Resources"
