@@ -1,7 +1,6 @@
 module DesktopNav exposing (main)
 
 import Browser
-import Dict
 import Html exposing (Html, a, div, nav, text)
 import Html.Attributes exposing (attribute, class, href, id)
 import NavStructure exposing (..)
@@ -53,7 +52,7 @@ view _ =
                 , id "mainNavigation"
                 ]
               <|
-                List.map viewNavbarItem (Dict.toList navbar)
+                List.map viewNavbarItem navbar
             ]
         ]
 
