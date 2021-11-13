@@ -35,6 +35,8 @@ yarn start
 
 Note that the styles will be quite a bit different than production, this is because I only copied a subset of the HTML into our `public/` html file. The important thing is that the navigation bar is functional.
 
+Also, when you switch to Desktop to Mobile view, refresh the page to get the functional navigation bars. Not sure why this is the case, maybe I didn't download all the files.
+
 ### Production Build
 
 This creates the `build/navigation.js` file that is ready to be distributed by the CDN.
