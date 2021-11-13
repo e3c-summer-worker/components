@@ -23,11 +23,11 @@ type alias NavStructure =
 
 type alias NavbarItem =
     { link : String
-    , dropdown : List NavItem
+    , dropdown : List DropdownItem
     }
 
 
-type alias NavItem =
+type alias DropdownItem =
     { name : String
     , link : String
     }
