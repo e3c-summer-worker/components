@@ -2,8 +2,6 @@
 
 A list of components (written mostly using React or Elm) that I am using for the website. The code is bundled, then hosted on NPM, where it is served by JSDelivr's CDN. For more information on using them, check out the [Custom Header repo](https://github.com/e3c-summer-worker/custom-header).
 
-I am using [Yarn Workspaces](https://yarnpkg.com/features/workspaces) and [changesets](https://github.com/atlassian/changesets/blob/main/packages/cli/README.md) for versioning.
-
 This repo structure is based off of [monorepo-release-changesets](https://github.com/azu/monorepo-release-changesets).
 
 ## Overview of the components
@@ -19,18 +17,22 @@ All the components are in the `packages/*` folder, save for the `elm-webpack-loa
 Make sure you have the following installed:
 
 * [Yarn 3](https://yarnpkg.com/)
-
-I'm using Yarn's [Plug'n'Play](https://yarnpkg.com/features/pnp) as my dependency management system, so theoretically you don't even need to run `yarn` (but maybe run it anyway?). The dependencies should all be in the `.pnp.cjs` file. The benefit of this is that installations are generally super fast, but the git diffs can get pretty crazy. If anything goes wrong, you should be able to fix it by reinstalling the packages:
+* [Elm](https://elm-lang.org/)
+* [Node](https://nodejs.org/)
 
 ```bash
 yarn
 ```
+
+I'm using Yarn's [Plug'n'Play](https://yarnpkg.com/features/pnp) as my dependency management system, so theoretically you don't even need to run `yarn` (but maybe run it anyway?). The dependencies should all be in the `.pnp.cjs` file. The benefit of this is that installations are generally super fast, but the git diffs can get pretty crazy. If anything goes wrong, you should be able to fix it by reinstalling the packages:
 
 ## Usage
 
 To use the components, you must [inject custom code in the Squarespace page header](https://support.squarespace.com/hc/en-us/articles/205815908-Using-Code-Injection) (`Page settings -> Advanced -> Page Header Code Injection`). More details are in each component's README.
 
 ## Updating Versions
+
+Make sure you have access to the Summer Worker NPM account.
 
 **Make sure you are at the root of the repo**.
 
