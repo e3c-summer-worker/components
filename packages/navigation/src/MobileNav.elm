@@ -81,7 +81,7 @@ viewNavbarItem { dropdownsOpen } ( name, navbarItem ) =
                     , onClick (ToggleDropdown name)
                     , classList [ ( "folder-toggle", True ), ( "active", Set.member name dropdownsOpen ) ]
                     ]
-                    [ text "Resources" ]
+                    [ text name ]
                 , div [ class "subnav" ] (List.map viewDropdownItem dropdowns)
                 ]
 
