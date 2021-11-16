@@ -1,5 +1,11 @@
 # @e3c-summer-worker/navigation
 
+## 2.1.0
+
+### Minor Changes
+
+- 2694f79: Fix a bug. No new features were introduced, but I want to skip to v2.1
+
 ## 2.0.4
 
 ### Patch Changes
