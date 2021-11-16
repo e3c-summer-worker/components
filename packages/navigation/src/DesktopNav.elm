@@ -1,4 +1,5 @@
-module DesktopNav exposing (main)
+-- usually we expose only the main, but we're exposing everything for testing purposes.
+module DesktopNav exposing (..)
 
 import Browser
 import Html exposing (Html, a, div, nav, text)
@@ -61,13 +62,13 @@ viewNavbarItem : ( String, NavbarItem ) -> Html Never
 viewNavbarItem ( name, navbarItem ) =
     case navbarItem.dropdown of
         [] ->
-            div [ class "collection" ]
+            div [ class "collection header-elem" ]
                 [ a [ href navbarItem.link ]
                     [ text name ]
                 ]
 
         dropdowns ->
-            div [ attribute "class" "folder" ]
+            div [ class "folder header-elem" ]
                 [ div [ class "folder-toggle", attribute "data-href" navbarItem.link ]
                     [ text name ]
                 , div [ class "subnav" ]

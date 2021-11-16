@@ -56,6 +56,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./",
           "packageDependencies": [
             ["@changesets/cli", "npm:2.16.0"],
+            ["elm-test", "npm:0.19.1"],
             ["pr-to-changesets", "npm:1.0.1"]
           ],
           "linkType": "SOFT",
@@ -2340,6 +2341,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["components", "workspace:."],
             ["@changesets/cli", "npm:2.16.0"],
+            ["elm-test", "npm:0.19.1"],
             ["pr-to-changesets", "npm:1.0.1"]
           ],
           "linkType": "SOFT",

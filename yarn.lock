@@ -1884,6 +1884,7 @@ __metadata:
   resolution: "components@workspace:."
   dependencies:
     "@changesets/cli": ^2.16.0
+    elm-test: ^0.19.1-revision7
     pr-to-changesets: ^1.0.1
   languageName: unknown
   linkType: soft
