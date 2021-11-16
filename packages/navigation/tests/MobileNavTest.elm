@@ -1,5 +1,8 @@
 module MobileNavTest exposing (suite)
 
+-- Note these tests aren't complete, they only test the MobileNav
+-- I am too lazy to write the DesktopNav tests
+
 import Expect
 import Html
 import Html.Attributes as Attr
