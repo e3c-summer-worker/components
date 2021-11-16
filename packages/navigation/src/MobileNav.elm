@@ -1,4 +1,5 @@
-module MobileNav exposing (main)
+-- usually we expose only the main, but we're exposing everything for testing purposes.
+module MobileNav exposing (..)
 
 import Browser
 import Html exposing (Html, a, div, nav, text)
@@ -69,13 +70,13 @@ viewNavbarItem : Model -> ( String, NavbarItem ) -> Html Msg
 viewNavbarItem { dropdownsOpen } ( name, navbarItem ) =
     case navbarItem.dropdown of
         [] ->
-            div [ class "collection" ]
+            div [ class "collection header-elem" ]
                 [ a [ href navbarItem.link ]
                     [ text name ]
                 ]
 
         dropdowns ->
-            div [ class "folder" ]
+            div [ class "folder header-elem" ]
                 [ div
                     [ attribute "data-href" "/folder"
                     , onClick (ToggleDropdown name)
