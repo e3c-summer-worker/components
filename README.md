@@ -8,17 +8,19 @@ This repo structure is based off of [monorepo-release-changesets](https://github
 
 All the components are in the `packages/*` folder, save for the `elm-webpack-loader`, which is there to fix an unfortunate bug in the Elm webpack compiler.
 
-* Homepage Ticker (`packages/homepage-ticker`)
-* Navigation (`packages/navigation`)
-* Scrolling Terrain (`packages/scrolling-terrain`)
+- Homepage Ticker (`packages/homepage-ticker`)
+- Navigation (`packages/navigation`)
+- Scrolling Terrain (`packages/scrolling-terrain`)
 
 ## Local development
 
 Make sure you have the following installed:
 
-* [Yarn 3](https://yarnpkg.com/)
-* [Elm](https://elm-lang.org/)
-* [Node](https://nodejs.org/)
+- [Yarn 3](https://yarnpkg.com/)
+- [Elm](https://elm-lang.org/)
+- [Node v16](https://nodejs.org/)
+
+**NOTE**: Using node v17 somehow [messed up yarn build](https://stackoverflow.com/a/69789658). Node v16 seems to fix it.
 
 ```bash
 yarn
