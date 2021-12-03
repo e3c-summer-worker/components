@@ -9,8 +9,8 @@ on:
     branches:
       - main
     paths:
-      - packages/
-      - .yarn/
+      - packages/**
+      - .yarn/**
       - .github/workflows/publish.yml # this file
 
 jobs:
