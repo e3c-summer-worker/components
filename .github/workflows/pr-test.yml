@@ -1,6 +1,10 @@
 name: Run tests
 
-on: [pull_request]
+on:
+  pull_request:
+    paths:
+      - packages/
+      - .github/workflows/pr-test.yml # This file
 
 jobs:
   test:

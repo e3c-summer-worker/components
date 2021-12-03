@@ -8,6 +8,10 @@ on:
   push:
     branches:
       - main
+    paths:
+      - packages/
+      - .yarn/
+      - .github/workflows/publish.yml # this file
 
 jobs:
   pr-from-commit:
