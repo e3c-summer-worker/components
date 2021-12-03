@@ -1,5 +1,11 @@
 # @e3c-summer-worker/navigation
 
+## 2.1.1
+
+### Patch Changes
+
+- 3363980: Beautify code (this is maonly to test if our versioning control works)
+
 ## 2.1.0
 
 ### Minor Changes
