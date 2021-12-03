@@ -116,7 +116,9 @@ view model =
 
         Success successModel ->
             div
-                [ Html.Attributes.class "sqs-slice yui3-widget ticker-wrapper", id "elm" ]
+                [ Html.Attributes.class "sqs-slice yui3-widget ticker-wrapper"
+                , id "elm" 
+                ]
                 [ buttons model
                 , viewSuccess successModel
                 ]
