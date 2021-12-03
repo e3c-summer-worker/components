@@ -1,7 +1,7 @@
 node_modules
 elm-stuff
 
-build/*
+build/
 
 public/homepage-ticker-elm.js
 public/ticker.css
