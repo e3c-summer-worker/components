@@ -1,0 +1,21 @@
+on:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: mshick/add-pr-comment@v1
+        with:
+          message: |
+            ## Hello! It looks like you've made a PR
+            Well, you or the Changeset bot.
+
+            Either way, when you merge this PR, **please squash it**!
+
+            The only reason why you wouldn't squash is if you're going to actively continue working on the branch.
+            In almost every case (such as `changeset-release/main` PRs, which get reset every time), you should squash.
+
+            Thanks!
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          repo-token-user-login: "github-actions[bot]" # The user.login for temporary GitHub tokens
