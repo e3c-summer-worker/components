@@ -3,7 +3,7 @@ name: Run tests
 on:
   pull_request:
     paths:
-      - packages/
+      - packages/**
       - .github/workflows/pr-test.yml # This file
 
 jobs:
