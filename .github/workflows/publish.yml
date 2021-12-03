@@ -47,3 +47,4 @@ jobs:
           publish: yarn release
         env:
           GITHUB_TOKEN: ${{ secrets.CHANGESET_PAT }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
