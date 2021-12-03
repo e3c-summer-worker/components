@@ -9,7 +9,7 @@
     "test": "npx elm-test",
     "start": "webpack --config webpack.dev.js",
     "prebuild": "echo \"BUILDING NAVIGATION:\n\"",
-    "build": "webpack --config webpack.prod.js"
+    "build": "yarn prebuild && webpack --config webpack.prod.js"
   },
   "devDependencies": {
     "clean-webpack-plugin": "^4.0.0",
