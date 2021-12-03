@@ -4,6 +4,33 @@ A list of components (written mostly using React or Elm) that I am using for the
 
 This repo structure is based off of [monorepo-release-changesets](https://github.com/azu/monorepo-release-changesets).
 
+## Updating Versions
+
+If you are on this repo, you probably want to update something in this repo.
+
+We have automated the versioning and the NPM publishing on Github actions. If you want to experiment with the setup without messing up the NPM versioning in this repo, take a look at the [Changeet Actions Test Repo](https://github.com/e3c-summer-worker/changeset-actions-test).
+
+**Make sure you are at the root of the repo**.
+
+```bash
+# make your changes, but DO NOT commit yet
+yarn changeset                      # To generate changesets
+# Now we commit the changes with the changeset
+git add .
+git commit -m "Update components"   # change the commit message
+git push origin master               # push the changes to the repo
+```
+
+### Case 1: Commiting right to the main branch
+
+The GH actions will automatically create a PR that has the versions updated. You would then have to merge the PR yourself, which the GH actions will then publish the changes to NPM.
+
+### Case 2: Commiting to a different branch
+
+You should be committing changesets while you are on the branch, preferably alongside your code changes.
+
+When you merge the PR, the GH actions will do the same things as the first case: create the PR with the versions updated, and once you merge that PR, it will publish the changes to NPM.
+
 ## Overview of the components
 
 All the components are in the `packages/*` folder, save for the `elm-webpack-loader`, which is there to fix an unfortunate bug in the Elm webpack compiler.
@@ -31,28 +58,3 @@ I'm using Yarn's [Plug'n'Play](https://yarnpkg.com/features/pnp) as my dependenc
 ## Usage
 
 To use the components, you must [inject custom code in the Squarespace page header](https://support.squarespace.com/hc/en-us/articles/205815908-Using-Code-Injection) (`Page settings -> Advanced -> Page Header Code Injection`). More details are in each component's README.
-
-## Updating Versions
-
-Make sure you have access to the Summer Worker NPM account.
-
-**Make sure you are at the root of the repo**.
-
-If you are making changes in another branch, you should run the first two commands (committing in between) before merging the PR (so the `package.json` version will be updated before you merge).
-
-Once you merge, checkout to the main branch on your local machine and run the third and fourth commands. These will NOT change anything, they will just publish to NPM.
-
-```bash
-yarn changeset                      # To generate changesets
-yarn changeset version              # To update the version number based off of changesets
-yarn build                          # Build every project in the workspace
-yarn changeset publish              # Publish to NPM
-```
-
-### TODO: Github Action
-
-I should really automate this in GH Actions, but I'm too smooth brained to do that right now. The monorepo-release-changesets repo has the GH actions, but it's buggy lmao.
-
-Looking into it, it could be done with the [Changeset Actions Bot](https://github.com/changesets/action). Looking at the docs, this means I only do the first command above, because this bot does the second command for us, making a PR with the updated version number and changelog.
-
-We can then configure it to push to NPM.
