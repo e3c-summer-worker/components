@@ -1,5 +1,11 @@
 # @e3c-summer-worker/homepage-ticker
 
+## 2.1.1
+
+### Patch Changes
+
+- f9e8790: Testing patch bump
+
 ## 2.1.0
 
 ### Minor Changes
