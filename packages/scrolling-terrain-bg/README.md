@@ -2,8 +2,6 @@
 
 Based off of [p5-typescript-starter](https://github.com/Gaweph/p5-typescript-starter).
 
-Note that we are using yarn workspaces, so the installations will be mostly consolidated at a top-level `node_modules/` folder.
-
 ## Run Locally
 
 ```bash
@@ -25,7 +23,7 @@ yarn build
 
 ```html
 <script>
-    const containerElement = document.getElementById('thumbnail');
-    new p5(TerrainSketch.sketch(containerElement), containerElement);
+  const containerElement = document.getElementById("thumbnail");
+  new p5(TerrainSketch.sketch(containerElement), containerElement);
 </script>
 ```
