@@ -35,6 +35,9 @@ jobs:
       - name: Install/Update Dependencies
         run: yarn
 
+      - name: Print out directory
+        run: ls -al
+
       - name: Create PR or publish
         uses: changesets/action@v1
         with:
