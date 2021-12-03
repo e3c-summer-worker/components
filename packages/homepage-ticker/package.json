@@ -8,7 +8,7 @@
   "scripts": {
     "test": "npx elm-test",
     "start": "webpack --config webpack.dev.js",
-    "prebuild": "echo \"BUILDING NAVIGATION:\n\"",
+    "prebuild": "echo \"BUILDING HOMEPAGE TICKER:\n\"",
     "build": "yarn prebuild && webpack --config webpack.prod.js"
   },
   "devDependencies": {
