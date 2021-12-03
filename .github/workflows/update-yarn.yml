@@ -1,0 +1,33 @@
+name: Update yarn dependencies
+
+# this workflow updates the yarn deps whenever the GH actions bot
+# pushes the new versions to the `changeset-release/main` branch
+# This is so that we can update the dependencies.
+
+on:
+  push:
+    branches:
+      - changeset-release/main
+
+jobs:
+  update-yarn:
+    name: Update Yarn Dependencies and Commit
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js 16.x
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16.x
+
+      - name: Update Deps
+        run: yarn
+
+      - name: Commit changes
+        uses: EndBug/add-and-commit@v7
+        with:
+          message: Update Yarn dependencies
+          committer_name: GitHub Actions
+          committer_email: actions@github.com

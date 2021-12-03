@@ -1,4 +1,4 @@
-name: Publish or PR
+name: PR from Commit on Main
 
 # This workflow analyzes a commit to main
 # and if there is a changeset, will create a PR
@@ -11,7 +11,7 @@ on:
 
 jobs:
   pr-from-commit:
-    name: Publish or PR
+    name: Publish or Create Pull Request
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
@@ -19,24 +19,22 @@ jobs:
         with:
           # This makes Actions fetch all Git history so that Changesets can generate changelogs with the correct commits
           fetch-depth: 0
+          # https://github.com/changesets/action/issues/70#issuecomment-813015134
+          # so we can pretend the workflow is not a bot
+          persist-credentials: false
 
       - name: Setup Node.js 16.x
         uses: actions/setup-node@v2
         with:
           node-version: 16.x
 
-      - name: Setup Elm 0.19.1
-        uses: jorelali/setup-elm@v3
-        with:
-          elm-version: 0.19.1
-
       - name: Install/Update Dependencies
         run: yarn
 
-      - name: Test packages
-        run: yarn test
-
-      - name: Create Release Pull Request
+      - name: Create PR or publish
         uses: changesets/action@v1
+        with:
+          # This expects you to have a script called release which does a build for your packages and calls changeset publish
+          publish: yarn release
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.CHANGESET_PAT }}
