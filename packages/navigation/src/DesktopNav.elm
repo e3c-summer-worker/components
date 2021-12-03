@@ -46,7 +46,11 @@ update _ model =
 view : Model -> Html Never
 view _ =
     div [ id "headerNav" ]
-        [ div [ class "nav-wrapper", attribute "data-content-field" "navigation-mainNav", id "mainNavWrapper" ]
+        [ div 
+            [ class "nav-wrapper"
+            , attribute "data-content-field" "navigation-mainNav"
+            , id "mainNavWrapper" 
+            ]
             [ nav
                 [ class "sqs-frontend-overlay-editor-widget-host"
                 , attribute "data-content-field" "navigation-mainNav"

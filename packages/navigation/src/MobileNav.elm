@@ -59,7 +59,11 @@ update (ToggleDropdown folder) { dropdownsOpen } =
 view : Model -> Html Msg
 view model =
     div [ id "sidecarNav" ]
-        [ div [ class "nav-wrapper sqs-frontend-overlay-editor-widget-host", attribute "data-content-field" "navigation-mobileNav", id "mobileNavWrapper" ]
+        [ div 
+            [ class "nav-wrapper sqs-frontend-overlay-editor-widget-host"
+            , attribute "data-content-field" "navigation-mobileNav"
+            , id "mobileNavWrapper" 
+            ]
             [ nav [ id "mobileNavigation" ] <|
                 List.map (viewNavbarItem model) navbar
             ]
