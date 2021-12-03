@@ -5,7 +5,7 @@
   "main": "index.js",
   "private": true,
   "scripts": {
-    "test": "echo \"No Tests in elm-webpack-loader!\""
+    "test": "echo \"No Tests in elm-webpack-loader! (but this is fine)\""
   },
   "engines": {
     "node": ">=8.0.0"
