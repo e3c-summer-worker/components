@@ -41,6 +41,7 @@ jobs:
         run: yarn
 
       - name: Create PR or publish
+        id: changesets
         uses: changesets/action@v1
         with:
           # Not too sure if this is necessary...
