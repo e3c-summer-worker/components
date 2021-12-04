@@ -4,6 +4,11 @@ name: Update yarn dependencies
 # pushes the new versions to the `changeset-release/main` branch
 # This is so that we can update the dependencies.
 
+# In the components repo, it usually won't be necessary to update lol
+# In the Changeset Actions Test repo, the components rely on each other so this is more necessary
+# https://github.com/e3c-summer-worker/changeset-actions-test
+# I'm keeping it here tho, maybe we'll need it later
+
 on:
   push:
     branches:
