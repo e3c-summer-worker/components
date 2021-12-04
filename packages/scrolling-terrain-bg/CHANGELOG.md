@@ -1,5 +1,11 @@
 # scrolling-terrain-bg
 
+## 1.2.9
+
+### Patch Changes
+
+- b0d6480: Patch. Add comments to test out the whatsapp messaging
+
 ## 1.2.8
 
 ### Patch Changes
