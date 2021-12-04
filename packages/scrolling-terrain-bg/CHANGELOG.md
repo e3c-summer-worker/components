@@ -1,5 +1,11 @@
 # scrolling-terrain-bg
 
+## 1.2.8
+
+### Patch Changes
+
+- d538d60: Fix comment - testing for the versioning stuff
+
 ## 1.2.7
 
 ### Patch Changes
