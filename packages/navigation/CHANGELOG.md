@@ -1,5 +1,11 @@
 # @e3c-summer-worker/navigation
 
+## 2.1.2
+
+### Patch Changes
+
+- f658e31: More formatting and squashing to test our CI builds.
+
 ## 2.1.1
 
 ### Patch Changes
