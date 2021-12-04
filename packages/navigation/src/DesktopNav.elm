@@ -13,7 +13,11 @@ import NavStructure exposing (..)
 
 main : Program () Model Never
 main =
-    Browser.sandbox { init = init, update = update, view = view }
+    Browser.sandbox 
+        { init = init
+        , update = update
+        , view = view 
+        }
 
 
 
