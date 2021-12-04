@@ -7,7 +7,6 @@ import * as pictureIconSrc from './assets/picture-icon.svg';
  * State Class
  * 
  * This class encapsulates the logic of our application
- * 
  */
 
 // TYPES
