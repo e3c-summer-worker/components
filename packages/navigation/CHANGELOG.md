@@ -1,5 +1,11 @@
 # @e3c-summer-worker/navigation
 
+## 2.1.3
+
+### Patch Changes
+
+- f78f641: Attempt to fix #38
+
 ## 2.1.2
 
 ### Patch Changes
