@@ -1,9 +1,9 @@
-name: Run tests
+name: Run Matrix Build for Nav
 
 on:
   push:
-    - branches:
-        - fix-38
+    branches:
+      - fix-38
 
 jobs:
   build-test:
