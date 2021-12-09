@@ -12,13 +12,9 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
+        os: [ubuntu-latest, macos-latest]
         node-version: [12, 14, 16]
     steps:
-      - name: Enable longpaths when the OS is windows
-        if: ${{ matrix.os == 'windows-latest' }}
-        run: git config --system core.longpaths true
-        
       - name: Checkout Repo
         uses: actions/checkout@v2
         
@@ -38,5 +34,5 @@ jobs:
       - name: Install/Update Dependencies
         run: yarn
 
-      - name: Test packages
+      - name: Build packages
         run: yarn build
