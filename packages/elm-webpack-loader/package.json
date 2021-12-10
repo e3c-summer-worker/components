@@ -1,6 +1,6 @@
 {
   "name": "elm-webpack-loader",
-  "version": "8.1.1",
+  "version": "8.1.2",
   "description": "Webpack loader for the Elm programming language.",
   "main": "index.js",
   "private": true,
