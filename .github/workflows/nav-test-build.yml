@@ -1,0 +1,49 @@
+name: Run Matrix Build for Nav
+
+# Note: this workflow was only used in my branch attempting to fix 
+# Issue #38: https://github.com/e3c-summer-worker/components/issues/38
+# I'm keeping it here just in case I want to use it again
+
+# It essentially runs `yarn build` a bunch of times. 
+# The problem I am tryin to fix was a race condition, so it is inherently random
+
+# Thus, running the operation many times was to make it easier to prove to myself whether or not the issue was solved or not
+# And it seems to have been fixed! 
+# See: https://github.com/e3c-summer-worker/components/pull/44/commits/0d339514d622f047217ed8b15ec6cdbb76151c2b
+
+on:
+  push:
+    branches:
+      - fix-38
+
+jobs:
+  build-test:
+    name: Test npm (Node ${{ matrix.node-version}}, ${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+        node-version: [12, 14, 16.11, 16.12, 16.13]
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+        
+      - name: Clean global cache
+        run: npm cache clean --force
+      
+      - name: Setup Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Setup Elm 0.19.1
+        uses: jorelali/setup-elm@v3
+        with:
+          elm-version: 0.19.1
+
+      - name: Install/Update Dependencies
+        run: yarn
+
+      - name: Build packages
+        run: yarn build

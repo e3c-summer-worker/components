@@ -8,7 +8,6 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
  * Outputting everything to /build
  */
 module.exports = {
-    entry: ['./src/desktop.js', './src/mobile.js'],
     output: {
         path: path.join(__dirname, 'build'),
         filename: 'navigation.js'

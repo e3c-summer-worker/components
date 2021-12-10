@@ -2,7 +2,7 @@ name: PR from Commit on Main
 
 # This workflow analyzes a commit to main
 # and if there is a changeset, will create a PR
-# else, it will publish
+# else, it will publish to NPM
 
 on:
   push:
