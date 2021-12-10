@@ -18,7 +18,7 @@ yarn changeset                      # To generate changesets
 # Now we commit the changes with the changeset
 git add .
 git commit -m "Update components"   # change the commit message
-git push origin master               # push the changes to the repo
+git push origin main               # push the changes to the repo
 ```
 
 ### Case 1: Commiting right to the main branch
