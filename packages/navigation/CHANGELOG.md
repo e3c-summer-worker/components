@@ -1,5 +1,11 @@
 # @e3c-summer-worker/navigation
 
+## 3.0.0
+
+### Major Changes
+
+- 26d6cd2: Fix eccc kids url issue
+
 ## 2.1.3
 
 ### Patch Changes
