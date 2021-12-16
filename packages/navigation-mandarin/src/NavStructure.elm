@@ -36,7 +36,7 @@ type alias DropdownItem =
 navbar : NavStructure
 navbar =
     [ ( "COVID-19"
-      , { link = "/covid19"
+      , { link = "/mandarin-covid19"
         , dropdown = []
         }
       )
