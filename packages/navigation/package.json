@@ -4,6 +4,7 @@
   "files": [
     "build/*"
   ],
+  "main": "build/navigation.js",
   "scripts": {
     "test": "npx elm-test",
     "start": "webpack --config webpack.dev.js",
