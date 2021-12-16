@@ -57,7 +57,7 @@ jobs:
         uses: e3c-summer-worker/whatsapp-message-action@v1.1
         with:
           message: New published version in Changeset Action Test repo!
-          vonage-number: 15875684157
+          vonage-number: 14157386102 # the number Vonage uses to text us (i think)
           whatsapp-number: ${{ secrets.CELLPHONE_NUMBER }}
           API_KEY: ${{ secrets.VONAGE_API_KEY }}
           API_SECRET: ${{ secrets.VONAGE_API_SECRET }}
