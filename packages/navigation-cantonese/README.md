@@ -1,4 +1,4 @@
-# Navigations
+# Navigation Cantonese
 
 Making our custom headers is a bit involved. We have to copy a lot of HTML code
 into the scripts, and it's confusing and difficult to debug if something changes
