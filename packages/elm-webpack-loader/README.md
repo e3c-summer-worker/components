@@ -11,7 +11,9 @@ be watched for changes as well.
 
 This is modified from the original [elm-webpack-loader](https://github.com/elm-community/elm-webpack-loader) to fix [#200](https://github.com/elm-community/elm-webpack-loader/issues/200), and also [#211](https://github.com/elm-community/elm-webpack-loader/issues/211).
 
-The `package.json` file sets `private: true` so it does not get uploaded to NPM.
+The `package.json` file sets `private: true` so it does not get uploaded to NPM. There is probably a better way to organize my packages (e.g. put this in a `lib/` directory so the monorepo knows not to upload it to NPM), but this works now, and can be fixed later.
+
+Currently, loader is used by the all navigation packages (navigation, navigation-cantonese, navigation-mandarin) through the `webpack.common.js` files, by relative import links.
 
 ---
 
