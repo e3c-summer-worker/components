@@ -1,5 +1,11 @@
 # @e3c-summer-worker/navigation
 
+## 1.0.1
+
+### Patch Changes
+
+- 21e3245: Add "careers" menu item to mandarin navigation bar
+
 ## 2.2.0
 
 ### Minor Changes
