@@ -52,6 +52,9 @@ navbar =
             , { name = "信仰"
               , link = "/mandarin-what-we-believe"
               }
+            , { name = "工作机会"
+              , link = "/jobs"
+              }
             ]
         }
       )
