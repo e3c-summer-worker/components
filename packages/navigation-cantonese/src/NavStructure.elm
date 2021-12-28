@@ -52,6 +52,9 @@ navbar =
             , { name = "信仰"
               , link = "/cantonese-what-we-believe"
               }
+            , { name = "工作機會"
+              , link = "/jobs"
+              }
             ]
         }
       )
