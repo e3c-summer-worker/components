@@ -1,5 +1,11 @@
 # @e3c-summer-worker/navigation
 
+## 1.0.1
+
+### Patch Changes
+
+- 1278230: ading jobs menu to navigation bar
+
 ## 2.2.0
 
 ### Minor Changes
