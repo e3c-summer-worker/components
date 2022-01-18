@@ -36,21 +36,21 @@ type alias DropdownItem =
 navbar : NavStructure
 navbar =
     [ ( "COVID-19"
-      , { link = "/cantonese-covid19"
+      , { link = "/saturday-covid19"
         , dropdown = []
         }
       )
     , ( "關於我們"
-      , { link = "/cantonese-meet-the-team"
+      , { link = "/saturday-meet-the-team"
         , dropdown =
             [ { name = "教會同工"
-              , link = "/cantonese-meet-the-team"
+              , link = "/saturday-meet-the-team"
               }
             , { name = "歷史"
-              , link = "/cantonese-history"
+              , link = "/saturday-history"
               }
             , { name = "信仰"
-              , link = "/cantonese-what-we-believe"
+              , link = "/saturday-what-we-believe"
               }
             , { name = "工作機會"
               , link = "/jobs"
@@ -59,28 +59,28 @@ navbar =
         }
       )
     , ( "加入我们"
-      , { link = "/cantonese-service"
+      , { link = "/saturday-service"
         , dropdown =
             [ { name = "主日崇拜"
-              , link = "/cantonese-service"
+              , link = "/saturday-service"
               }
             , { name = "教會日曆"
-              , link = "/cantonese-calendar"
+              , link = "/saturday-calendar"
               }
             , { name = "消息與活動"
-              , link = "/cantonese-blog"
+              , link = "/saturday-blog"
               }
             , { name = "E3C Connect"
-              , link = "https://drive.google.com/drive/folders/1_cfpL4tmCzmzkm4oDtOhSXOF3uO7pBfK?usp=sharing"
+              , link = "https://drive.google.com/drive/folders/1mABcHZIbX203A5oRcPeomygZMQD-_3A6?usp=sharing"
               }
             ]
         }
       )
     , ( "會眾"
-      , { link = "/cantonese-cell-groups"
+      , { link = "/saturday-cell-groups"
         , dropdown =
             [ { name = "細胞小組"
-              , link = "/cantonese-cell-groups"
+              , link = "/saturday-cell-groups"
               }
             ]
         }
@@ -95,7 +95,7 @@ navbar =
         }
       )
     , ( "奉獻"
-      , { link = "/cantonese-give"
+      , { link = "/give-now-chinese"
         , dropdown = []
         }
       )
