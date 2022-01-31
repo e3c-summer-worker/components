@@ -1,5 +1,11 @@
 # @e3c-summer-worker/navigation
 
+## 2.2.2
+
+### Patch Changes
+
+- ddd8207: Add nextgen link in each congregation
+
 ## 2.2.0
 
 ### Minor Changes
