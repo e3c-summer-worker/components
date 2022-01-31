@@ -97,8 +97,8 @@ navbar =
             , { name = "Samuel"
               , link = "/samuel"
               }
-            , { name = "ECCC Kids"
-              , link = "http://eccckids.com"
+            , { name = "NextGen"
+              , link = "/nextgen"
               }
             ]
         }

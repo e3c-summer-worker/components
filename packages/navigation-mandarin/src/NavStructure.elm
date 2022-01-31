@@ -82,6 +82,9 @@ navbar =
             [ { name = "细胞小组"
               , link = "/mandarin-cell-groups"
               }
+            , { name = "NextGen"
+              , link = "/nextgen"
+              }
             ]
         }
       )
