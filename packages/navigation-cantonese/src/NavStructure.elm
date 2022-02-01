@@ -64,6 +64,9 @@ navbar =
             [ { name = "主日崇拜"
               , link = "/cantonese-service"
               }
+            , { name = "兒童/青少年事工"
+              , link = "/nextgen"
+              }
             , { name = "教會日曆"
               , link = "/cantonese-calendar"
               }
@@ -81,9 +84,6 @@ navbar =
         , dropdown =
             [ { name = "細胞小組"
               , link = "/cantonese-cell-groups"
-              }
-            , { name = "NextGen"
-              , link = "/nextgen"
               }
             ]
         }

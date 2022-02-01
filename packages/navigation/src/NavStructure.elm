@@ -67,6 +67,9 @@ navbar =
             , { name = "Sunday School"
               , link = "/sunday-school"
               }
+            , { name = "Next Gen (Kids & Youth)"
+              , link = "/nextgen"
+              }
             , { name = "Calendar"
               , link = "/english-calendar"
               }
@@ -97,14 +100,11 @@ navbar =
             , { name = "Samuel"
               , link = "/samuel"
               }
-            , { name = "NextGen"
-              , link = "/nextgen"
-              }
             ]
         }
       )
     , ( "Resources"
-      , { link = "/Resources"
+      , { link = "" -- no link
         , dropdown =
             [ { name = "Docs and Forms"
               , link = "https://drive.google.com/drive/folders/13Yj9ck9_EMYKBtM-F6mx3aa-szyW0ZRS?usp=sharing"

@@ -64,6 +64,9 @@ navbar =
             [ { name = "主日崇拜"
               , link = "/saturday-service"
               }
+            , { name = "兒童/青少年事工"
+              , link = "/nextgen"
+              }
             , { name = "教會日曆"
               , link = "/saturday-calendar"
               }
@@ -81,9 +84,6 @@ navbar =
         , dropdown =
             [ { name = "細胞小組"
               , link = "/saturday-cell-groups"
-              }
-            , { name = "NextGen"
-              , link = "/nextgen"
               }
             ]
         }

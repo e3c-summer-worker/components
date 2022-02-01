@@ -64,6 +64,9 @@ navbar =
             [ { name = "主日崇拜"
               , link = "/mandarin-service"
               }
+            , { name = "儿童/青少年事工"
+              , link = "/nextgen"
+              }
             , { name = "教会日历"
               , link = "/mandarin-calendar"
               }
@@ -81,9 +84,6 @@ navbar =
         , dropdown =
             [ { name = "细胞小组"
               , link = "/mandarin-cell-groups"
-              }
-            , { name = "NextGen"
-              , link = "/nextgen"
               }
             ]
         }
