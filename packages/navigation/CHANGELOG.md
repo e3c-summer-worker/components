@@ -1,5 +1,11 @@
 # @e3c-summer-worker/navigation
 
+## 2.2.3
+
+### Patch Changes
+
+- 338a73a: Update nextgen link
+
 ## 2.2.2
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @e3c-summer-worker/navigation-mandarin
 
+## 1.0.3
+
+### Patch Changes
+
+- 338a73a: Update nextgen link
+
 ## 1.0.2
 
 ### Patch Changes
