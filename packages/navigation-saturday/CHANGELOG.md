@@ -1,5 +1,11 @@
 # @e3c-summer-worker/navigation-saturday
 
+## 1.0.4
+
+### Patch Changes
+
+- cc22300: Adding member document menu item under Resources
+
 ## 1.0.3
 
 ### Patch Changes
