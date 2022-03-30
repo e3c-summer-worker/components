@@ -112,6 +112,9 @@ navbar =
             , { name = "External Resources"
               , link = "/eng-external-resources"
               }
+            , { name = "ECCC Member Documents"
+              , link = "/member-documents"
+              }
             ]
         }
       )

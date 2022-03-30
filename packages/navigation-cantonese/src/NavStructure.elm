@@ -93,6 +93,9 @@ navbar =
         , dropdown =
             [ { name = "文件及表格"
               , link = "https://drive.google.com/drive/folders/13Yj9ck9_EMYKBtM-F6mx3aa-szyW0ZRS?usp=sharing"
+              },
+              { name = "愛福會友資料"
+              , link = "/member-documents"
               }
             ]
         }
