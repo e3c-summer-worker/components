@@ -1,5 +1,11 @@
 # @e3c-summer-worker/navigation
 
+## 2.2.5
+
+### Patch Changes
+
+- 8d12ffa: Add Faith at Home link
+
 ## 2.2.4
 
 ### Patch Changes
