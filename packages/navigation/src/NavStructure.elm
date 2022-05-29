@@ -100,6 +100,9 @@ navbar =
             , { name = "Samuel"
               , link = "/samuel"
               }
+            , { name = "Faith at Home" 
+              , link = "/faith-at-home"
+              }
             ]
         }
       )
