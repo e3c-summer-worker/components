@@ -1,5 +1,11 @@
 # @e3c-summer-worker/navigation-cantonese
 
+## 1.0.5
+
+### Patch Changes
+
+- ad4ea4c: Add gym waiver
+
 ## 1.0.4
 
 ### Patch Changes

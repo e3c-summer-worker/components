@@ -1,5 +1,11 @@
 # @e3c-summer-worker/navigation
 
+## 2.2.6
+
+### Patch Changes
+
+- ad4ea4c: Add gym waiver
+
 ## 2.2.5
 
 ### Patch Changes
