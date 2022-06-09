@@ -118,6 +118,9 @@ navbar =
             , { name = "ECCC Member Documents"
               , link = "/member-documents"
               }
+            , { name = "Gym Waiver Form"
+              , link = "https://eccchurch.ca/gym-waiver-form"
+              }
             ]
         }
       )
