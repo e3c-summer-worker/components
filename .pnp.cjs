@@ -3172,7 +3172,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["elm-webpack-loader", "workspace:packages/elm-webpack-loader"],
             ["chai", "npm:3.5.0"],
-            ["loader-utils", "npm:2.0.2"],
+            ["loader-utils", "npm:2.0.3"],
             ["mocha", "npm:6.2.3"],
             ["node-elm-compiler", "npm:5.0.6"],
             ["temp", "npm:0.9.4"]
@@ -5156,10 +5156,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["loader-utils", [
-        ["npm:2.0.2", {
-          "packageLocation": "./.yarn/cache/loader-utils-npm-2.0.2-c693411911-9078d1ed47.zip/node_modules/loader-utils/",
+        ["npm:2.0.3", {
+          "packageLocation": "./.yarn/cache/loader-utils-npm-2.0.3-4d761d6a51-d055c61ce5.zip/node_modules/loader-utils/",
           "packageDependencies": [
-            ["loader-utils", "npm:2.0.2"],
+            ["loader-utils", "npm:2.0.3"],
             ["big.js", "npm:5.2.2"],
             ["emojis-list", "npm:3.0.0"],
             ["json5", "npm:2.2.0"]
