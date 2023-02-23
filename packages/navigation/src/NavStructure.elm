@@ -35,22 +35,17 @@ type alias DropdownItem =
 
 navbar : NavStructure
 navbar =
-    [ ( "COVID-19"
-      , { link = "/covid19"
-        , dropdown = []
-        }
-      )
-    , ( "About"
+    [ ( "About"
       , { link = "/meet-the-team-1"
         , dropdown =
-            [ { name = "Meet Our Team"
+            [ { name = "What we Believe"
+              , link = "/what-we-believe"
+              }
+            , { name = "Meet Our Team"
               , link = "/meet-the-team-1"
               }
             , { name = "History"
               , link = "/history"
-              }
-            , { name = "What we Believe"
-              , link = "/what-we-believe"
               }
             , { name = "Careers"
               , link = "/jobs"
@@ -78,6 +73,9 @@ navbar =
               }
             , { name = "E3C Connect"
               , link = "https://drive.google.com/drive/folders/1_cfpL4tmCzmzkm4oDtOhSXOF3uO7pBfK?usp=sharing"
+              }
+            , { name = "COVID-19"
+              , link = "/covid19"
               }
             ]
         }
