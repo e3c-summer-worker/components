@@ -1,5 +1,12 @@
 # @e3c-summer-worker/navigation-mandarin
 
+## 1.0.6
+
+### Patch Changes
+
+- 698fe00: Update nav bar menu to relocate covid-19 page
+- ded8e13: Upgrade elm test package version to 2.x
+
 ## 1.0.5
 
 ### Patch Changes
