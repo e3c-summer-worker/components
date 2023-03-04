@@ -1,5 +1,13 @@
 # @e3c-summer-worker/navigation
 
+## 2.2.7
+
+### Patch Changes
+
+- 698fe00: Update nav bar menu to relocate covid-19 page
+- ded8e13: Upgrade elm test package version to 2.x
+- d0d2237: Move covid-19 menu under join us
+
 ## 2.2.6
 
 ### Patch Changes

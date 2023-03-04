@@ -1,5 +1,11 @@
 # @e3c-summer-worker/homepage-ticker
 
+## 2.1.2
+
+### Patch Changes
+
+- ded8e13: Upgrade elm test package version to 2.x
+
 ## 2.1.1
 
 ### Patch Changes
