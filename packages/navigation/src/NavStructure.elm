@@ -16,6 +16,7 @@ module NavStructure exposing (..)
 
 -}
 
+
 type alias NavStructure =
     List ( String, NavbarItem )
 
