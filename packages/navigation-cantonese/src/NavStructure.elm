@@ -35,22 +35,17 @@ type alias DropdownItem =
 
 navbar : NavStructure
 navbar =
-    [ ( "COVID-19"
-      , { link = "/cantonese-covid19"
-        , dropdown = []
-        }
-      )
-    , ( "關於我們"
+    [ ( "關於我們"
       , { link = "/cantonese-meet-the-team"
         , dropdown =
-            [ { name = "教會同工"
+            [ { name = "信仰"
+              , link = "/cantonese-what-we-believe"
+              }
+            , { name = "教會同工"
               , link = "/cantonese-meet-the-team"
               }
             , { name = "歷史"
               , link = "/cantonese-history"
-              }
-            , { name = "信仰"
-              , link = "/cantonese-what-we-believe"
               }
             , { name = "工作機會"
               , link = "/jobs"
@@ -75,6 +70,9 @@ navbar =
               }
             , { name = "E3C Connect"
               , link = "https://drive.google.com/drive/folders/1_cfpL4tmCzmzkm4oDtOhSXOF3uO7pBfK?usp=sharing"
+              }
+            , { name = "COVID-19"
+              , link = "/cantonese-covid19"
               }
             ]
         }

@@ -35,12 +35,7 @@ type alias DropdownItem =
 
 navbar : NavStructure
 navbar =
-    [ ( "COVID-19"
-      , { link = "/mandarin-covid19"
-        , dropdown = []
-        }
-      )
-    , ( "关于我们"
+    [ ( "关于我们"
       , { link = "/mandarin-meet-the-team"
         , dropdown =
             [ { name = "教会同工"
@@ -75,6 +70,9 @@ navbar =
               }
             , { name = "E3C Connect"
               , link = "https://drive.google.com/drive/folders/1mABcHZIbX203A5oRcPeomygZMQD-_3A6?usp=sharing"
+              }
+            , { name = "COVID-19"
+              , link = "/mandarin-covid19"
               }
             ]
         }
