@@ -358,7 +358,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@e3c-summer-worker/scrolling-terrain-bg@workspace:packages/scrolling-terrain-bg"
   dependencies:
-    "@types/p5": ^1.3.0
+    "@types/p5": 1.3.0
     browser-sync: ^2.26.12
     terser-webpack-plugin: ^5.2.4
     ts-loader: ^9.2.3
@@ -834,10 +834,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/p5@npm:^1.3.0":
-  version: 1.6.0
-  resolution: "@types/p5@npm:1.6.0"
-  checksum: bfdbf0773b5c199ef0b9d4ceeefd39077f382d6131f0ec7c3b22c84c77fdffcfde90f8b6fccd2b637287f6b6c9255edb2685276fcfb20010d4c992a458a17083
+"@types/p5@npm:1.3.0":
+  version: 1.3.0
+  resolution: "@types/p5@npm:1.3.0"
+  checksum: 01361083dff840ea4b597fd40416f6b4cb319578975ebbac6f964be668291731f252d28d45e63a011b5b972b0f130c72a7df92c80aa495a308b74b8437eeeb18
   languageName: node
   linkType: hard
 

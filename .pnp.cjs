@@ -464,7 +464,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./packages/scrolling-terrain-bg/",
           "packageDependencies": [
             ["@e3c-summer-worker/scrolling-terrain-bg", "workspace:packages/scrolling-terrain-bg"],
-            ["@types/p5", "npm:1.6.0"],
+            ["@types/p5", "npm:1.3.0"],
             ["browser-sync", "npm:2.29.1"],
             ["terser-webpack-plugin", "virtual:9c189aa12b93fb4b588be3c254a1c4dbb6175093ec27abe1e6b72fa96989338547b6198fd0cee8ea914e2e4b1031cdd53a92b26e064bf666b687127e51ba9692#npm:5.3.7"],
             ["ts-loader", "virtual:9c189aa12b93fb4b588be3c254a1c4dbb6175093ec27abe1e6b72fa96989338547b6198fd0cee8ea914e2e4b1031cdd53a92b26e064bf666b687127e51ba9692#npm:9.4.2"],
@@ -1031,10 +1031,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["@types/p5", [
-        ["npm:1.6.0", {
-          "packageLocation": "./.yarn/cache/@types-p5-npm-1.6.0-ee59ed3f73-bfdbf0773b.zip/node_modules/@types/p5/",
+        ["npm:1.3.0", {
+          "packageLocation": "./.yarn/cache/@types-p5-npm-1.3.0-fefe7145da-01361083df.zip/node_modules/@types/p5/",
           "packageDependencies": [
-            ["@types/p5", "npm:1.6.0"]
+            ["@types/p5", "npm:1.3.0"]
           ],
           "linkType": "HARD",
         }]
