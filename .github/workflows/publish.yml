@@ -12,6 +12,7 @@ on:
       - packages/**
       - .yarn/**
       - .github/workflows/publish.yml # this file
+  workflow_dispatch:
 
 jobs:
   pr-from-commit:
