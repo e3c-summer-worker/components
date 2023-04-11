@@ -1,5 +1,11 @@
 # scrolling-terrain-bg
 
+## 1.2.10
+
+### Patch Changes
+
+- e010f6b: Update deps
+
 ## 1.2.9
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @e3c-summer-worker/homepage-ticker
 
+## 2.1.3
+
+### Patch Changes
+
+- e010f6b: Update deps
+
 ## 2.1.2
 
 ### Patch Changes

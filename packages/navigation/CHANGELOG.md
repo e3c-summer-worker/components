@@ -1,5 +1,11 @@
 # @e3c-summer-worker/navigation
 
+## 2.3.0
+
+### Minor Changes
+
+- e010f6b: Update navigation and deps
+
 ## 2.2.7
 
 ### Patch Changes
