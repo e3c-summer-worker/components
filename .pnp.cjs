@@ -2009,7 +2009,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["serve-static", "npm:1.13.2"],
             ["server-destroy", "npm:1.0.1"],
             ["socket.io", "npm:2.4.0"],
-            ["ua-parser-js", "npm:0.7.28"],
+            ["ua-parser-js", "npm:0.7.35"],
             ["yargs", "npm:15.4.1"]
           ],
           "linkType": "HARD",
@@ -8449,10 +8449,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["ua-parser-js", [
-        ["npm:0.7.28", {
-          "packageLocation": "./.yarn/cache/ua-parser-js-npm-0.7.28-83c4e4d878-a7da4ad545.zip/node_modules/ua-parser-js/",
+        ["npm:0.7.35", {
+          "packageLocation": "./.yarn/cache/ua-parser-js-npm-0.7.35-86878e42a4-0a332e8d72.zip/node_modules/ua-parser-js/",
           "packageDependencies": [
-            ["ua-parser-js", "npm:0.7.28"]
+            ["ua-parser-js", "npm:0.7.35"]
           ],
           "linkType": "HARD",
         }]
