@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           # This makes Actions fetch all Git history so that Changesets can generate changelogs with the correct commits
           fetch-depth: 0
@@ -28,12 +28,12 @@ jobs:
           persist-credentials: false
 
       - name: Setup Node.js 16.x
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: 16.x
 
       - name: Setup Elm 0.19.1
-        uses: jorelali/setup-elm@v3
+        uses: jorelali/setup-elm@v5
         with:
           elm-version: 0.19.1
 
@@ -51,13 +51,3 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.CHANGESET_PAT }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-      - name: Send a Whatsapp notification if a publish happens
-        if: steps.changesets.outputs.published == 'true'
-        uses: e3c-summer-worker/whatsapp-message-action@v1.1
-        with:
-          message: New published version in Changeset Action Test repo!
-          vonage-number: 14157386102 # the number Vonage uses to text us (i think)
-          whatsapp-number: ${{ secrets.CELLPHONE_NUMBER }}
-          API_KEY: ${{ secrets.VONAGE_API_KEY }}
-          API_SECRET: ${{ secrets.VONAGE_API_SECRET }}
