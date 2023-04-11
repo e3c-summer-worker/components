@@ -74,9 +74,6 @@ navbar =
             , { name = "E3C Connect"
               , link = "https://drive.google.com/drive/folders/1_cfpL4tmCzmzkm4oDtOhSXOF3uO7pBfK?usp=sharing"
               }
-            , { name = "COVID-19"
-              , link = "/covid19"
-              }
             ]
         }
       )
