@@ -1,5 +1,11 @@
 # elm-webpack-loader
 
+## 8.1.3
+
+### Patch Changes
+
+- e010f6b: Update deps
+
 ## 8.1.2
 
 ### Patch Changes

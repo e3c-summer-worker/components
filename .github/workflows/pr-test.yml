@@ -30,3 +30,6 @@ jobs:
 
       - name: Test packages
         run: yarn test
+
+      - name: Build packages
+        run: yarn build

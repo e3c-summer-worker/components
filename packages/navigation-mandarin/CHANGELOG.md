@@ -1,5 +1,11 @@
 # @e3c-summer-worker/navigation-mandarin
 
+## 1.1.0
+
+### Minor Changes
+
+- e010f6b: Update navigation and deps
+
 ## 1.0.6
 
 ### Patch Changes
