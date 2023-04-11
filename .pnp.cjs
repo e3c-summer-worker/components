@@ -7302,17 +7302,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["indexof", "npm:0.0.1"],
             ["parseqs", "npm:0.0.6"],
             ["parseuri", "npm:0.0.6"],
-            ["socket.io-parser", "npm:3.3.2"],
+            ["socket.io-parser", "npm:3.3.3"],
             ["to-array", "npm:0.1.4"]
           ],
           "linkType": "HARD",
         }]
       ]],
       ["socket.io-parser", [
-        ["npm:3.3.2", {
-          "packageLocation": "./.yarn/cache/socket.io-parser-npm-3.3.2-e30da95d28-794b3f374f.zip/node_modules/socket.io-parser/",
+        ["npm:3.3.3", {
+          "packageLocation": "./.yarn/cache/socket.io-parser-npm-3.3.3-cd827f2034-6cf464e324.zip/node_modules/socket.io-parser/",
           "packageDependencies": [
-            ["socket.io-parser", "npm:3.3.2"],
+            ["socket.io-parser", "npm:3.3.3"],
             ["component-emitter", "npm:1.3.0"],
             ["debug", "virtual:05cee90a2850af8c1e5fe07e18103ff7ebeaa1e5fe2949ab66519290410d68d984daf762f125ecc342acdf5166f33455a467875faca30ccd5d55f61e5662138e#npm:3.1.0"],
             ["isarray", "npm:2.0.1"]
