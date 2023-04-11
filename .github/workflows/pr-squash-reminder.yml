@@ -4,8 +4,10 @@ on: [pull_request]
 # Reminds the user to squash PRs (that's it).
 
 jobs:
-  test:
+  pr:
     runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
     steps:
       - uses: mshick/add-pr-comment@v2
         with:
@@ -19,5 +21,3 @@ jobs:
             In almost every case (such as `changeset-release/main` PRs, which get reset every time), you should squash.
 
             Thanks!
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
-          repo-token-user-login: "github-actions[bot]" # The user.login for temporary GitHub tokens
