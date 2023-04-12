@@ -1,5 +1,11 @@
 # @e3c-summer-worker/navigation
 
+## 2.3.1
+
+### Patch Changes
+
+- 6f338f8: Add COVID-19 under "join us" - accidentally deleted it before
+
 ## 2.3.0
 
 ### Minor Changes
