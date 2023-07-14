@@ -13,7 +13,7 @@ We have automated the versioning and the NPM publishing on Github actions. If yo
 **Make sure you are at the root of the repo**.
 
 ```bash
-# make your changes, but DO NOT commit yet
+# make your changes, you can commit or push them if you want
 yarn changeset                      # To generate changesets
 # Now we commit the changes with the changeset
 git add .
