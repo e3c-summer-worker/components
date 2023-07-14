@@ -1,5 +1,11 @@
 # @e3c-summer-worker/navigation
 
+## 2.3.2
+
+### Patch Changes
+
+- da11db9: Add souba link
+
 ## 2.3.1
 
 ### Patch Changes
