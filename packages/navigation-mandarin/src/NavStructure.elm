@@ -71,9 +71,6 @@ navbar =
             , { name = "E3C Connect"
               , link = "https://drive.google.com/drive/folders/1mABcHZIbX203A5oRcPeomygZMQD-_3A6?usp=sharing"
               }
-            , { name = "COVID-19"
-              , link = "/mandarin-covid19"
-              }
             ]
         }
       )
