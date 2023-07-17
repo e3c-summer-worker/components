@@ -1,5 +1,11 @@
 # @e3c-summer-worker/navigation-saturday
 
+## 1.1.1
+
+### Patch Changes
+
+- 8fb1075: Remove COVID links
+
 ## 1.1.0
 
 ### Minor Changes
