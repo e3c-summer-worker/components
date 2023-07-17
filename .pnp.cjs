@@ -3111,10 +3111,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["engine.io", [
-        ["npm:6.4.1", {
-          "packageLocation": "./.yarn/cache/engine.io-npm-6.4.1-7939647717-b3921c3591.zip/node_modules/engine.io/",
+        ["npm:6.4.2", {
+          "packageLocation": "./.yarn/cache/engine.io-npm-6.4.2-b375dcefcc-c4ca538c98.zip/node_modules/engine.io/",
           "packageDependencies": [
-            ["engine.io", "npm:6.4.1"],
+            ["engine.io", "npm:6.4.2"],
             ["@types/cookie", "npm:0.4.1"],
             ["@types/cors", "npm:2.8.13"],
             ["@types/node", "npm:18.15.11"],
@@ -6762,7 +6762,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["accepts", "npm:1.3.8"],
             ["base64id", "npm:2.0.0"],
             ["debug", "virtual:ac3d8e680759ce54399273724d44e041d6c9b73454d191d411a8c44bb27e22f02aaf6ed9d3ad0ac1c298eac4833cff369c9c7b84c573016112c4f84be2cd8543#npm:4.3.4"],
-            ["engine.io", "npm:6.4.1"],
+            ["engine.io", "npm:6.4.2"],
             ["socket.io-adapter", "npm:2.5.2"],
             ["socket.io-parser", "npm:4.2.2"]
           ],
