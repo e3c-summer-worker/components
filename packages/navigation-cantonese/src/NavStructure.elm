@@ -95,6 +95,9 @@ navbar =
             , { name = "體育館使用者免責聲明書"
               , link = "https://eccchurch.ca/gym-waiver-form"
               }
+            , { name = "「聖經為何可信」講座錄影"
+              , link = "https://www.eccchurch.ca/rev-chan-seminars"
+              }
             ]
         }
       )
