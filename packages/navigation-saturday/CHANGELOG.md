@@ -1,5 +1,11 @@
 # @e3c-summer-worker/navigation-saturday
 
+## 1.2.0
+
+### Minor Changes
+
+- 8e356a9: Add new item under resources for Can and Sat
+
 ## 1.1.1
 
 ### Patch Changes
