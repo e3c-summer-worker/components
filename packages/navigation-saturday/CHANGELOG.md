@@ -1,5 +1,11 @@
 # @e3c-summer-worker/navigation-saturday
 
+## 1.2.1
+
+### Patch Changes
+
+- fa05738: Update menu item link in Sat and Can
+
 ## 1.2.0
 
 ### Minor Changes
