@@ -86,7 +86,10 @@ navbar =
     , ( "資源"
       , { link = ""
         , dropdown =
-            [ { name = "文件及表格"
+            [ { name = "資源中心"
+              , link = "https://www.librarycat.org/lib/ECCClibrary"
+              }
+            , { name = "文件及表格"
               , link = "https://drive.google.com/drive/folders/13Yj9ck9_EMYKBtM-F6mx3aa-szyW0ZRS?usp=sharing"
               },
               { name = "愛福會友資料"
