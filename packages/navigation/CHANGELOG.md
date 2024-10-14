@@ -1,5 +1,11 @@
 # @e3c-summer-worker/navigation
 
+## 2.3.4
+
+### Patch Changes
+
+- 670d4f9: Added resource center in nav bar
+
 ## 2.3.3
 
 ### Patch Changes
