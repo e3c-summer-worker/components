@@ -1,5 +1,11 @@
 # @e3c-summer-worker/navigation-saturday
 
+## 1.2.2
+
+### Patch Changes
+
+- b9b55f1: Added resource center menu item
+
 ## 1.2.1
 
 ### Patch Changes
