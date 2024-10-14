@@ -107,7 +107,10 @@ navbar =
     , ( "Resources"
       , { link = "" -- no link
         , dropdown =
-            [ { name = "Docs and Forms"
+            [ { name = "Resource Center"
+              , link = "https://www.librarycat.org/lib/ECCClibrary"
+              }
+            , { name = "Docs and Forms"
               , link = "https://drive.google.com/drive/folders/13Yj9ck9_EMYKBtM-F6mx3aa-szyW0ZRS?usp=sharing"
               }
             , { name = "External Resources"
