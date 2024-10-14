@@ -1,5 +1,11 @@
 # @e3c-summer-worker/navigation-mandarin
 
+## 1.1.2
+
+### Patch Changes
+
+- 3a8f276: Added resource center menu item
+
 ## 1.1.1
 
 ### Patch Changes
