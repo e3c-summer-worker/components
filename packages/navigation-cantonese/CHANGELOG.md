@@ -1,5 +1,11 @@
 # @e3c-summer-worker/navigation-cantonese
 
+## 1.2.2
+
+### Patch Changes
+
+- 0ba7c8d: Added resource center menu item
+
 ## 1.2.1
 
 ### Patch Changes
